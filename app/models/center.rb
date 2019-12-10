@@ -1,3 +1,3 @@
 class Center < ApplicationRecord
-  belongs_to :treatment
+  has_many :treatments
 end

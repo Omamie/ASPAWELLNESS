@@ -4,7 +4,7 @@ class CreateCenters < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :address
       t.string :contact_person
-      t.references :treatment, foreign_key: true
+
 
       t.timestamps
     end
