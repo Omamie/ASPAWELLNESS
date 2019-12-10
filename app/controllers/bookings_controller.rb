@@ -18,4 +18,8 @@ class BookingsController < ApplicationController
       render "new"
     end
   end
+
+  def booking_params
+    params.require(:booking).permit(:treatment_id, :date)
+  end
 end
