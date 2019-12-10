@@ -1,0 +1,15 @@
+<div class="search-form">
+<%= form_tag centers_path, method: :get do %>
+  <%= text_field_tag :treatment,
+    params[:treatment],
+    class: "form-control input-search-form",
+    placeholder: "Choose your treatment"
+  %>
+  <%= text_field_tag :address,
+    params[:address],
+    class: "form-control input-search-form",
+    placeholder: "Choose the city"
+  %>
+  <%= submit_tag "Search Now", class: "btn btn-primary search-button" %>
+<% end %>
+</div>

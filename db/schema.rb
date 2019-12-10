@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_10_103711) do
-
+ActiveRecord::Schema.define(version: 2019_12_10_161750) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +24,9 @@ ActiveRecord::Schema.define(version: 2019_12_10_103711) do
     t.datetime "end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["treatment_id"], name: "index_bookings_on_treatment_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "centers", force: :cascade do |t|
@@ -34,6 +35,8 @@ ActiveRecord::Schema.define(version: 2019_12_10_103711) do
     t.string "contact_person"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "treatments", force: :cascade do |t|
@@ -42,7 +45,7 @@ ActiveRecord::Schema.define(version: 2019_12_10_103711) do
     t.integer "price_cents"
     t.string "category"
     t.string "photo"
-    t.integer "capcacity_per_hour"
+    t.integer "capacity_per_hour"
     t.integer "duration"
     t.bigint "center_id"
     t.datetime "created_at", null: false
@@ -58,12 +61,16 @@ ActiveRecord::Schema.define(version: 2019_12_10_103711) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "gender"
+    t.string "address"
+    t.string "type", default: "Customer"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "bookings", "treatments"
-
+  add_foreign_key "bookings", "users"
   add_foreign_key "treatments", "centers"
-
 end
