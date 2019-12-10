@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :centers, only: [:index, :show ] do
   resources :bookings, only: :new
 end
-end
+ resources :searches, only: :index, path: :search
+end 
