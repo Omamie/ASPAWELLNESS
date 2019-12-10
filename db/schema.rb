@@ -45,8 +45,10 @@ ActiveRecord::Schema.define(version: 2019_12_10_161750) do
     t.string "photo"
     t.integer "capacity_per_hour"
     t.integer "duration"
+    t.bigint "center_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["center_id"], name: "index_treatments_on_center_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -67,4 +69,5 @@ ActiveRecord::Schema.define(version: 2019_12_10_161750) do
   end
 
   add_foreign_key "bookings", "treatments"
+  add_foreign_key "treatments", "centers"
 end
