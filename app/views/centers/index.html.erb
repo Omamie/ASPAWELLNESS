@@ -1,0 +1,28 @@
+<div class="d-flex p-2 bd-highlight">
+  <div class="card-container">
+    <% @centers.each do |center| %>
+    <div class="treatment-centre-card-product">
+      <div class="centre-card-details1">
+        <div class="treatment-centre-card-product-infos">
+          <div class="treatment-centre-card-product-infos-text">
+            <p><%= center.name.upcase %></p>
+            <p><%= center.address.capitalize %></p>
+          </div>
+        </div>
+      </div>
+      <div class="centre-card-details">
+        <div class="centre-card-price">
+          <p><%= center.name.capitalize %></p>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <div
+  id="map"
+  style="width: 40%;
+  height: 667px;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+></div>
+</div>

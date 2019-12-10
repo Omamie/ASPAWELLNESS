@@ -15,6 +15,33 @@
 .banner p {
   font-size: 20px;
   color: white;
-  opacity: .7;
+  opacity: 0.7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.center-page h1{
+  color: white;
+  font-weight: bold;
+
+}
+
+.under-banner {
+padding-top: 16px;
+padding-bottom: 16px;
+margin-bottom: 16px;
+
+}
+
+.under-banner-titles p {
+font-weight: bold;
+}
+
+.center-body {
+padding: 80px  0;
+}
+
+
+.center-body-text {
+  border-top: 0.2px solid lightgrey;
+  margin-bottom: 8px
 }
