@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2019_12_10_103711) do
     t.integer "price_cents"
     t.string "category"
     t.string "photo"
-    t.integer "capcacity_per_hour"
+    t.integer "capacity_per_hour"
     t.integer "duration"
     t.bigint "center_id"
     t.datetime "created_at", null: false
