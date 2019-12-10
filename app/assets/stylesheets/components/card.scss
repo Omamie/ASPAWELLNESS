@@ -1,0 +1,154 @@
+.treatments-card-container{
+  display: flex;
+  flex-direction:row;
+  justify-content: space-around;
+  margin-top: 40px;
+}
+
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 8px;
+  margin: auto;
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.card-category {
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+ .card img {
+  border-radius: 4px;
+  height: 150px;
+ }
+
+.center-card-title {
+  font-weight: normal;
+}
+
+.treatment-centre-card-product {
+  overflow: hidden;
+  height: 160px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  border-radius: 8px;
+}
+
+.treatment-centre-card-product img {
+  height: 100%;
+  width: 160px;
+  object-fit: cover;
+}
+
+.treatment-centre-card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+
+.treatment-centre-card-product-infos a {
+text-decoration: none;
+}
+
+.treatment-centre-card-product-infos-text {
+margin: 8px;
+}
+
+.treatment-centre-card-product-infos-text p {
+font-size: 16px;
+font-weight: bolder;
+margin: 0;
+}
+
+.centre-card-details1 {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+  width: 160px;
+}
+
+.centre-card-details {
+  display: flex;
+  align-items: center;
+  width: 160px;
+  border-left: 0.05px solid lightgrey;
+  height: 100%;
+  bottom: 16px;
+
+}
+
+
+.centre-card-details p {
+  font-size: 16px;
+  margin-left: 8px;
+  font-weight: lighter;
+}
+
+.centre-card-price {
+margin-left: 8px;
+font-weight: lighter;
+}
+
+
+.fa-heart {
+  color: red;
+}
+
+.selected-treatment {
+  display: flex;
+}
+
+
+.card-gap {
+  margin-bottom: 24px;
+}
