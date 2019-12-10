@@ -10,10 +10,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_09_165734) do
+ActiveRecord::Schema.define(version: 2019_12_10_103711) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "treatment_id"
+    t.integer "price_cents"
+    t.integer "group_size"
+    t.integer "status"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["treatment_id"], name: "index_bookings_on_treatment_id"
+  end
+
+  create_table "centers", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "contact_person"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "treatments", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "price_cents"
+    t.string "category"
+    t.string "photo"
+    t.integer "capcacity_per_hour"
+    t.integer "duration"
+    t.bigint "center_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["center_id"], name: "index_treatments_on_center_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +61,6 @@ ActiveRecord::Schema.define(version: 2019_12_09_165734) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "treatments"
+  add_foreign_key "treatments", "centers"
 end
