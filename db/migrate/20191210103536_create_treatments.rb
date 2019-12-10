@@ -6,7 +6,7 @@ class CreateTreatments < ActiveRecord::Migration[5.2]
       t.integer :price_cents
       t.string :category
       t.string :photo
-      t.integer :capcacity_per_hour
+      t.integer :capacity_per_hour
       t.integer :duration
       t.references :center, foreign_key: true
 
