@@ -10,6 +10,14 @@ class CenterPolicy < ApplicationPolicy
   end
 
   def create?
-    owner.present?
+    user.class != Customer
+  end
+
+  def new?
+    create?
+  end
+
+  def show?
+    return true
   end
 end

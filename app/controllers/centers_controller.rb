@@ -6,6 +6,7 @@ class CentersController < ApplicationController
 
   def show
     @center = Center.find(params[:id])
+    authorize @center
   end
 
   def new
@@ -22,6 +23,11 @@ class CentersController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+    raise
+    @center = current_user.centers
   end
 
   private
