@@ -5,7 +5,8 @@ class Customers::RegistrationsController < Devise::RegistrationsController
     super
   end
   protected
+
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: %i[type])
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[type first_name last_name])
   end
 end
