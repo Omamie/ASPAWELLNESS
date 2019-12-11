@@ -6,19 +6,19 @@ class CenterPolicy < ApplicationPolicy
   end
 
   def index?
-    return true
+    true
   end
 
-  def create?
-    user_is_owner?
-  end
+  # def create?
+  #   user.id == record.owner_id
+  # end
 
   def new?
     create?
   end
 
   def show?
-    return true
+    true
   end
 
   def edit?
