@@ -1,2 +1,4 @@
-class Owner < User
-end
+# class Owner < User
+
+
+# end

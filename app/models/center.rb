@@ -4,4 +4,5 @@ class Center < ApplicationRecord
 
   has_many :treatments
   has_many :photos, as: :imageable
+  mount_uploaders :photos, PhotoUploader
 end

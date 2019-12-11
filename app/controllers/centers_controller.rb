@@ -29,4 +29,8 @@ class CentersController < ApplicationController
   def safe_params
     params.require(:center).permit(:name, :address, :contact_person)
   end
+
+  def center_page_params
+  params.require(:center).permit(:name, :address, :contact_person, :photo)
+end
 end
