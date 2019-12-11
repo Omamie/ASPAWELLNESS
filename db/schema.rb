@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_10_170416) do
+ActiveRecord::Schema.define(version: 2019_12_11_113709) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,14 +24,9 @@ ActiveRecord::Schema.define(version: 2019_12_10_170416) do
     t.datetime "end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-<<<<<<< HEAD
     t.integer "customer_id"
     t.index ["customer_id"], name: "index_bookings_on_customer_id"
-=======
-    t.bigint "user_id"
->>>>>>> master
     t.index ["treatment_id"], name: "index_bookings_on_treatment_id"
-    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "centers", force: :cascade do |t|
@@ -46,6 +41,15 @@ ActiveRecord::Schema.define(version: 2019_12_10_170416) do
     t.index ["owner_id"], name: "index_centers_on_owner_id"
   end
 
+  create_table "photos", force: :cascade do |t|
+    t.string "imageable_type"
+    t.bigint "imageable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "photo_url"
+    t.index ["imageable_type", "imageable_id"], name: "index_photos_on_imageable_type_and_imageable_id"
+  end
+
   create_table "treatments", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -54,9 +58,9 @@ ActiveRecord::Schema.define(version: 2019_12_10_170416) do
     t.string "photo"
     t.integer "capacity_per_hour"
     t.integer "duration"
-    t.bigint "center_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "center_id"
     t.index ["center_id"], name: "index_treatments_on_center_id"
   end
 
@@ -78,6 +82,5 @@ ActiveRecord::Schema.define(version: 2019_12_10_170416) do
   end
 
   add_foreign_key "bookings", "treatments"
-  add_foreign_key "bookings", "users"
   add_foreign_key "treatments", "centers"
 end
