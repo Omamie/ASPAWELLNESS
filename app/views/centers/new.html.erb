@@ -4,9 +4,7 @@
       <h1 class="mx-3 my-3"> Register your center </h1>
       <div>
         <%= simple_form_for (@center) do |f| %>
-        <%= f.input :center_name %>
-        <%= f.input :description %>
-        <%= f.input :price %>
+        <%= f.input :name %>
         <%= f.input :contact_person %>
         <%= f.input :address %>
         <%= f.submit "Register now", class: "btn btn-primary" %>
