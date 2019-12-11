@@ -4,12 +4,15 @@
     <div>
       <h1 class="mx-3 my-3"> Edit Your Page </h1>
       <div>
-        <%= simple_form_for [@center, @photo] do |f| %>
+        <%= simple_form_for (@center) do |f| %>
        <%= f.input :name %>
         <%= f.input :address %>
         <%= f.input :contact_person %>
-        <%= f.photos :photos %>
-        <%= f.submit "Add Photos", class: "btn btn-primary" %>
+        <%= f.simple_fields_for :photos do |p|  %>
+          <%= p.input :attachment %>
+          <%= p.input :attachment_cache, as: :hidden %>
+        <% end %>
+        <%= f.submit "Save", class: "btn btn-primary" %>
       </div>
       <% end %>
     </div>

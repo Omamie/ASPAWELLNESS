@@ -1,4 +1,4 @@
 class Photo < ApplicationRecord
-  belongs_to :imageable, polymorphic: true, required: false
-  has_attached_file :image
+  belongs_to :imageable, polymorphic: true
+  mount_uploader :attachment, PhotoUploader
 end

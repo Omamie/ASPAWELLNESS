@@ -6,9 +6,8 @@ class CentersController < ApplicationController
 
   def show
     @center = Center.find(params[:id])
-    @photo = Photo.find(params[:imageable_type])
+    @center.photos.build
     authorize @center
-    authorize @photo
   end
 
   def new
@@ -27,14 +26,23 @@ class CentersController < ApplicationController
     end
   end
 
+  def update
+    @center = Center.find(params[:id])
+    authorize @center
+    if @center.update(safe_params)
+      redirect_to @center
+    else
+      render :show
+    end
+  end
+
   def edit
-    raise
     @center = current_user.centers
   end
 
   private
 
   def safe_params
-    params.require(:center).permit(:name, :address, :contact_person, :photo)
+    params.require(:center).permit(:name, :address, :contact_person, photos_attributes: [:id, :attachment, :attachment_cache])
   end
 end

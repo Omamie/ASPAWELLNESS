@@ -10,7 +10,7 @@ class CenterPolicy < ApplicationPolicy
   end
 
   def create?
-    user.class != Customer
+    user_is_owner?
   end
 
   def new?
@@ -19,5 +19,15 @@ class CenterPolicy < ApplicationPolicy
 
   def show?
     return true
+  end
+
+  def update?
+    user_is_owner?
+  end
+
+  private
+
+  def user_is_owner?
+    user == record.owner
   end
 end

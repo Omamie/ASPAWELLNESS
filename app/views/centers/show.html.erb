@@ -11,7 +11,7 @@
         </div>
     </div>
 
-<% if policy(Center).edit? %>
+<% if policy(@center).update? %>
   <%= link_to "Edit", center_edit_path(@center) %>
 <% end %>
 
