@@ -20,4 +20,16 @@ class CenterPolicy < ApplicationPolicy
   def show?
     return true
   end
+
+  def edit?
+    update?
+  end
+
+  def update?
+    user.id == record.owner_id
+  end
+
+  def destroy?
+    update?
+  end
 end

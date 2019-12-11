@@ -1,12 +1,3 @@
-.card-index {
-  height: 170px;
-  margin-top: 15px;
-  background-size: cover;
-}
-.card-info-index {
-  height:15px;
-  background-color: white;
-}
 .card-treatment {
   display: flex;
   background: white;
@@ -33,6 +24,7 @@
 #card-text a:hover {
   color: blue;
 }
+
 
 .card-container {
   flex-grow: 1;
