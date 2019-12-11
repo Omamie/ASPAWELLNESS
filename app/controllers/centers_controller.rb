@@ -37,6 +37,21 @@ class CentersController < ApplicationController
   end
 
   def edit
+    @center = Center.find(params[:id])
+    authorize @center
+  end
+
+  def update
+    @center = Center.find(params[:id])
+    authorize @center
+    @center.update(safe_params)
+    redirect_to center_path(@center)
+  end
+
+  def destroy
+    @center = Center.find(params[:id])
+    authorize @center
+    @center.destroy
     @center = current_user.centers
   end
 

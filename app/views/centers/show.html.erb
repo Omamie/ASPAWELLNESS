@@ -524,4 +524,11 @@
 
 </div>
 
+<% if policy(@center).edit? %>
+  <%= link_to "Edit", edit_center_path(@center), class:"btn btn-primary" %>
+<% end %>
+
+<% if policy(@center).destroy? %>
+  <%= link_to '', center_path(@center), method: :delete, data: {confirm: "Are you sure?"}, class: "fa fa-trash" %>
+<% end %>
 <div>   <%= render 'shared/center_page_form' %>  </div>

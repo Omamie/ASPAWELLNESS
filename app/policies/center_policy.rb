@@ -21,13 +21,15 @@ class CenterPolicy < ApplicationPolicy
     return true
   end
 
-  def update?
-    user_is_owner?
+  def edit?
+    update?
   end
 
-  private
+  def update?
+    user.id == record.owner_id
+  end
 
-  def user_is_owner?
-    user == record.owner
+  def destroy?
+    update?
   end
 end
