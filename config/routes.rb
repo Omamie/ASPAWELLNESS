@@ -3,10 +3,8 @@ Rails.application.routes.draw do
     registrations: 'customers/registrations'
   }
   root to: 'pages#home'
-
-  resources :centers, only: [:index]
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :centers, only: [:show, :index]
-
-  resources :searches, only: :index, path: :search
+  resources :centers, only: [:index, :show ] do
+  resources :bookings, only: :new
 end
+ resources :searches, only: :index, path: :search
+end 

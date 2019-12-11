@@ -8,7 +8,6 @@ class CreateTreatments < ActiveRecord::Migration[5.2]
       t.string :photo
       t.integer :capacity_per_hour
       t.integer :duration
-
       t.timestamps
     end
   end
