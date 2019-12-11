@@ -1,23 +1,16 @@
-<div class="d-flex p-2 bd-highlight">
-  <div class="card-container">
+
     <% @centers.each do |center| %>
-    <div class="treatment-centre-card-product">
-      <div class="centre-card-details1">
-        <div class="treatment-centre-card-product-infos">
-          <div class="treatment-centre-card-product-infos-text">
-            <p><%= center.name.upcase %></p>
-            <p><%= center.address.capitalize %></p>
-          </div>
-        </div>
-      </div>
-      <div class="centre-card-details">
-        <div class="centre-card-price">
-          <p><%= center.name.capitalize %></p>
-        </div>
-      </div>
+   <div class="card-trip">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+  <div class="card-trip-infos">
+    <div>
+      <h2>Title here</h2>
+      <p>Short description here!</p>
     </div>
-    <% end %>
+    <h2 class="card-trip-pricing">£99.99</h2>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
   </div>
+</div>
   <div
   id="map"
   style="width: 40%;
@@ -26,3 +19,4 @@
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
 </div>
+
