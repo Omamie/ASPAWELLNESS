@@ -10,6 +10,6 @@ class CenterPolicy < ApplicationPolicy
   end
 
   def create?
-    record.user == user
+    user.present?
   end
 end
