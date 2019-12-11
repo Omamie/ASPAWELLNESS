@@ -10,7 +10,7 @@ class CenterPolicy < ApplicationPolicy
   end
 
   def create?
-    user.class != Customer
+    user_is_owner?
   end
 
   def new?
