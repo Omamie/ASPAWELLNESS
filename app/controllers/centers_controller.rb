@@ -6,7 +6,9 @@ class CentersController < ApplicationController
 
   def show
     @center = Center.find(params[:id])
+    @photo = Photo.find(params[:imageable_type])
     authorize @center
+    authorize @photo
   end
 
   def new
@@ -33,10 +35,6 @@ class CentersController < ApplicationController
   private
 
   def safe_params
-    params.require(:center).permit(:name, :address, :contact_person)
+    params.require(:center).permit(:name, :address, :contact_person, :photo)
   end
-
-  def center_page_params
-  params.require(:center).permit(:name, :address, :contact_person, :photo)
-end
 end
