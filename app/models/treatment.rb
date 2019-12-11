@@ -3,4 +3,5 @@ class Treatment < ApplicationRecord
   has_many :bookings
   has_many :photos, as: :imageable
   mount_uploaders :photos, PhotoUploader
+  monetize :price_cents
 end
