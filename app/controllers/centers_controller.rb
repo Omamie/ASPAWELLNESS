@@ -1,6 +1,6 @@
 class CentersController < ApplicationController
   def index
-    @centers = current_user.centers
+    # @centers = current_user.centers
     authorize @centers
   end
 
@@ -14,9 +14,9 @@ class CentersController < ApplicationController
   end
 
   def create
-    @center.user = current_user
     @center = Center.new(safe_params)
     authorize @center
+    @center.owner_id = current_user.id
     if @center.save
       redirect_to center_path(@center)
     else
