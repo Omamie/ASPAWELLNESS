@@ -24,9 +24,14 @@ ActiveRecord::Schema.define(version: 2019_12_10_170416) do
     t.datetime "end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+<<<<<<< HEAD
     t.integer "customer_id"
     t.index ["customer_id"], name: "index_bookings_on_customer_id"
+=======
+    t.bigint "user_id"
+>>>>>>> master
     t.index ["treatment_id"], name: "index_bookings_on_treatment_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "centers", force: :cascade do |t|
@@ -49,8 +54,10 @@ ActiveRecord::Schema.define(version: 2019_12_10_170416) do
     t.string "photo"
     t.integer "capacity_per_hour"
     t.integer "duration"
+    t.bigint "center_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["center_id"], name: "index_treatments_on_center_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -71,4 +78,6 @@ ActiveRecord::Schema.define(version: 2019_12_10_170416) do
   end
 
   add_foreign_key "bookings", "treatments"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "treatments", "centers"
 end
