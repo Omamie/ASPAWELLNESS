@@ -2,7 +2,6 @@ class CentersController < ApplicationController
   def index
     # @centers = current_user.centers
     authorize @centers
-    @ce
   end
 
   def show
