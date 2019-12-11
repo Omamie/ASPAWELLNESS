@@ -1,5 +1,7 @@
 class SearchesController < ApplicationController
   def index
+    @centers = policy_scope(Center)
+    # @treatments = policy_scope(Treatment)
     @centers = Center.geocoded
 
     if params[:treatment].present? && [:address].present?
