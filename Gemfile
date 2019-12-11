@@ -11,6 +11,7 @@ gem 'redis'
 
 gem 'geocoder'
 gem 'pundit'
+gem 'money-rails'
 
 
 gem 'autoprefixer-rails'
