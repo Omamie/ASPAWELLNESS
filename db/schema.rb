@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_11_113709) do
+ActiveRecord::Schema.define(version: 2019_12_11_153549) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,9 @@ ActiveRecord::Schema.define(version: 2019_12_11_113709) do
     t.float "latitude"
     t.float "longitude"
     t.integer "owner_id"
+    t.string "imageable_type"
+    t.bigint "imageable_id"
+    t.index ["imageable_type", "imageable_id"], name: "index_centers_on_imageable_type_and_imageable_id"
     t.index ["owner_id"], name: "index_centers_on_owner_id"
   end
 
@@ -46,7 +49,7 @@ ActiveRecord::Schema.define(version: 2019_12_11_113709) do
     t.bigint "imageable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "photo_url"
+    t.string "attachment"
     t.index ["imageable_type", "imageable_id"], name: "index_photos_on_imageable_type_and_imageable_id"
   end
 
@@ -55,13 +58,15 @@ ActiveRecord::Schema.define(version: 2019_12_11_113709) do
     t.text "description"
     t.integer "price_cents"
     t.string "category"
-    t.string "photo"
     t.integer "capacity_per_hour"
     t.integer "duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "center_id"
+    t.string "imageable_type"
+    t.bigint "imageable_id"
     t.index ["center_id"], name: "index_treatments_on_center_id"
+    t.index ["imageable_type", "imageable_id"], name: "index_treatments_on_imageable_type_and_imageable_id"
   end
 
   create_table "users", force: :cascade do |t|
