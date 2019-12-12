@@ -1,6 +1,7 @@
 class SearchesController < ApplicationController
   def index
     @centers = policy_scope(Center).geocoded
+    authorize @centers
     if params[:treatment].present? && [:address].present?
       sql_query = "name ILIKE :treatment and address ILIKE :address"
       @treatments = Treatment.where(sql_query, treatment: "%#{params[:treatment]}%" , address:"%#{params[:address]}%")

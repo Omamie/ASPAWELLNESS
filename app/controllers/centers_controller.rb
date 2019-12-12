@@ -6,6 +6,7 @@ class CentersController < ApplicationController
 
   def show
     @center = Center.find(params[:id])
+    @center.photos.build
     authorize @center
     @treatments = Treatment.where(center: @center)
   end
@@ -26,6 +27,16 @@ class CentersController < ApplicationController
     end
   end
 
+  def update
+    @center = Center.find(params[:id])
+    authorize @center
+    if @center.update(safe_params)
+      redirect_to @center
+    else
+      render :show
+    end
+  end
+
   def edit
     @center = Center.find(params[:id])
     authorize @center
@@ -42,11 +53,12 @@ class CentersController < ApplicationController
     @center = Center.find(params[:id])
     authorize @center
     @center.destroy
+    @center = current_user.centers
   end
 
   private
 
   def safe_params
-    params.require(:center).permit(:name, :address, :contact_person)
+    params.require(:center).permit(:name, :address, :contact_person, photos_attributes: [:id, :attachment, :attachment_cache])
   end
 end

@@ -1,0 +1,10 @@
+=> [[32m#<Customer id: 121, email: "ketty0@gmail.com", created_at: "2019-12-11 13:54:15", updated_at: "2019-12-11 13:54:15", first_name: "Ketty", last_name: "Winham", gender: "Female", address: nil>[0m,
+ [32m#<Customer id: 122, email: "clovis@yahoo.com", created_at: "2019-12-11 13:54:15", updated_at: "2019-12-11 13:54:15", first_name: "Clovis", last_name: "Colvill", gender: "Female", address: nil>[0m,
+ [32m#<Customer id: 123, email: "susy@libero.it", created_at: "2019-12-11 13:54:15", updated_at: "2019-12-11 13:54:15", first_name: "Susy", last_name: "Geldeard", gender: "Female", address: nil>[0m,
+ [32m#<Customer id: 124, email: "brennan@yahoo.com", created_at: "2019-12-11 13:54:16", updated_at: "2019-12-11 13:54:16", first_name: "Brennan", last_name: "Kimmerling", gender: "Male", address: nil>[0m,
+ [32m#<Customer id: 125, email: "aluino@gmail.co.uk", created_at: "2019-12-11 13:54:16", updated_at: "2019-12-11 13:54:16", first_name: "Aluino", last_name: "Grodden", gender: "Male", address: nil>[0m,
+ [32m#<Customer id: 126, email: "elia@libero.br", created_at: "2019-12-11 13:54:16", updated_at: "2019-12-11 13:54:16", first_name: "Elia", last_name: "Kubalek", gender: "Male", address: nil>[0m,
+ [32m#<Customer id: 127, email: "benji@gmail.fr", created_at: "2019-12-11 13:54:16", updated_at: "2019-12-11 13:54:16", first_name: "Benji", last_name: "Semiraz", gender: "Male", address: nil>[0m,
+ [32m#<Customer id: 128, email: "gerda@yahoo.co.uk", created_at: "2019-12-11 13:54:16", updated_at: "2019-12-11 13:54:16", first_name: "Gerda", last_name: "Piggin", gender: "Female", address: nil>[0m,
+ [32m#<Customer id: 129, email: "anallese@hotmail.co.uk", created_at: "2019-12-11 13:54:16", updated_at: "2019-12-11 13:54:16", first_name: "Anallese", last_name: "MacCarrane", gender: "Female", address: nil>[0m,
+ [32m#<Customer id: 130, email: "carl@ucla.ac.uk", created_at: "2019-12-11 13:54:17", updated_at: "2019-12-11 13:54:17", first_name: "Carl", last_name: "Camacke", gender: "Male", address: nil>[0m]

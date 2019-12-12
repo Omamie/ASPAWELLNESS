@@ -6,12 +6,12 @@ class CenterPolicy < ApplicationPolicy
   end
 
   def index?
-    return true
+    true
   end
 
-  def create?
-    user.class != Customer
-  end
+  # def create?
+  #   user.id == record.owner_id
+  # end
 
   def new?
     create?
