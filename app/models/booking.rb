@@ -10,8 +10,8 @@ class Booking < ApplicationRecord
   def validate_other_booking_overlap
     other_bookings = Booking.where(treatment: self.treatment)
     is_overlapping = other_bookings.any? do |other_booking|
-      self.datetime == other_booking.datetime
+      self.start_time == other_booking.start_time && self.end_time == other_booking.end_time
     end
-    errors.add(:datetime, ("booking overlaps")) if is_overlapping
+    errors.add(:start_time, ("booking overlaps")) if is_overlapping
   end
 end
