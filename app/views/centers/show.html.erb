@@ -365,7 +365,7 @@ position: absolute;
 <%= link_to '', center_path(@center), method: :delete, data: {confirm: "Are you sure?"}, class: "fa fa-trash" %>
 <% end %>
 <% if policy(@center).edit? %>
-<%= link_to "Create a new Treatment", new_center_treatment_path(@center) %>
+<%= link_to "Create a new Treatment", new_treatment_path(@center) %>
 <% @treatments.each do |treatment|  %>
 <%= treatment.name %>
 <% end %>
