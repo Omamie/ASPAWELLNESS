@@ -6,10 +6,14 @@ Rails.application.routes.draw do
 
   resources :centers, except: :index do
     resources :bookings, only: :new
-  end 
+  end
   resources :treatments, except: [:show]
 
  resources :searches, only: :index, path: :search
+ get "/results", to: "pages#results"
+
+ resource :autocomplete, only: :show
+
  resources :bookings, only: :index
 
  get 'pages/help', to: 'pages#help'
