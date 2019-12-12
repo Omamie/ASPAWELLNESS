@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_11_153549) do
+ActiveRecord::Schema.define(version: 2019_12_12_133936) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,16 @@ ActiveRecord::Schema.define(version: 2019_12_11_153549) do
     t.index ["imageable_type", "imageable_id"], name: "index_photos_on_imageable_type_and_imageable_id"
   end
 
+  create_table "slots", force: :cascade do |t|
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.bigint "center_id"
+    t.integer "weekday"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["center_id"], name: "index_slots_on_center_id"
+  end
+
   create_table "treatments", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -87,5 +97,6 @@ ActiveRecord::Schema.define(version: 2019_12_11_153549) do
   end
 
   add_foreign_key "bookings", "treatments"
+  add_foreign_key "slots", "centers"
   add_foreign_key "treatments", "centers"
 end
