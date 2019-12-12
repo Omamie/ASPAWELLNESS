@@ -1,3 +1,7 @@
+.card-index-text{
+  color: black;
+}
+
 .card-index {
   height: 170px;
   margin-top: 15px;
@@ -6,7 +10,9 @@
 .card-info-index {
   height:15px;
   background-color: white;
+  line-height: 12px;
 }
+
 .card-treatment {
   display: flex;
   background: white;
@@ -34,6 +40,7 @@
   color: blue;
 }
 
+
 .card-container {
   flex-grow: 1;
   margin-right: 15px;
@@ -53,3 +60,42 @@
   height: 600px
 }
 
+.treatment-card {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffff;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-top: 10px;
+}
+.card-image {
+  height: 30vh;
+  background-size: cover;
+  background-position: center;
+}
+.card-info {
+  display: flex;
+  justify-content: space-between;
+  line-height: 12px;
+}
+
+.card-center-name{
+  color: white;
+  margin-left: 20px;
+  margin-top:10px;
+}
+.card-treatment-name{
+  margin-left: 20px;
+
+}
+.card-treatment-adress{
+  margin-left: 20px;
+}
+.card-treatment-review{
+  margin-left: 20px;
+}
+.card-price{
+  margin: 0 auto;
+}

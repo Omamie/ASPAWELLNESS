@@ -10,6 +10,26 @@ class CenterPolicy < ApplicationPolicy
   end
 
   def create?
-    user.present?
+    user_is_owner?
+  end
+
+  def new?
+    create?
+  end
+
+  def show?
+    return true
+  end
+
+  def edit?
+    update?
+  end
+
+  def update?
+    user.id == record.owner_id
+  end
+
+  def destroy?
+    update?
   end
 end
