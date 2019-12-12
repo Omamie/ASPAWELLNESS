@@ -1,6 +1,6 @@
 class CentersController < ApplicationController
   def index
-    # @centers = current_user.centers
+    @centers = current_user.centers
     authorize @centers
   end
 
