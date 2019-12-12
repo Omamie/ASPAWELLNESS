@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   }
   root to: 'pages#home'
   resources :centers do
-  resources :bookings, only: :new
+    resources :bookings, only: :new
 end
  resources :searches, only: :index, path: :search
+ resources :bookings, only: :index
+ get '/helps', to: 'helps#index'
 end
+
