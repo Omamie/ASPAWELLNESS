@@ -156,3 +156,27 @@ font-weight: lighter;
 .card-gap {
   margin-bottom: 24px;
 }
+
+
+.card-body-cascade {
+  z-index: 3;
+  background-color: #FBFAF3;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  position: relative;
+  bottom: 60px;
+  border-radius: 12px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+
+.treatment-img {
+border-radius: 8px;
+}
+.fa-star {
+  color: #FFB500;
+}
+
+.fa-star-half {
+  color: #FFB500;
+}
