@@ -7,4 +7,11 @@ class PagesController < ApplicationController
   def results
     @treatments = Treatment.all
   end
+
+  def help
+  end
+
+
+  def bookings
+  end
 end

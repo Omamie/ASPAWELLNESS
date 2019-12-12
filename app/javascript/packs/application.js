@@ -14,7 +14,14 @@ const application = Application.start()
 application.register('autocomplete', Autocomplete)
 
 
+import "../plugins/flatpickr"
+
 import { initMapbox } from '../plugins/init_mapbox';
+import { flatpickr } from "../plugins/flatpickr";
+
 
 initMapbox();
+
+flatpickr();
+
 
