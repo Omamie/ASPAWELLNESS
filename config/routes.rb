@@ -3,9 +3,12 @@ Rails.application.routes.draw do
     registrations: 'customers/registrations'
   }
   root to: 'pages#home'
+
   resources :centers, except: :index do
     resources :bookings, only: :new
-end
+  end 
+  resources :treatments, except: [:show]
+
  resources :searches, only: :index, path: :search
  resources :bookings, only: :index
 

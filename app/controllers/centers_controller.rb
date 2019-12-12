@@ -8,6 +8,7 @@ class CentersController < ApplicationController
     @center = Center.find(params[:id])
     @center.photos.build
     authorize @center
+    @treatments = Treatment.where(center: @center)
   end
 
   def new
