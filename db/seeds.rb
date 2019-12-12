@@ -74,9 +74,9 @@ treatment_attributes = [{name:"Circulatory massage",description:"Targeted massag
 Treatment.create!(treatment_attributes)
 puts "Creating Bookings..."
 
-booking_attributes = [{customer: Customer.all.sample,treatment_id:Treatment.ids.sample, group_size: 2, start_time: "11/12/2019 15:00", end_time: "11/12/2019 18:00", status: 1, price_cents: 2000},
-{customer: Customer.all.sample,treatment_id:Treatment.ids.sample, group_size: 3, start_time: "11/12/2019 15:00", end_time: "11/12/2019 18:00", status: 1, price_cents: 3000},
-{customer: Customer.all.sample,treatment_id:Treatment.ids.sample, group_size: 2, start_time: "11/11/2019 15:00", end_time: "11/11/2019 16:00", status: 1, price_cents: 1800},
+booking_attributes = [{customer: Customer.all.sample,treatment_id:Treatment.ids.sample, group_size: 2, start_time: "11/12/2019 15:00", end_time: "11/12/2019 18:00", status: 1, price_cents: 2000, duration: 60},
+{customer: Customer.all.sample,treatment_id:Treatment.ids.sample, group_size: 3, start_time: "11/12/2019 15:00", end_time: "11/12/2019 18:00", status: 1, price_cents: 3000, duration: 90},
+{customer: Customer.all.sample,treatment_id:Treatment.ids.sample, group_size: 2, start_time: "11/11/2019 15:00", end_time: "11/11/2019 16:00", status: 1, price_cents: 1800, duration: 120},
 {customer: Customer.all.sample,treatment_id:Treatment.ids.sample, group_size: 2, start_time: "20/12/2019 15:00", end_time: "20/12/2019 17:00", status: 1, price_cents: 1200},
 {customer: Customer.all.sample,treatment_id:Treatment.ids.sample, group_size: 1, start_time: "21/12/2019 07:00", end_time: "21/12/2019 08:00", status: 1, price_cents: 6000},
 {customer: Customer.all.sample,treatment_id:Treatment.ids.sample, group_size: 5, start_time: "31/11/2019 17:00", end_time: "31/11/2019 19:00", status: 1, price_cents: 2000},
@@ -85,5 +85,7 @@ booking_attributes = [{customer: Customer.all.sample,treatment_id:Treatment.ids.
 
 Booking.create!(booking_attributes)
 puts "Finished!"
+
+
 
 

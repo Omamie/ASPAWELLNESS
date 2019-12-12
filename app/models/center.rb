@@ -5,5 +5,6 @@ class Center < ApplicationRecord
   has_many :treatments
   belongs_to :owner
   has_many :photos, as: :imageable
+  has_many :slots
   accepts_nested_attributes_for :photos
 end

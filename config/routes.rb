@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :centers, except: :index do
+    resources :slots, only: :new do
     resources :bookings, only: :new
-  end 
+  end
+  end
   resources :treatments, except: [:show]
 
  resources :searches, only: :index, path: :search
