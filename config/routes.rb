@@ -7,4 +7,7 @@ Rails.application.routes.draw do
   resources :bookings, only: :new
 end
  resources :searches, only: :index, path: :search
+ get "/results", to: "pages#results"
+
+ resource :autocomplete, only: :show
 end

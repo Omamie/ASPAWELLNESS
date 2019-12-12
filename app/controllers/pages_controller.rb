@@ -3,4 +3,8 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def results
+    @treatments = Treatment.all
+  end
 end

@@ -4,4 +4,8 @@ class Treatment < ApplicationRecord
   has_many :photos, as: :imageable
   mount_uploaders :photos, PhotoUploader
   monetize :price_cents
+
+  def self.search_by_name(query)
+    where("name ILIKE ?", "#{query}%")
+  end
 end
