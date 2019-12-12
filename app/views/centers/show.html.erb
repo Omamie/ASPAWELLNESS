@@ -528,3 +528,9 @@
 <% if policy(@center).destroy? %>
   <%= link_to '', center_path(@center), method: :delete, data: {confirm: "Are you sure?"}, class: "fa fa-trash" %>
 <% end %>
+
+
+<%= link_to "Create a new Treatment", new_center_treatment_path(@center) %>
+ <% @treatments.each do |treatment|  %>
+ <%= treatment.name %>
+ <% end %>

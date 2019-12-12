@@ -1,4 +1,4 @@
-class CenterPolicy < ApplicationPolicy
+class TreatmentPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -6,19 +6,15 @@ class CenterPolicy < ApplicationPolicy
   end
 
   def index?
-    return true
-  end
-
-  def create?
-    user.class != Customer
+    true
   end
 
   def new?
-    create?
+    user.class != Customer
   end
 
-  def show?
-    true
+  def create?
+    user.id == record.center_id
   end
 
   def edit?
@@ -26,7 +22,7 @@ class CenterPolicy < ApplicationPolicy
   end
 
   def update?
-    user.id == record.owner_id
+    user.id == record.center_id
   end
 
   def destroy?

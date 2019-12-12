@@ -7,6 +7,7 @@ class CentersController < ApplicationController
   def show
     @center = Center.find(params[:id])
     authorize @center
+    @treatments = Treatment.where(center: @center)
   end
 
   def new
