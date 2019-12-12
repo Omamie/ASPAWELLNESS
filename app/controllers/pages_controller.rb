@@ -5,4 +5,8 @@ class PagesController < ApplicationController
 
   def help
   end
+
+
+  def bookings
+  end
 end
