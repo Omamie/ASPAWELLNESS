@@ -6,13 +6,13 @@ Rails.application.routes.draw do
 
   resources :centers, except: :index do
     resources :bookings, only: :new
-  end 
+  end
   resources :treatments, except: [:show]
 
  resources :searches, only: :index, path: :search
  resources :bookings, only: :index
 
  get 'pages/help', to: 'pages#help'
-  get 'pages/bookings', to: 'pages#bookings'
+ get 'pages/bookings', to: 'pages#bookings'
 end
 
