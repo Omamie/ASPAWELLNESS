@@ -21,21 +21,40 @@ user_attributes =
 {"first_name":"Benji","last_name":"Semiraz","email":"benji@gmail.fr","gender":"Male", "password":"3031323334"},
 {"first_name":"Gerda","last_name":"Piggin","email":"gerda@yahoo.co.uk","gender":"Female", "password":"3536373839"},
 {"first_name":"Anallese","last_name":"MacCarrane","email":"anallese@hotmail.co.uk","gender":"Female", "password":"4041424344"},
-{"first_name":"Carl","last_name":"Camacke","email":"carl@ucla.ac.uk","gender":"Male", "password":"4546474849"}]
+{"first_name":"Carl","last_name":"Camacke","email":"carl@ucla.ac.uk","gender":"Male", "password":"4546474849"},
+{"first_name":"Lisa","last_name":"MacCargrey","email":"lisa@hotmail.co.uk","gender":"Female", "password":"4041424344", type: "Owner"}]
 
 User.create!(user_attributes)
+
+
+puts 'Creating owners...'
+owner_attributes =
+[{"first_name":"Steven","last_name":"Smith","email":"steven0@gmail.com","gender":"Female", "password":"1234567"},
+{"first_name":"David","last_name":"Green","email":"david@yahoo.com","gender":"Male", "password":"89101112"},
+{"first_name":"Ellie","last_name":"Golden","email":"ellie@libero.it","gender":"Female", "password":"13141516"},
+{"first_name":"Jacob","last_name":"Rice","email":"jacob@yahoo.com","gender":"Male", "password":"17181920"},
+{"first_name":"Henrietta","last_name":"Silver","email":"henrietta@gmail.co.uk","gender":"Female", "password":"21222324"},
+{"first_name":"John","last_name":"Smiley","email":"john10@gmail.com","gender":"Male", "password":"1234567"},
+{"first_name":"Eliza","last_name":"Greene","email":"eliza@yahoo.com","gender":"Female", "password":"89101112"},
+{"first_name":"Stacey","last_name":"Milk","email":"stacey@libero.it","gender":"Female", "password":"13141516"},
+{"first_name":"Margaret","last_name":"West","email":"margaret@yahoo.com","gender":"Female", "password":"17181920"},
+{"first_name":"Giovanni","last_name":"Southen","email":"giovanni@gmail.co.uk","gender":"Male", "password":"21222324"}]
+
+Owner.create!(owner_attributes)
+
+
 puts "Creating centers..."
 
-center_attributes = [{name: "Spazio Salute", address: "corso lodi, milan", contact_person: "Giulio Paci"},
-{name: "The White Medispa", address: "corso maggiore, milan", contact_person: "Giulia Pelli"},
-{name: "Centro Olistico Milano", address: "corso molise, milan", contact_person: "Anna Folli"},
-{name: "Meeting Club", address: "via giuseppe verdi, milan", contact_person: "Paolo Papi"},
-{name: "One", address: "corso lodi, milan", contact_person: "Alessandro Poli"},
-{name: "Prime Exclusive", address: "corso magenta, milan", contact_person: "Francesco Verdi"},
-{name: "Mandarin Orietal", address: "Via Senato, milan", contact_person: "Francesca Vinci"},
-{name: "Montenero Beauty Spa", address: "corso maggiore, milan", contact_person: "Paolo Goli"},
-{name: "Hado Spa", address: "corso buenos aires, milan", contact_person: "Mattia Bondi"},
-{name: "Centro Benessere Eliseo", address: "Corso Sempione, milan", contact_person: "Carla Magnani"},
+center_attributes = [{name: "Spazio Salute", address: "Corso Lodi, Milan", contact_person: "Giulio Paci", owner_id: Owner.ids.sample},
+{name: "The White Medispa", address: "Corso Maggiore, Milan", contact_person: "Giulia Pelli", owner_id: Owner.ids.sample},
+{name: "Centro Olistico Milano", address: "Corso Molise, Milan", contact_person: "Anna Folli", owner_id: Owner.ids.sample},
+{name: "Meeting Club", address: "Via Giuseppe Verdi, Milan", contact_person: "Paolo Papi", owner_id: Owner.ids.sample},
+{name: "One", address: "Corso Lodi, Milan", contact_person: "Alessandro Poli", owner_id: Owner.ids.sample},
+{name: "Prime Exclusive", address: "Corso Magenta, Milan", contact_person: "Francesco Verdi", owner_id: Owner.ids.sample},
+{name: "Mandarin Orietal", address: "Via Senato, Milan", contact_person: "Francesca Vinci", owner_id: Owner.ids.sample},
+{name: "Montenero Beauty Spa", address: "Corso Maggiore, Milan", contact_person: "Paolo Goli", owner_id: Owner.ids.sample},
+{name: "Hado Spa", address: "Corso Buenos Aires, Milan", contact_person: "Mattia Bondi", owner_id: Owner.ids.sample},
+{name: "Centro Benessere Eliseo", address: "Corso Sempione, Milan", contact_person: "Carla Magnani", owner_id: Owner.ids.sample},
 ]
 Center.create!(center_attributes)
 
@@ -57,15 +76,14 @@ puts "Creating Bookings..."
 
 booking_attributes = [{customer: Customer.all.sample,treatment_id:Treatment.ids.sample, group_size: 2, start_time: "11/12/2019 15:00", end_time: "11/12/2019 18:00", status: 1, price_cents: 2000},
 {customer: Customer.all.sample,treatment_id:Treatment.ids.sample, group_size: 3, start_time: "11/12/2019 15:00", end_time: "11/12/2019 18:00", status: 1, price_cents: 3000},
-{customer: Customer.all.sample,treatment_id:Treatment.ids.sample, group_size: 2, start_time: "11/11/2019 15:00", end_time: "11/12/2019 16:00", status: 1, price_cents: 1800},
-{customer: Customer.all.sample,treatment_id:Treatment.ids.sample, group_size: 2, start_time: "20/12/2019 15:00", end_time: "11/12/2019 17:00", status: 1, price_cents: 1200},
+{customer: Customer.all.sample,treatment_id:Treatment.ids.sample, group_size: 2, start_time: "11/11/2019 15:00", end_time: "11/11/2019 16:00", status: 1, price_cents: 1800},
+{customer: Customer.all.sample,treatment_id:Treatment.ids.sample, group_size: 2, start_time: "20/12/2019 15:00", end_time: "20/12/2019 17:00", status: 1, price_cents: 1200},
 {customer: Customer.all.sample,treatment_id:Treatment.ids.sample, group_size: 1, start_time: "21/12/2019 07:00", end_time: "21/12/2019 08:00", status: 1, price_cents: 6000},
-{customer: Customer.all.sample,treatment_id:Treatment.ids.sample, group_size: 5, start_time: "31/11/2019 17:00", end_time: "31/12/2019 18:00", status: 1, price_cents: 2000},
-{customer: Customer.all.sample,treatment_id:Treatment.ids.sample, group_size: 4, start_time: "09/12/2019 10:00", end_time: "09/12/2019 11:00", status: 1, price_cents: 1500}]
+{customer: Customer.all.sample,treatment_id:Treatment.ids.sample, group_size: 5, start_time: "31/11/2019 17:00", end_time: "31/11/2019 19:00", status: 1, price_cents: 2000},
+{customer: Customer.all.sample,treatment_id:Treatment.ids.sample, group_size: 4, start_time: "09/12/2019 10:00", end_time: "09/12/2019 11:30", status: 1, price_cents: 1500}]
 
 
 Booking.create!(booking_attributes)
 puts "Finished!"
 
 
-#booking price cents
