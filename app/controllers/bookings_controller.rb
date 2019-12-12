@@ -19,6 +19,10 @@ class BookingsController < ApplicationController
     end
   end
 
+  def index
+    authorize @bookings
+  end
+
   private
 
   def booking_params

@@ -1,6 +1,6 @@
 class CentersController < ApplicationController
   def index
-    # @centers = current_user.centers
+    @centers = current_user.centers
     authorize @centers
   end
 
@@ -8,6 +8,7 @@ class CentersController < ApplicationController
     @center = Center.find(params[:id])
     @center.photos.build
     authorize @center
+    @treatments = Treatment.where(center: @center)
   end
 
   def new
