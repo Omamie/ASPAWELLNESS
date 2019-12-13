@@ -1,0 +1,8 @@
+<%= form_with(model: @slot, html: { class: 'card form' }) do |form| %>
+  <section class="datetime section">
+    <fieldset class="datepicker">
+      <%= form.label :start_time, 'Date' %>
+      <%= form.text_field :start_time, id: 'date' %>
+    </fieldset>
+  </section>
+<% end %>

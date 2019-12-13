@@ -1,10 +1,11 @@
-<div class="container">
-  <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
-    <h2>Choose date</h2>
-
+<div class="container py-3 ">
+  <div class="modal-card p-3">
+    <h2 class="mx-2 my-3">Confirm Your Booking </h2>
     <%= simple_form_for [@center, @treatment, @booking] do |f| %>
-      <%= f.input :start_time, as: :string, required: false, input_html: {class: "datepicker"} %>
-      <%= f.submit "Go", class: "btn btn-primary" %>
-    <% end %>
+    <%= f.error_notification %>
+    <div class="form-inputs mt-3">
+     <%= f.input :start_time, as: :string, required: false, input_html: { autocomplete: "Select a date", class: "datepicker"} %>
+      <%= f.submit "Confirm", class: "btn btn-primary" %>
+      <% end %>
+    </div>
   </div>
-</div>
