@@ -1,18 +1,20 @@
 class BookingsController < ApplicationController
   def new
-  @booking = current_user.bookings.new
-  authorize @booking
   @treatment = Treatment.find(params[:treatment_id])
-  authorize @treatment
+  @center = Center.find(@treatment.center_id)
+  @booking = Booking.new
+  authorize @booking
   end
 
   def create
-    @booking = current_user.bookings.new(booking_params)
+    @booking = Booking.new(booking_params)
     @treatment = Treatment.find(params[:treatment_id])
-    @booking.treatment = @treatment
-    authorize @treatment
+    @center = Center.find(@treatment.center_id)
+    @booking.treatment_id = @treatment.id
+    @booking.customer_id = current_user.id
     authorize @booking
     if @booking.save
+      raise
       redirect_to centers_path
     else
       render "new"
@@ -26,6 +28,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:treatment_id, :date)
+    params.require(:booking).permit(:start_time)
   end
 end

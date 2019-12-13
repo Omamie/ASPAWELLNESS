@@ -1,5 +1,5 @@
-<div id="calendar">
-</div>
+<!-- <div id="calendar">
+</div> -->
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner" style="height: 480px">
     <div class="carousel-item active">
@@ -86,10 +86,12 @@
             </div>
             <!-- Grid column -->
             <!-- Grid column -->
+<% @treatments.each do |treatment|  %>
+
             <div class="col-md-9">
               <div class="d-flex justify-content-between">
                 <!-- Excerpt -->
-                <p class="font-weight-regular">Couple's Massage</p>
+                <p class="font-weight-regular"><%= treatment.name %></p><%= link_to "Book", new_center_treatment_booking_path(treatment.center_id, treatment.id) %>
                 <p class="font-weight-bold"> from 100€</p>
               </div>
               <div class="d-flex justify-content-between">
@@ -282,6 +284,7 @@
         <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
+<% end %>
         </a>
       </div>
     </div>
@@ -367,8 +370,7 @@ position: absolute;
 <% end %>
 <% if policy(@center).edit? %>
 <%= link_to "Create a new Treatment", new_center_treatment_path(@center) %>
-<% @treatments.each do |treatment|  %>
-<%= treatment.name %>
-<% end %>
 <% end %>
 <div>   <%= render 'shared/center_page_form' %>  </div>
+
+

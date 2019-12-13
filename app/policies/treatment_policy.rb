@@ -9,6 +9,10 @@ class TreatmentPolicy < ApplicationPolicy
     true
   end
 
+  def show?
+    true
+  end
+
   def new?
     user.class != Customer
   end
