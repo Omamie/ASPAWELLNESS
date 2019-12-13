@@ -11,7 +11,9 @@ puts 'Cleaning database...'
 Booking.destroy_all
 Treatment.destroy_all
 Center.destroy_all
+Owner.destroy_all
 User.destroy_all
+
 
 puts 'Creating users...'
 user_attributes =
