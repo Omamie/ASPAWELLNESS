@@ -5,6 +5,10 @@ class Booking < ApplicationRecord
   validates :start_time, presence: true
   # validate :validate_other_booking_overlap
 
+  def end_time
+    start_time + treatment.duration.minutes
+  end
+
   private
 
   # def validate_other_booking_overlap

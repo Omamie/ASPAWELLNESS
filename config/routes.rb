@@ -10,8 +10,8 @@ Rails.application.routes.draw do
 end
 end
 
-
- resources :searches, only: :index, path: :search
+  resources :bookings, only: :index
+  resources :searches, only: :index, path: :search
 
  get 'pages/help', to: 'pages#help'
   get 'pages/bookings', to: 'pages#bookings'
