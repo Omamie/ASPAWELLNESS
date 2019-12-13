@@ -1,6 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :treatment
   belongs_to :customer, class_name: "User"
+  enum status: [:pending, :confirmed, :cancelled]
   # monetize :price_cents
   validates :start_time, presence: true
   # validate :validate_other_booking_overlap
