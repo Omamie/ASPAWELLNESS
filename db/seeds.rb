@@ -8,6 +8,9 @@
 
 
 puts 'Cleaning database...'
+Booking.destroy_all
+Treatment.destroy_all
+Center.destroy_all
 User.destroy_all
 
 puts 'Creating users...'
@@ -49,9 +52,9 @@ center_attributes = [{name: "Spazio Salute", address: "Corso Lodi, Milan", conta
 {name: "The White Medispa", address: "Corso Maggiore, Milan", contact_person: "Giulia Pelli", owner_id: Owner.ids.sample},
 {name: "Centro Olistico Milano", address: "Corso Molise, Milan", contact_person: "Anna Folli", owner_id: Owner.ids.sample},
 {name: "Meeting Club", address: "Via Giuseppe Verdi, Milan", contact_person: "Paolo Papi", owner_id: Owner.ids.sample},
-{name: "One", address: "Corso Lodi, Milan", contact_person: "Alessandro Poli", owner_id: Owner.ids.sample},
+{name: "One Exclusive", address: "Corso Lodi, Milan", contact_person: "Alessandro Poli", owner_id: Owner.ids.sample},
 {name: "Prime Exclusive", address: "Corso Magenta, Milan", contact_person: "Francesco Verdi", owner_id: Owner.ids.sample},
-{name: "Mandarin Orietal", address: "Via Senato, Milan", contact_person: "Francesca Vinci", owner_id: Owner.ids.sample},
+{name: "Mandarin Oriental", address: "Via Senato, Milan", contact_person: "Francesca Vinci", owner_id: Owner.ids.sample},
 {name: "Montenero Beauty Spa", address: "Corso Maggiore, Milan", contact_person: "Paolo Goli", owner_id: Owner.ids.sample},
 {name: "Hado Spa", address: "Corso Buenos Aires, Milan", contact_person: "Mattia Bondi", owner_id: Owner.ids.sample},
 {name: "Centro Benessere Eliseo", address: "Corso Sempione, Milan", contact_person: "Carla Magnani", owner_id: Owner.ids.sample},
@@ -75,12 +78,12 @@ Treatment.create!(treatment_attributes)
 puts "Creating Bookings..."
 
 booking_attributes = [
-{customer: Customer.all.sample,treatment_id:Treatment.ids.sample, group_size: 2, start_time: "11/12/2019 14:00", end_time: "11/12/2019 16:00", status: 1, price_cents: 2000},
-{customer: Customer.all.sample,treatment_id:Treatment.ids.sample, group_size: 3, start_time: "11/12/2019 15:00", end_time: "11/12/2019 16:00", status: 1, price_cents: 3000},
-{customer: Customer.all.sample,treatment_id:Treatment.ids.sample, group_size: 2, start_time: "11/11/2019 15:00", end_time: "11/11/2019 16:00", status: 1, price_cents: 1800},
-{customer: Customer.all.sample,treatment_id:Treatment.ids.sample, group_size: 2, start_time: "20/12/2019 15:00", end_time: "20/12/2019 17:00", status: 1, price_cents: 1200},
-{customer: Customer.all.sample,treatment_id:Treatment.ids.sample, group_size: 1, start_time: "21/12/2019 07:00", end_time: "21/12/2019 08:00", status: 1, price_cents: 6000},
-{customer: Customer.all.sample,treatment_id:Treatment.ids.sample, group_size: 5, start_time: "31/11/2019 17:00", end_time: "31/11/2019 19:00", status: 1, price_cents: 2000}]
+{customer: Customer.all.sample,treatment_id:Treatment.ids.sample, group_size: 2, start_time: "11/12/2019 14:00", status: 1, price_cents: 2000},
+{customer: Customer.all.sample,treatment_id:Treatment.ids.sample, group_size: 3, start_time: "11/12/2019 15:00", status: 1, price_cents: 3000},
+{customer: Customer.all.sample,treatment_id:Treatment.ids.sample, group_size: 2, start_time: "11/11/2019 15:00", status: 1, price_cents: 1800},
+{customer: Customer.all.sample,treatment_id:Treatment.ids.sample, group_size: 2, start_time: "20/12/2019 15:00", status: 1, price_cents: 1200},
+{customer: Customer.all.sample,treatment_id:Treatment.ids.sample, group_size: 1, start_time: "21/12/2019 07:00", status: 1, price_cents: 6000},
+{customer: Customer.all.sample,treatment_id:Treatment.ids.sample, group_size: 5, start_time: "31/11/2019 17:00", status: 1, price_cents: 2000}]
 
 
 Booking.create!(booking_attributes)
