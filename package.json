@@ -19,11 +19,7 @@
     "mapbox-gl": "^1.6.0",
     "places.js": "^1.17.1",
     "popper.js": "^1.16.0",
-<<<<<<< HEAD
-    "react_ujs": "^2.6.0"
-=======
     "stimulus-autocomplete": "^1.4.0"
->>>>>>> master
   },
   "devDependencies": {
     "webpack-dev-server": "^3.9.0"

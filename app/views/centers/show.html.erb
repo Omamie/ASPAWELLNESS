@@ -1,43 +1,21 @@
-<!-- <div id="calendar">
-</div> -->
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner" style="height: 480px">
-    <div class="carousel-item active">
-      <img class="d-block w-100" src="https://images.unsplash.com/photo-1512867957657-38dbae50a35b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1055&q=80" alt="First slide">
-      <div class="carousel-caption d-md-block">
-    <h5 class="text-dark">Hello </h5>
-    <p class="text-dark">World</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1512867957657-38dbae50a35b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1055&q=80;">
+  <div class="container">
+    <div class="center-page">
+  <h1 class= "text-light font-weight-bold"><%= @center.name.capitalize %></h1>
+  <p class= "text-light font-weight-normal"><%= @center.address.capitalize%></p>
+  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i><p class= "text-light font-weight-light-small">28 Reviews</p>
+   <%= link_to "Book Now", new_center_treatment_booking_path(@center.id, @center.treatments.each do |t| t.id end ), class: "btn-flat" %>
+   <div class="p-2 flex-shrink-1 bd-highlight"></div>
   </div>
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="https://images.unsplash.com/photo-1523471826770-c437b4636fe6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="Second slide">
-      <div class="carousel-caption d-md-block">
-    <h5 class="text-dark">Hello </h5>
-    <p class="text-dark">World</p>
   </div>
-    </div>
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="https://images.unsplash.com/photo-1545841729-03020ac33895?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1096&q=80" alt="Third slide">
-      <div class="carousel-caption d-md-block">
-    <h5 class="text-dark">Hello </h5>
-    <p class="text-dark">World</p>
-  </div>
-    </div>
-    </div>
 </div>
-</div>
+
 <!--Grid row-->
-</div>
-<% if policy(@center).update? %>
-<%= link_to "Edit", edit_center_path(@center) %>
-<% end %>
 
 <div class="container px-5 pt-3 z-depth-1">
 <div class="container my-5">
-  <section class="magazine-section dark-grey-text">
-    <!-- Section heading -->
-    <!-- Grid row -->
+  <section class="magazine-section dark-grey-text border-bottom-light">
+
     <div class="row">
       <!-- Grid column -->
       <div class="col-lg-6 col-md-12 mb-4">
@@ -50,7 +28,7 @@
           <!-- Data -->
           <div class="news-data d-flex justify-content-between align-items-center">
             <h6 class="font-weight-bold">Deep Tissue Massage</h6>
-            <p class="font-weight-bold dark-grey-text btn btn-flat rounded"><a>Book Now</a></p>
+            <p class="font-weight-bold dark-grey-text btn-flat rounded"><a>Book Now</a></p>
           </div>
           <div class="d-line">
             <p class="font-weight-regular">from 100€</p>
@@ -72,8 +50,9 @@
         <div class="single-news mb-4">
           <!-- Grid row -->
           <div class="row">
-            <!-- Grid column -->
-            <div class="col-md-3">
+
+          <% @treatments.each do |treatment|  %>
+          <div class="col-md-3">
               <!--Image-->
               <div class="view overlay rounded z-depth-1 mb-4">
                 <img class="img-fluid treatment-img" src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Sample image">
@@ -82,130 +61,29 @@
                 </a>
               </div>
             </div>
-            <!-- Grid column -->
-            <!-- Grid column -->
-<% @treatments.each do |treatment|  %>
 
-            <div class="col-md-9">
+              <div class="col-md-9">
               <div class="d-flex justify-content-between">
                 <!-- Excerpt -->
-                <p class="font-weight-regular"><%= treatment.name %></p><%= link_to "Book", new_center_treatment_booking_path(treatment.center_id, treatment.id) %>
-                <p class="font-weight-bold"> from 100€</p>
+                <p class="font-weight-regular"><%= treatment.name %></p>
+                <p> <%= link_to "Book", new_center_treatment_booking_path(treatment.center_id, treatment.id), class: "btn-flat" %></p>
+                <p class="font-weight-bold">from 100€</p>
               </div>
               <div class="d-flex justify-content-between">
                 <div class="col-11 text-truncate pl-0 mb-3">
-                  <a href="#!" class="text-muted font-weight-light">
-                  Show Details</a>
+                  <p class="text-muted font-weight-light"> <%= treatment.description %></p>
                 </div>
               </div>
+
             </div>
+            <% end %>
             <!-- Grid column -->
           </div>
           <!-- Grid row -->
         </div>
         <!-- Small news -->
         <!-- Small news -->
-        <div class="single-news mb-4">
-          <!-- Grid row -->
-          <div class="row">
-            <!-- Grid column -->
-            <div class="col-md-3">
-              <!--Image-->
-              <div class="view overlay rounded z-depth-1 mb-4">
-                <img class="img-fluid treatment-img" src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-                alt="Sample image">
-                <a>
-                  <div class="mask rgba-white-slight"></div>
-                </a>
-              </div>
-            </div>
-            <!-- Grid column -->
-            <!-- Grid column -->
-            <div class="col-md-9">
-              <div class="d-flex justify-content-between">
-                <!-- Excerpt -->
-                <p class="font-weight-regular">Honey Facial</p>
-                <p class="font-weight-bold"> from 50€</p>
-              </div>
-              <div class="d-flex justify-content-between">
-                <div class="col-11 text-truncate pl-0 mb-3">
-                  <a href="#!" class="text-muted font-weight-light">Show Details</a>
-                </div>
-                <!--  <a><i class="fas fa-angle-double-right"></i></a> -->
-              </div>
-            </div>
-            <!-- Grid column -->
-          </div>
-          <!-- Grid row -->
-        </div>
-        <!-- Small news -->
-        <!-- Small news -->
-        <div class="single-news mb-4">
-          <!-- Grid row -->
-          <div class="row">
-            <!-- Grid column -->
-            <div class="col-md-3">
-              <!--Image-->
-              <div class="view overlay rounded z-depth-1 mb-4">
-                <img class="img-fluid treatment-img" src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Sample image">
-                <a>
-                  <div class="mask rgba-white-slight"></div>
-                </a>
-              </div>
-            </div>
-            <!-- Grid column -->
-            <!-- Grid column -->
-            <div class="col-md-9">
-              <div class="d-flex justify-content-between">
-                <!-- Excerpt -->
-                <p class="font-weight-regular">Swedish Massage</p>
-                <p class="font-weight-bold"> from 100€</p>
-              </div>
-              <div class="d-flex justify-content-between">
-                <div class="col-11 text-truncate pl-0 mb-3">
-                  <a href="#!" class="text-muted font-weight-light">Show Details
-                  </a>
-                </div>
-              </div>
-            </div>
-            <!-- Grid column -->
-          </div>
-          <!-- Grid row -->
-        </div>
-        <!-- Small news -->
-        <!-- Small news -->
-        <div class="single-news">
-          <!-- Grid row -->
-          <div class="row">
-            <!-- Grid column -->
-            <div class="col-md-3">
-              <!--Image-->
-              <div class="view overlay rounded z-depth-1 mb-md-0 mb-4">
-                <img class="img-fluid treatment-img" src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Sample image">
-                <a>
-                  <div class="mask rgba-white-slight"></div>
-                </a>
-              </div>
-            </div>
-            <!-- Grid column -->
-            <!-- Grid column -->
-            <div class="col-md-9">
-              <div class="d-flex justify-content-between">
-                <!-- Excerpt -->
-                <p class="font-weight-regular">Body Contouring</p>
-                <p class="font-weight-bold"> from 100€</p>
-              </div>
-              <div class="d-flex justify-content-between">
-                <div class="col-11 text-truncate pl-0 mb-lg-3">
-                  <a href="#!" class="text-muted font-weight-light">Show Details</a>
-                </div>
-              </div>
-            </div>
-            <!-- Grid column -->
-          </div>
-          <!-- Grid row -->
-        </div>
-        <!-- Small news -->
+
       </div>
       <!--Grid column-->
     </div>
@@ -214,6 +92,8 @@
   <!--Section: Content-->
 </div>
 <!--Section: Content-->
+
+<section class="magazine-section">
 <section class="dark-grey-text">
   <style>
   .d-grid {
@@ -255,12 +135,11 @@
   object-fit: cover;
   }
   </style>
+    <div class="container">
   <div class="row align-items-center">
     <div class="col-lg-6 mb-4">
       <h2 class="font-weight-normal mb-4">About Us</h2>
-      <p class="lead text-muted">A peaceful sanctuary to relax and leave feeling refreshed</p>
-      <p class="text-muted">We can combine beautiful, modern designs with clean, functional. And best of all, we
-      are super passionate about our work. Thought does cognitive into follow and rationale annoyed.</p>
+      <p class="text-muted font-weight-light">A peaceful sanctuary to relax and leave you feeling refreshed and with a renewed and relaxed mind and body.</p>
     </div>
     <div class="col-lg-6 mb-4">
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -282,11 +161,43 @@
         <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
-<% end %>
         </a>
       </div>
     </div>
   </div>
+  </div>
+  <div class="container">
+  <div class="row align-items-center">
+    <div class="col-lg-6 mb-4">
+      <h2 class="font-weight-normal mb-4">About Us</h2>
+      <p class="text-muted font-weight-light">A peaceful sanctuary to relax and leave you feeling refreshed and with a renewed and relaxed mind and body.</p>
+    </div>
+    <div class="col-lg-6 mb-4">
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100 treatment-img" src="https://images.unsplash.com/photo-1512867957657-38dbae50a35b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1096&q=80" alt="First slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100 treatment-img" src="https://images.unsplash.com/photo-1523471826770-c437b4636fe6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1096&q=80" alt="Second slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100 treatment-img" src="https://images.unsplash.com/photo-1545841729-03020ac33895?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1096&q=80" alt="Third slide">
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
 </section>
 <!--Section: Content-->
 <div class="container my-5">
@@ -340,36 +251,42 @@ width: 100%;
 position: absolute;
 }
 </style>
-<div class="card">
+<div class="card container ">
 <div class="row align-items-center">
   <div class="col-md-6">
     <!-- Google Maps -->
-    <div id="map-within-card-2" class="map-container rounded-left" style="height: 400px">
-      <iframe src="https://maps.google.com/maps?q=Seattle&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
+    <div id="map-within-card-2" class="map-container container rounded-left" style="height: 400px">
+      <iframe  src="https://maps.google.com/maps?q=Milan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
       style="border:0" allowfullscreen></iframe>
     </div>
     <!-- Google Maps -->
   </div>
   <div class="col-10 col-md-4 mx-auto align-self-center py-4">
     <h6 class="font-weight-bold grey-text text-uppercase small">Where We Are Based</h6>
-    <h5 class="font-weight-normal mb-4">Milan, Italy</h5>
-    <p class="text-muted font-weight-light">Via 24 Maggio Ronchi dei Legionari</p>
-    <p class="text-muted font-weight-light mb-0">Phone: +39 987 123 6548<br>Email: hello@nettunospa.it</p>
+    <p class="text-muted font-weight-light"><%=@center.address%></p>
+    <p class="text-muted font-weight-light mb-0">Phone: +39 987 123 6548<br>Email: <%= @center.contact_person.downcase%>@libero.it</p>
   </div>
 </div>
 </div>
 </section>
 <!-- Section: Block Content -->
-<% if policy(@center).edit? %>
-<%= link_to "Edit", edit_center_path(@center), class:"btn btn-primary" %>
-<% end %>
-<% if policy(@center).destroy? %>
-<%= link_to '', center_path(@center), method: :delete, data: {confirm: "Are you sure?"}, class: "fa fa-trash" %>
-<% end %>
-<% if policy(@center).edit? %>
-<%= link_to "Create a new Treatment", new_center_treatment_path(@center) %>
-<% end %>
-<div>   <%= render 'shared/center_page_form' %>  </div>
-<<<<<<< HEAD
-<div>   <%= render 'shared/opening_hours_form' %>  </div>
 
+<div class="container card-gap">
+<h5>Recommended For You</h5>
+</div>
+
+<div class="container">
+<div class="cards">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1534003888922-a3504fa8914e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60)">
+    Thermal Spa
+  </div>
+
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1519823551278-64ac92734fb1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60)">
+    Couple's Massage
+  </div>
+
+  <div class="card-category mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1545183387-50fea397256e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60)">
+    Swedish Massage
+  </div>
+</div>
+</div>
