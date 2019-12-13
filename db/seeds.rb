@@ -60,7 +60,7 @@ Center.create!(center_attributes)
 
 puts "Creating treatments..."
 
-treatment_attributes = [{name:"Circulatory massage",description:"Targeted massage to help blood circulation", price_cents: 780, center_id: Center.ids.sample, category: "Health Treatment", capacity_per_hour: 3, duration: 1},
+treatment_attributes = [{name:"Circulatory massage",description:"Targeted massage to help blood circulation", price_cents: 780, center_id: Center.find(1), category: "Health Treatment", capacity_per_hour: 3, duration: 1},
 {"name":"Relaxing massage","description":"Massage made with moves that relax muscles and mind.","price_cents":965, center_id: Center.ids.sample, category: "Health Treatment", capacity_per_hour: 5, duration: 2},
 {"name":"Lymphatic drainage massage","description":"Massage that helps lymph flow towards the discharge points, frees the body from excess fluids.","price_cents":856, center_id: Center.ids.sample, category: "Massage", capacity_per_hour: 1, duration: 1},
 {"name":"Tissue massage","description":"Manual anti cellulite indicated in cases of localized fat and cellulite treatment.","price_cents":100, center_id: Center.ids.sample, category: "Health Treatment", capacity_per_hour: 6, duration: 1},

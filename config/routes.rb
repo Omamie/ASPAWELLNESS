@@ -12,7 +12,9 @@ end
 
   resources :bookings, only: :index
   resources :searches, only: :index, path: :search
-
+ resources :searches, only: :index, path: :search
+ get "/results", to: "pages#results"
+ resource :autocomplete, only: :show
  get 'pages/help', to: 'pages#help'
   get 'pages/bookings', to: 'pages#bookings'
 end

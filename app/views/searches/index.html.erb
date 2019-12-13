@@ -1,21 +1,23 @@
 <div class="d-flex p-2 bd-highlight">
 <div class="card-container">
+  <% @treatments.each do |t| %>
   <div class="treatment-card">
     <div class="card-image" style='background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/dbgxzafez/image/upload/v1575303401/spa-wellness-green-park-madama-1_y0tpwx.jpg);'>
-      <h2 class="card-center-name">Center name</h2>
     </div>
     <div class="card-info">
       <div class="card-info-text">
-        <h2 class="card-treatment-name">Treatment name</h2>
-        <p class="card-treatment-adress">Via mesolcina, 2</p>
-        <p class="card-treatment-review">stars</p>
+        <h2 class="card-treatment-name"><%= link_to t.name, center_path(t.center.id)%></h2>
+        <p class="card-center-name"><%=t.center.name%></p>
+        <p class="card-treatment-adress"><%=t.center.address %></p>
+        <p class="card-treatment-review"><%#= t.center.reviews %></p>
       </div>
       <div class="card-price">
-        <h2>30€</h2>
-        <p>Last two availabilities</p>
-      </div>
+        <h2><%=t.price%></h2>
+        <%= link_to "Show More", center_path(t.center.id), class:"btn btn-flat" %>
+        </div>
     </div>
    </div>
+  <% end %>
   <div
   id="map"
   style="width: 40%;
