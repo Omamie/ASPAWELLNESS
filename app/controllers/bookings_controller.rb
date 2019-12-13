@@ -1,4 +1,12 @@
 class BookingsController < ApplicationController
+  def index
+    @bookings = policy_scope(current_user.bookings)
+
+    # Build array of events
+    # @events = @bookings.map(&:to_event)
+    @events = @bookings.map { |booking| booking.to_event }
+  end
+
   def new
   @treatment = Treatment.find(params[:treatment_id])
   @center = Center.find(@treatment.center_id)
@@ -14,15 +22,10 @@ class BookingsController < ApplicationController
     @booking.customer_id = current_user.id
     authorize @booking
     if @booking.save
-      raise
-      redirect_to centers_path
+      redirect_to bookings_path
     else
       render "new"
     end
-  end
-
-  def index
-    authorize @bookings
   end
 
   private

@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 end
 end
 
+  resources :bookings, only: :index
+  resources :searches, only: :index, path: :search
  resources :searches, only: :index, path: :search
  get "/results", to: "pages#results"
  resource :autocomplete, only: :show
