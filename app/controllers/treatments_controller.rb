@@ -6,8 +6,8 @@ class TreatmentsController < ApplicationController
 
   def new
     @center = Center.find(params[:center_id])
-    @treatment = Treatment.new
     authorize @center
+    @treatment = Treatment.new
     authorize @treatment
   end
 

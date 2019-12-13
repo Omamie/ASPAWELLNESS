@@ -5,12 +5,13 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :centers, except: :index do
-    resources :bookings, only: :new
-  end 
-  resources :treatments, except: [:show]
+  resources :treatments, except: [:show] do
+  resources :bookings, only: [:index, :new, :create]
+end
+end
+
 
  resources :searches, only: :index, path: :search
- resources :bookings, only: :index
 
  get 'pages/help', to: 'pages#help'
   get 'pages/bookings', to: 'pages#bookings'
