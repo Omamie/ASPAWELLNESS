@@ -18,4 +18,3 @@ end
  get 'pages/help', to: 'pages#help'
   get 'pages/bookings', to: 'pages#bookings'
 end
-
