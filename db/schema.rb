@@ -52,16 +52,6 @@ ActiveRecord::Schema.define(version: 2019_12_13_104233) do
     t.index ["imageable_type", "imageable_id"], name: "index_photos_on_imageable_type_and_imageable_id"
   end
 
-  create_table "slots", force: :cascade do |t|
-    t.integer "weekday"
-    t.datetime "start_time"
-    t.datetime "end_time"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "center_id"
-    t.index ["center_id"], name: "index_slots_on_center_id"
-  end
-
   create_table "treatments", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -96,6 +86,5 @@ ActiveRecord::Schema.define(version: 2019_12_13_104233) do
   end
 
   add_foreign_key "bookings", "treatments"
-  add_foreign_key "slots", "centers"
   add_foreign_key "treatments", "centers"
 end
