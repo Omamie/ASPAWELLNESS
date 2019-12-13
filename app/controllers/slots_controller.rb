@@ -1,5 +1,4 @@
 class SlotsController
-
 def index
 
 end
@@ -12,4 +11,5 @@ end
 
 def destroy
 end
+
 end
