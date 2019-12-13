@@ -2,6 +2,11 @@
   "name": "ASPAWELLNESS",
   "private": true,
   "dependencies": {
+    "@fullcalendar/daygrid": "^4.3.0",
+    "@mapbox/mapbox-gl-geocoder": "^4.5.0",
+    "@rails/webpacker": "4.2.2",
+    "bootstrap": "^4.4.1",
+    "install": "^0.13.0",
     "@fullcalendar/core": "^4.3.1",
     "@fullcalendar/daygrid": "^4.3.0",
     "@fullcalendar/list": "^4.3.0",
@@ -13,7 +18,8 @@
     "jquery": "^3.4.1",
     "mapbox-gl": "^1.6.0",
     "places.js": "^1.17.1",
-    "popper.js": "^1.16.0"
+    "popper.js": "^1.16.0",
+    "stimulus-autocomplete": "^1.4.0"
   },
   "devDependencies": {
     "webpack-dev-server": "^3.9.0"
