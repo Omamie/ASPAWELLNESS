@@ -4,7 +4,6 @@
   <% @centers.each do |center| %>
 
   <div class="treatment-centre-card-product">
-<!--     <%= cl_image_tag t.photo, height: 300, width: 400, crop: :fill %>-->
     <div class="centre-card-details1">
     <div class="treatment-centre-card-product-infos">
       <div class="treatment-centre-card-product-infos-text">
@@ -35,6 +34,5 @@
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
     ></div>
-      </div>
 
 
