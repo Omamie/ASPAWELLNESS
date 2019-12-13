@@ -2,9 +2,9 @@ class SearchesController < ApplicationController
   def index
     @centers = policy_scope(Center).geocoded
     authorize @centers
-    if params[:treatment].present? && [:address].present?
-      sql_query = "name ILIKE :treatment and address ILIKE :address"
-      @treatments = Treatment.where(sql_query, treatment: "%#{params[:treatment]}%" , address:"%#{params[:address]}%")
+    if params[:treatment].present? && params[:address].present?
+      sql_query = "treatments.name ILIKE :treatment and centers.address ILIKE :address"
+      @treatments = Treatment.joins(:center).where(sql_query, treatment: "%#{params[:treatment]}%" , address:"%#{params[:address]}%")
     else
       @centers = policy_scope(Center)
     end

@@ -1,10 +1,18 @@
 <div class="search-form">
-<%= form_tag searches_path, method: :get do %>
-  <%= text_field_tag :center,
-    params[:center],
+<%= form_tag searches_path, method: :get,
+                            data: {
+                                controller: "autocomplete",
+                                autocomplete_url: autocomplete_path
+                            } do %>
+  <%= text_field_tag :treatment,
+    params[:treatment],
     class: "form-control input-search-form",
-    placeholder: "Choose your treatment"
+    placeholder: "Choose your treatment",
+    data: {
+      target: "autocomplete.input"
+    }
   %>
+  <ul data-target="autocomplete.results" class="list-group"></ul>
   <%= text_field_tag :address,
     params[:address],
     class: "form-control input-search-form",

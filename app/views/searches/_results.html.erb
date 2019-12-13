@@ -1,0 +1,5 @@
+<% treatments.each do |treatment| %>
+  <li class="list-group-item" role="option" data-autocomplete-value="<%= treatment.name %>">
+    <%= treatment.name %>
+  </li>
+<% end %>
