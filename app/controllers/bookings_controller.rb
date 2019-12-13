@@ -1,9 +1,9 @@
 class BookingsController < ApplicationController
   def new
-  @booking = current_user.bookings.new
-  authorize @booking
-  @treatment = Treatment.find(params[:treatment_id])
-  authorize @treatment
+    @booking = current_user.bookings.new
+    authorize @booking
+    @treatment = Treatment.find(params[:treatment_id])
+    authorize @treatment
   end
 
   def create

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :centers, except: :index do
     resources :bookings, only: :new
-  end 
+  end
   resources :treatments, except: [:show]
 
  resources :searches, only: :index, path: :search
