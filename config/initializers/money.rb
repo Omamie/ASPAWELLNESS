@@ -4,8 +4,7 @@ MoneyRails.configure do |config|
 
   # To set the default currency
   #
-  config.default_currency = :eur
-
+   config.default_currency = :eur
 
   # Set default bank object
   #
@@ -97,7 +96,7 @@ MoneyRails.configure do |config|
   #
   # For the legacy behaviour of "per currency" localization (formatting depends
   # only on currency):
-  config.locale_backend = :currency
+  # config.locale_backend = :currency
   #
   # Example:
   # Money.new(10_000_00, 'USD').format # => $10,000.00
