@@ -1,5 +1,5 @@
 .btn-ghost {
-  color: #4A4A4A;
+  color: $brandcolor;
   border: 1px solid #4A4A4A;
   padding: 8px 24px;
   border-radius: 50px;
@@ -10,6 +10,7 @@
 
 .btn-ghost:hover {
   opacity: 1;
+  color: #3D8C90;
 }
 
 .search-button {
@@ -17,10 +18,14 @@
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
-  background: #3D8C90;
+  background: #2a394d;
   transition: background 0.3s ease;
 }
 .search-button:hover{
+<<<<<<< HEAD
+=======
+  background: #394d5f;
+>>>>>>> master
   color: white;
 }
 
@@ -29,12 +34,12 @@
   color: white;
   padding: 8px;
   border-radius: 4px;
-  background: #3D8C90;
+  background: #2a394d;
   transition: background 0.3s ease;
 }
 
 
 .btn-flat:hover {
-  background: #245254;
+  background: #394d5f;
   color: white;
 }
