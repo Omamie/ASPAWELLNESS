@@ -6,3 +6,24 @@
   width: 40%;
   margin-top: 5px;
 }
+
+.input-search-form-result {
+   display: flex;
+  flex-direction: row;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 40%;
+  margin-top: 5px;
+  color: gray;
+}
+.input-search-form-result:hover{
+  display: flex;
+  flex-direction: row;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 40%;
+  margin-top: 5px;
+  color: white;
+  background-color: #3D8C90;
+
+}

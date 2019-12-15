@@ -1,3 +1,25 @@
 .footer-container {
   margin-top: 60px;
+  background-color: #2a394d !important;
+}
+.footer-title{
+  color: white;
+}
+.footer {
+  background-color: #2a394d !important;
+
+}
+footer p {
+  color: white;
+}
+.footer-bar{
+  background-color: #2a394d;
+}
+.footer-title {
+  text-decoration: none !important;
+
+  &:hover {
+    color: white;
+    text-decoration: none !important;
+  }
 }
