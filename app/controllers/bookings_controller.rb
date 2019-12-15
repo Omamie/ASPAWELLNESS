@@ -14,7 +14,6 @@ class BookingsController < ApplicationController
     @booking.customer_id = current_user.id
     authorize @booking
     if @booking.save
-      raise
       redirect_to centers_path
     else
       render "new"
