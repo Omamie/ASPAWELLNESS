@@ -11,6 +11,7 @@ class CentersController < ApplicationController
     @treatments = Treatment.where(center: @center)
   end
 
+
   def new
     @center = Center.new
     authorize @center

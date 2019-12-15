@@ -44,7 +44,7 @@
 
 .card-container {
   flex-grow: 1;
-  margin-right: 15px;
+  margin-right: 8px;
 }
 
 .price {
@@ -67,7 +67,7 @@
   flex-direction: column;
   background-color: #ffff;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
+  border-radius: 8px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin-top: 10px;
 }
@@ -75,6 +75,8 @@
   height: 30vh;
   background-size: cover;
   background-position: center;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 .card-info {
   display: flex;
@@ -82,14 +84,21 @@
   line-height: 12px;
 }
 
+.card-info-text a {
+  color: #245254;
+}
+
 .card-center-name{
   color: black;
-  font-weight: bold;
-  margin-left: 20px;
-  margin-top:10px;
 }
 .card-treatment-name{
   margin-left: 20px;
+
+}
+
+.card-treatment-name a {
+  text-decoration: none;
+  color: #3D8C90;
 
 }
 .card-treatment-adress{
@@ -101,3 +110,4 @@
 .card-price{
   margin: 0 auto;
 }
+
