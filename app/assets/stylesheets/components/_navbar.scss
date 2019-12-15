@@ -7,21 +7,27 @@
 .navbar-lewagon a {
   font-size: 14px;
   font-family: 'Source Sans Pro', sans-serif;
-
 }
 
 .navbar-lewagon i {
   font-size: 32px;
-  color: grey;
+}
+
+.nav-item,
+.nav-link {
+  color: #2a394d !important;
 }
 
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+  color: #2a394d
 }
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
 
-
+.navbar-lewagon-p {
+  color: #2a394d;
+}

@@ -1,6 +1,6 @@
 class TreatmentsController < ApplicationController
   def index
-    @treatments = Treatment.all
+    @treatments = policy_scope(Treatment)
     authorize @treatments
   end
 

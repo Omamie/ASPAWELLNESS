@@ -1,4 +1,4 @@
-<div class="banner-search" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/dbgxzafez/image/upload/v1575303401/Almablu-Wellness-Spa_oapmrf.jpg);">
+<div class="banner-search" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(42,57,77,0.4)), url(https://res.cloudinary.com/dbgxzafez/image/upload/v1575303401/Almablu-Wellness-Spa_oapmrf.jpg);">
   <div class="container-search margin-left">
     <h1>Search<strong> your</strong> amazing <strong>wellness experience</strong>!</h1>
     <p>Search, book, and live a unique experience..</p>
@@ -8,17 +8,19 @@
 </div>
 <h2 class="card-title margin-left">Explore Treatments</h2>
 <div class="cards">
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://res.cloudinary.com/dbgxzafez/image/upload/v1575306822/estheclinic-slimming_kxjr66.jpg)">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(42,57,77,0.4)), url(https://res.cloudinary.com/dbgxzafez/image/upload/v1575306822/estheclinic-slimming_kxjr66.jpg)">
     <p>Health Treatments</p>
   </div>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://res.cloudinary.com/dbgxzafez/image/upload/v1575303401/spa-wellness-green-park-madama-1_y0tpwx.jpg)">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(42,57,77,0.4)), url(https://res.cloudinary.com/dbgxzafez/image/upload/v1575303401/spa-wellness-green-park-madama-1_y0tpwx.jpg)">
     <p>Spa</p>
   </div>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://res.cloudinary.com/dbgxzafez/image/upload/v1575306450/andergassen-web-1056_yiekir.jpg)">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(42,57,77,0.4)), url(https://res.cloudinary.com/dbgxzafez/image/upload/v1575306450/andergassen-web-1056_yiekir.jpg)">
     <p>Massages</p>
   </div>
 </div>
-<div class="banner-present" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/dbgxzafez/image/upload/v1575303401/spa-wellness-green-park-madama-1_y0tpwx.jpg);">
+
+
+<div class="banner-present" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(42,57,77,0.4)), url(https://res.cloudinary.com/dbgxzafez/image/upload/v1575303401/spa-wellness-green-park-madama-1_y0tpwx.jpg);">
   <div class="container.present margin-left">
     <h1>Your wellness gift </h1>
     <p>Give a special experience to your special person.</p>
@@ -29,76 +31,55 @@
 <h2 class="card-title margin-left">Choose your wellness experience.</h3>
 <p class="card-subtitle margin-left">Are you looking for a location or treatment to regenerate and escape from everyday stress?</p>
 <div class="treatments-card-container">
+    <%  @centers.each do |c| break if c.id > 4 %>
   <div class="card shadow-border" style="width: 18rem;">
-    <img class="card-img-top" src="https://res.cloudinary.com/dbgxzafez/image/upload/v1575387888/s_redspu.jpg">
+    <img class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(42,57,77,0.4)), url(https://res.cloudinary.com/dbgxzafez/image/upload/v1575387888/s_redspu.jpg);">
     <div class="card-body">
-      <h3 class="center-card-title"> Reflow Center</h3>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <h3 class="center-card-title"><%= c.name %></h3>
+      <p class="card-text"><%= c.description.slice(0..150) %></p>
       <a class="btn btn-ghost btn-position" href="#">Show center</a>
     </div>
   </div>
-  <div class="card shadow-border" style="width: 18rem;">
-    <img class="card-img-top" src="https://res.cloudinary.com/dbgxzafez/image/upload/v1575387887/spa-box-duomo-suites_kow81e.jpg">
-    <div class="card-body">
-      <h3 class="center-card-title">Nettuno SPA</h3>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a class="btn btn-ghost btn-position" href="#">Show center</a>
-    </div>
-  </div>
-  <div class="card shadow-border" style="width: 18rem;">
-    <img class="card-img-top" src="https://res.cloudinary.com/dbgxzafez/image/upload/v1575387885/Fairmont-Scottsdale-Princess_kejz8y.jpg">
-    <div class="card-body">
-      <h3 class="center-card-title">Beauty Queen</h3>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a class="btn btn-ghost btn-position" href="#">Show center</a>
-    </div>
-  </div>
-  <div class="card shadow-border" style="width: 18rem;">
-    <img class="card-img-top" src="https://res.cloudinary.com/dbgxzafez/image/upload/v1575387884/PISCINA-BLU-1_ruroht.jpg">
-    <div class="card-body">
-      <h3 class="center-card-title">Luisa Beauty Farm</h3>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. </p>
-      <a class="btn btn-ghost btn-position" href="#">Show center</a>
-    </div>
+  <% end %>
   </div>
 </div>
 
 <!-- Footer -->
 <footer class="page-footer font-small unique-color-dark footer-container">
 
-  <div style="background-color: white;">
+  <div>
     <div class="container">
 
       <!-- Grid row-->
-      <div class="row py-4 d-flex align-items-center">
+      <div class="row py-4 d-flex align-items-center footer-bar">
 
         <!-- Grid column -->
         <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
-          <h6 class="mb-0">Get connected with us on social networks!</h6>
+          <h6 class="mb-0 footer-title">Get connected with us on social networks!</h6>
         </div>
 
         <!-- Grid column -->
         <div class="col-md-6 col-lg-7 text-center text-md-right">
 
           <!-- Facebook -->
-          <a class="fb-ic">
-            <i class="fab fa-facebook-f white-text mr-4"> </i>
+          <a class="fb-ic footer-title">
+            <i class="fab fa-facebook-f white-text mr-4 footer-title"> </i>
           </a>
           <!-- Twitter -->
           <a class="tw-ic">
-            <i class="fab fa-twitter white-text mr-4"> </i>
+            <i class="fab fa-twitter white-text mr-4 footer-title"> </i>
           </a>
           <!-- Google +-->
           <a class="gplus-ic">
-            <i class="fab fa-google-plus-g white-text mr-4"> </i>
+            <i class="fab fa-google-plus-g white-text mr-4 footer-title"> </i>
           </a>
           <!--Linkedin -->
           <a class="li-ic">
-            <i class="fab fa-linkedin-in white-text mr-4"> </i>
+            <i class="fab fa-linkedin-in white-text mr-4 footer-title"> </i>
           </a>
           <!--Instagram-->
           <a class="ins-ic">
-            <i class="fab fa-instagram white-text"> </i>
+            <i class="fab fa-instagram white-text footer-title"> </i>
           </a>
 
         </div>
@@ -120,9 +101,9 @@
       <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
 
         <!-- Content -->
-        <h6 class="text-uppercase font-weight-bold">About Us</h6>
-        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-        <p>Are you looking for a location or treatment to regenerate and escape from everyday stress?<br>
+        <h6 class="text-uppercase font-weight-bold footer-title">About Us</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto footer-title" style="width: 60px;">
+        <p class="footer-title">Are you looking for a location or treatment to regenerate and escape from everyday stress?<br>
 Aspa is the 1st online reservation portal for wellness.
 Find a wellness center or spa in your city <br>
 Choose from over 187 000 centers.<br> Read reviews from other customers.</p>
@@ -134,16 +115,16 @@ Choose from over 187 000 centers.<br> Read reviews from other customers.</p>
       <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
 
         <!-- Links -->
-        <h6 class="text-uppercase font-weight-bold">Our solution for your Center</h6>
-        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <h6 class="text-uppercase font-weight-bold footer-title">Our solution for your Center</h6>
+        <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
         <p>
-          <a href="#!">Digital calendar to manage reservations</a>
+          <a class="footer-title" href="#!">Digital calendar to manage reservations</a>
         </p>
         <p>
-          <a href="#!">Economic management</a>
+          <a class="footer-title" href="#!">Economic management</a>
         </p>
         <p>
-          <a href="#!">Automatic promotional campaigns</a>
+          <a class="footer-title" href="#!">Automatic promotional campaigns</a>
         </p>
 
       </div>
@@ -153,19 +134,19 @@ Choose from over 187 000 centers.<br> Read reviews from other customers.</p>
       <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
 
         <!-- Links -->
-        <h6 class="text-uppercase font-weight-bold">Useful links</h6>
+        <h6 class="text-uppercase font-weight-bold footer-title">Useful links</h6>
         <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
         <p>
-          <a href="#!">Register your center</a>
+          <a class="footer-title" href="#!">Register your center</a>
         </p>
         <p>
-          <a href="#!">Sign up</a>
+          <a class="footer-title" href="#!">Sign up</a>
         </p>
         <p>
-          <a href="#!">Login</a>
+          <a class= "footer-title" href="#!">Login</a>
         </p>
         <p>
-          <a href="#!">Help</a>
+          <a class="footer-title" href="#!">Help</a>
         </p>
 
       </div>
@@ -175,16 +156,16 @@ Choose from over 187 000 centers.<br> Read reviews from other customers.</p>
       <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
 
         <!-- Links -->
-        <h6 class="text-uppercase font-weight-bold">Contact</h6>
-        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <h6 class="text-uppercase font-weight-bold footer-title">Contact</h6>
+        <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px white;">
         <p>
-          <i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
+          <i class="fas fa-home mr-3 footer-title"></i> New York, NY 10012, US</p>
         <p>
-          <i class="fas fa-envelope mr-3"></i> info@example.com</p>
+          <i class="fas fa-envelope mr-3 footer-title"></i> info@example.com</p>
         <p>
-          <i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+          <i class="fas fa-phone mr-3 footer-title "></i> + 01 234 567 88</p>
         <p>
-          <i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+          <i class="fas fa-print mr-3 footer-title "></i> + 01 234 567 89</p>
 
       </div>
       <!-- Grid column -->
@@ -196,8 +177,8 @@ Choose from over 187 000 centers.<br> Read reviews from other customers.</p>
   <!-- Footer Links -->
 
   <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">© 2019 Copyright:
-    <a href="https://mdbootstrap.com/education/bootstrap/"> Aspa Group s.r.l.</a>
+  <div class="footer-copyright text-center py-3 footer-title">© 2019 Copyright:
+    <a class="footer-title" href="https://mdbootstrap.com/education/bootstrap/"> Aspa Group s.r.l.</a>
   </div>
   <!-- Copyright -->
 

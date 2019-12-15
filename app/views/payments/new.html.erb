@@ -1,0 +1,72 @@
+<body>
+  <main class="page">
+    <section class="shopping-cart dark">
+      <div class="container">
+        <div class="block-heading">
+          <h2>Shopping Cart</h2>
+          <p>Book your wellness experience</p>
+        </div>
+        <div class="content">
+          <div class="row">
+            <div class="col-md-12 col-lg-8">
+              <div class="items">
+                <div class="product">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <img class="img-fluid mx-auto d-block image" src="image.jpg">
+                    </div>
+                    <div class="col-md-8">
+                      <div class="info">
+                        <div class="row">
+                          <div class="col-md-5 product-name">
+                            <div class="product-name">
+                              <a href="#"><%= @booking.treatment.name %></a>
+                              <div class="product-info">
+                                <div>Display: <span class="value">5 inch</span></div>
+                                <div>RAM: <span class="value">4GB</span></div>
+                                <div>Memory: <span class="value">32GB</span></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-4 quantity">
+                            <label for="quantity">Person:</label>
+                            <input id="quantity" type="number" value ="1" class="form-control quantity-input">
+                          </div>
+                          <div class="col-md-3 price">
+                            <span><%= humanized_money_with_symbol @booking.price_cents %></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-lg-4">
+              <div class="summary">
+                <h1>Checkout summary</h1>
+                <p>Purchase of <strong><%= @booking.treatment.name %></strong> for <strong><%= humanized_money_with_symbol @booking.price_cents %></strong></p>
+                <button id="pay" class="btn btn-primary">Pay</button>
+                <script src="https://js.stripe.com/v3/"></script>
+                <script>
+                const paymentButton = document.getElementById('pay');
+                paymentButton.addEventListener('click', () => {
+                const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+                stripe.redirectToCheckout({
+                sessionId: '<%= @booking.checkout_session_id %>'
+                });
+                });
+                </script>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+
+
+
+
