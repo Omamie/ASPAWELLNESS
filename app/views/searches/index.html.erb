@@ -1,28 +1,32 @@
-<div class="d-flex p-2 bd-highlight">
-<div class="card-container">
-  <% @treatments.each do |t| %>
-  <div class="treatment-card">
-    <div class="card-image" style='background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/dbgxzafez/image/upload/v1575303401/spa-wellness-green-park-madama-1_y0tpwx.jpg);'>
-    </div>
-    <div class="card-info">
-      <div class="card-info-text">
-        <h2 class="card-treatment-name"><%= link_to t.name, center_path(t.center.id)%></h2>
-        <p class="card-center-name"><%=t.center.name%></p>
-        <p class="card-treatment-adress"><%=t.center.address %></p>
-        <p class="card-treatment-review"><%#= t.center.reviews %></p>
-      </div>
-      <div class="card-price">
-        <h2><%=t.price%></h2>
-        <%= link_to "Show More", center_path(t.center.id), class:"btn btn-flat" %>
+<div class="d-flex bd-highlight">
+  <div class="card-container pl-2 ">
+      <% @treatments.each do |t| %>
+      <div class="treatment-card">
+        <div class="card-image" style='background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path(t.photos.first&.attachment&.url || "default-thumb_qpqfou.png" )%>);'>
+
         </div>
-    </div>
-   </div>
-  <% end %>
-  <div
-  id="map"
-  style="width: 40%;
-  height: 667px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-></div>
+        <div class="card-info d-flex">
+          <div class="card-info-text p-2 w-100">
+            <h3 class="card-treatment-name"><%= link_to t.center.name, center_path(t.center.id)%></h3>
+            <p class="card-treatment-name font-weight-lighter"> <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt fa-star"></i> <%= rand(1..30) %> Reviews</p>
+            <p class="card-treatment-name font-weight-normal"><%=t.name%></p>
+            <p class="card-treatment-adress font-weight-light"><%=t.center.address %></p>
+          </div>
+          <div class="card-price p-2 flex-shrink-1">
+            <h4><%=t.price%>€</h4>
+            <%= link_to "Show More", center_path(t.center.id), class:"btn btn-flat" %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+      </div>
+      <div
+        class="pt-2 px-2"
+        id="map"
+        style="width: 50%;
+        height: 100vh;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+      ></div>
 </div>
+

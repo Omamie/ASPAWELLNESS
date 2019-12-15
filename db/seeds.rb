@@ -50,31 +50,31 @@ Owner.create!(owner_attributes)
 
 puts "Creating centers..."
 
-center_attributes = [{name: "Spazio Salute", address: "Corso Lodi, Milan", contact_person: "Giulio Paci", owner_id: Owner.ids.sample},
-{name: "The White Medispa", address: "Corso Maggiore, Milan", contact_person: "Giulia Pelli", owner_id: Owner.ids.sample},
-{name: "Centro Olistico Milano", address: "Corso Molise, Milan", contact_person: "Anna Folli", owner_id: Owner.ids.sample},
-{name: "Meeting Club", address: "Via Giuseppe Verdi, Milan", contact_person: "Paolo Papi", owner_id: Owner.ids.sample},
-{name: "One Exclusive", address: "Corso Lodi, Milan", contact_person: "Alessandro Poli", owner_id: Owner.ids.sample},
-{name: "Prime Exclusive", address: "Corso Magenta, Milan", contact_person: "Francesco Verdi", owner_id: Owner.ids.sample},
-{name: "Mandarin Oriental", address: "Via Senato, Milan", contact_person: "Francesca Vinci", owner_id: Owner.ids.sample},
-{name: "Montenero Beauty Spa", address: "Corso Maggiore, Milan", contact_person: "Paolo Goli", owner_id: Owner.ids.sample},
-{name: "Hado Spa", address: "Corso Buenos Aires, Milan", contact_person: "Mattia Bondi", owner_id: Owner.ids.sample},
-{name: "Centro Benessere Eliseo", address: "Corso Sempione, Milan", contact_person: "Carla Magnani", owner_id: Owner.ids.sample},
+center_attributes = [{name: "Spazio Salute", address: "Via San Cosmo 91, 20066 Milan", contact_person: "Giulio Paci", owner_id: Owner.ids.sample},
+{name: "The White Medispa", address: "Via Giberti 26, 10070 Turin", contact_person: "Giulia Pelli", owner_id: Owner.ids.sample},
+{name: "Centro Olistico Milano", address: "Via Parmigianino 34, 20146 Milan", contact_person: "Anna Folli", owner_id: Owner.ids.sample},
+{name: "Meeting Club", address: "Via dei Condotti 25, 00187 Rome", contact_person: "Paolo Papi", owner_id: Owner.ids.sample},
+{name: "One Exclusive", address: "Via della Croce 14, 00187 Rome", contact_person: "Alessandro Poli", owner_id: Owner.ids.sample},
+{name: "Prime Exclusive", address: "Via Orcagna 36, 50121 Florence", contact_person: "Francesco Verdi", owner_id: Owner.ids.sample},
+{name: "Mandarin Oriental", address: "Via Dati Goro 3, 50136 Florence", contact_person: "Francesca Vinci", owner_id: Owner.ids.sample},
+{name: "Montenero Beauty Spa", address: "Via Luca Landucci 12, 50136 Florence", contact_person: "Paolo Goli", owner_id: Owner.ids.sample},
+{name: "Hado Spa", address: "Via Rizzoli 24, 40125 Bologna", contact_person: "Mattia Bondi", owner_id: Owner.ids.sample},
+{name: "Centro Benessere Eliseo", address: "Via Farini 16, 40124 Bologna", contact_person: "Carla Magnani", owner_id: Owner.ids.sample},
 ]
 Center.create!(center_attributes)
 
 puts "Creating treatments..."
 
-treatment_attributes = [{name:"Circulatory massage",description:"Targeted massage to help blood circulation", price_cents: 780, center_id: Center.ids.sample, category: "Health Treatment", capacity_per_hour: 3, duration: 1},
-{"name":"Relaxing massage","description":"Massage made with moves that relax muscles and mind.","price_cents":965, center_id: Center.ids.sample, category: "Health Treatment", capacity_per_hour: 5, duration: 2},
-{"name":"Lymphatic drainage massage","description":"Massage that helps lymph flow towards the discharge points, frees the body from excess fluids.","price_cents":856, center_id: Center.ids.sample, category: "Massage", capacity_per_hour: 1, duration: 1},
-{"name":"Tissue massage","description":"Manual anti cellulite indicated in cases of localized fat and cellulite treatment.","price_cents":100, center_id: Center.ids.sample, category: "Health Treatment", capacity_per_hour: 6, duration: 1},
-{"name":"Sports massage","description":"With a sports massage to all the major muscles, tension is gradually relaxed and circulation restored.","price_cents":930, center_id: Center.ids.sample, category: "spa", capacity_per_hour: 2, duration: 2},
-{"name":"Relaxing massage with Argan oil","description":"Relaxing massage made with argan oil properties, super nutrients and antioxidants.","price_cents":150, center_id: Center.ids.sample, category: "Massage", capacity_per_hour: 3, duration: 3},
-{"name":"Zonal massage","description":"Massage performed in an area of the body: back, leg, foot, neck and neck area.","price_cents":407, center_id: Center.ids.sample, category: "Health Treatment", capacity_per_hour: 3, duration: 3},
-{"name":"Facial massage","description":"The treatment consists of a gentle massage of the face with the use of a vial or specific cream.","price_cents":263, center_id: Center.ids.sample, category: "spa", capacity_per_hour: 5, duration: 1},
-{"name":"Couples massage","description":"Massage performed simultaneously with relaxing effect.","price_cents":453, center_id: Center.ids.sample, category: "massage", capacity_per_hour: 1, duration: 1},
-{"name":"Love Massage", description: "Couples massage using aromatic candles with pepper and cocoa, which when lit, create an oil that caress the body. They represent a real wellness ritual that involves all the senses", price_cents: 188, center_id: Center.ids.sample, category: "spa", capacity_per_hour: 3, duration: 1}]
+treatment_attributes = [{name:"Circulatory Massage",description:"Targeted massage to help blood circulation", price_cents: 7800, center_id: Center.ids.sample, category: "Health Treatment", capacity_per_hour: 3, duration: 1},
+{"name":"Relaxing Massage","description":"Massage made with moves that relax muscles and mind.","price_cents":9650, center_id: Center.ids.sample, category: "Health Treatment", capacity_per_hour: 5, duration: 2},
+{"name":"Lymphatic Drainage Massage","description":"Massage that helps lymph flow towards the discharge points, frees the body from excess fluids.","price_cents":856, center_id: Center.ids.sample, category: "Massage", capacity_per_hour: 1, duration: 1},
+{"name":"Tissue Massage","description":"Manual anti cellulite indicated in cases of localized fat and cellulite treatment.","price_cents":1000, center_id: Center.ids.sample, category: "Health Treatment", capacity_per_hour: 6, duration: 1},
+{"name":"Sports Massage","description":"With a sports massage to all the major muscles, tension is gradually relaxed and circulation restored.","price_cents":9300, center_id: Center.ids.sample, category: "spa", capacity_per_hour: 2, duration: 2},
+{"name":"Relaxing Massage with Argan Oil","description":"Relaxing massage made with argan oil properties, super nutrients and antioxidants.","price_cents":1500, center_id: Center.ids.sample, category: "Massage", capacity_per_hour: 3, duration: 3},
+{"name":"Zonal Massage","description":"Massage performed in an area of the body: back, leg, foot, neck and neck area.","price_cents":4070, center_id: Center.ids.sample, category: "Health Treatment", capacity_per_hour: 3, duration: 3},
+{"name":"Facial Massage","description":"The treatment consists of a gentle massage of the face with the use of a vial or specific cream.","price_cents":2630, center_id: Center.ids.sample, category: "spa", capacity_per_hour: 5, duration: 1},
+{"name":"Couples Massage","description":"Massage performed simultaneously with relaxing effect.","price_cents":4530, center_id: Center.ids.sample, category: "massage", capacity_per_hour: 1, duration: 1},
+{"name":"Love Massage", description: "Couples massage using aromatic candles with pepper and cocoa, which when lit, create an oil that caress the body. They represent a real wellness ritual that involves all the senses", price_cents: 1880, center_id: Center.ids.sample, category: "spa", capacity_per_hour: 3, duration: 1}]
 
 Treatment.create!(treatment_attributes)
 puts "Creating Bookings..."
