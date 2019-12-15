@@ -65,18 +65,50 @@ Center.create!(center_attributes)
 
 puts "Creating treatments..."
 
-treatment_attributes = [{name:"Circulatory Massage",description:"Targeted massage to help blood circulation", price_cents: 7800, center_id: Center.ids.sample, category: "Health Treatment", capacity_per_hour: 3, duration: 1},
-{"name":"Relaxing Massage","description":"Massage made with moves that relax muscles and mind.","price_cents":9650, center_id: Center.ids.sample, category: "Health Treatment", capacity_per_hour: 5, duration: 2},
-{"name":"Lymphatic Drainage Massage","description":"Massage that helps lymph flow towards the discharge points, frees the body from excess fluids.","price_cents":856, center_id: Center.ids.sample, category: "Massage", capacity_per_hour: 1, duration: 1},
-{"name":"Tissue Massage","description":"Manual anti cellulite indicated in cases of localized fat and cellulite treatment.","price_cents":1000, center_id: Center.ids.sample, category: "Health Treatment", capacity_per_hour: 6, duration: 1},
-{"name":"Sports Massage","description":"With a sports massage to all the major muscles, tension is gradually relaxed and circulation restored.","price_cents":9300, center_id: Center.ids.sample, category: "spa", capacity_per_hour: 2, duration: 2},
-{"name":"Relaxing Massage with Argan Oil","description":"Relaxing massage made with argan oil properties, super nutrients and antioxidants.","price_cents":1500, center_id: Center.ids.sample, category: "Massage", capacity_per_hour: 3, duration: 3},
-{"name":"Zonal Massage","description":"Massage performed in an area of the body: back, leg, foot, neck and neck area.","price_cents":4070, center_id: Center.ids.sample, category: "Health Treatment", capacity_per_hour: 3, duration: 3},
-{"name":"Facial Massage","description":"The treatment consists of a gentle massage of the face with the use of a vial or specific cream.","price_cents":2630, center_id: Center.ids.sample, category: "spa", capacity_per_hour: 5, duration: 1},
-{"name":"Couples Massage","description":"Massage performed simultaneously with relaxing effect.","price_cents":4530, center_id: Center.ids.sample, category: "massage", capacity_per_hour: 1, duration: 1},
-{"name":"Love Massage", description: "Couples massage using aromatic candles with pepper and cocoa, which when lit, create an oil that caress the body. They represent a real wellness ritual that involves all the senses", price_cents: 1880, center_id: Center.ids.sample, category: "spa", capacity_per_hour: 3, duration: 1}]
+treatment_attributes = [{name:"Circulatory Massage",description:"Targeted massage to help blood circulation", price_cents: 7800, center_id: Center.ids.sample, category: "Health Treatment", capacity_per_hour: 3, duration: 60},
+{"name":"Relaxing Massage","description":"Massage made with moves that relax muscles and mind.","price_cents":9650, center_id: Center.ids.sample, category: "Health Treatment", capacity_per_hour: 5, duration: 120},
+{"name":"Lymphatic Drainage Massage","description":"Massage that helps lymph flow towards the discharge points, frees the body from excess fluids.","price_cents":856, center_id: Center.ids.sample, category: "Massage", capacity_per_hour: 1, duration: 60},
+{"name":"Tissue Massage","description":"Manual anti cellulite indicated in cases of localized fat and cellulite treatment.","price_cents":1000, center_id: Center.ids.sample, category: "Health Treatment", capacity_per_hour: 6, duration: 60},
+{"name":"Sports Massage","description":"With a sports massage to all the major muscles, tension is gradually relaxed and circulation restored.","price_cents":9300, center_id: Center.ids.sample, category: "spa", capacity_per_hour: 2, duration: 120},
+{"name":"Relaxing Massage with Argan Oil","description":"Relaxing massage made with argan oil properties, super nutrients and antioxidants.","price_cents":1500, center_id: Center.ids.sample, category: "Massage", capacity_per_hour: 3, duration: 180},
+{"name":"Zonal Massage","description":"Massage performed in an area of the body: back, leg, foot, neck and neck area.","price_cents":4070, center_id: Center.ids.sample, category: "Health Treatment", capacity_per_hour: 3, duration: 180},
+{"name":"Facial Massage","description":"The treatment consists of a gentle massage of the face with the use of a vial or specific cream.","price_cents":2630, center_id: Center.ids.sample, category: "spa", capacity_per_hour: 5, duration: 60},
+{"name":"Couples Massage","description":"Massage performed simultaneously with relaxing effect.","price_cents":4530, center_id: Center.ids.sample, category: "massage", capacity_per_hour: 1, duration: 60},
+{"name":"Back and Shoulders Massage", description: "Couples massage using aromatic candles with pepper and cocoa, which when lit, create an oil that caress the body. They represent a real wellness ritual that involves all the senses", price_cents: 1880, center_id: Center.ids.sample, category: "spa", capacity_per_hour: 3, duration: 60}]
 
 Treatment.create!(treatment_attributes)
+
+
+puts "Uploading treatment photos..."
+
+treatmentphoto_attributes = [{remote_attachment_url:"https://images.pexels.com/photos/56884/wellness-massage-relax-relaxing-56884.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", imageable_type: "Treatment", imageable_id: 1},
+  {remote_attachment_url:"https://images.pexels.com/photos/161477/treatment-finger-keep-hand-161477.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", imageable_type: "Treatment", imageable_id: 2},
+  {remote_attachment_url:"https://cdn.pixabay.com/photo/2016/12/24/16/16/massage-1929064_960_720.jpg", imageable_type: "Treatment", imageable_id: 3},
+  {remote_attachment_url:"https://cdn.pixabay.com/photo/2015/01/05/22/29/wellness-589774_960_720.jpg", imageable_type: "Treatment", imageable_id: 4},
+  {remote_attachment_url:"https://cdn.pixabay.com/photo/2017/09/20/14/59/massage-2768833_960_720.jpg", imageable_type: "Treatment", imageable_id: 5},
+  {remote_attachment_url:"https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", imageable_type: "Treatment", imageable_id: 6},
+  {remote_attachment_url:"https://cdn.pixabay.com/photo/2018/02/27/03/36/spa-3184610_960_720.jpg", imageable_type: "Treatment", imageable_id: 7},
+  {remote_attachment_url:"https://images.unsplash.com/photo-1531299244174-d247dd4e5a66?ixlib=rb-1.2.1&auto=format&fit=crop&w=670&q=80", imageable_type: "Treatment", imageable_id: 8},
+  {remote_attachment_url:"https://cdn.pixabay.com/photo/2015/03/23/17/40/couples-massage-686385_960_720.jpg", imageable_type: "Treatment", imageable_id: 9},
+  {remote_attachment_url:"https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80", imageable_type: "Treatment", imageable_id: 10}]
+
+Photo.create!(treatmentphoto_attributes)
+
+puts "Uploading center photos..."
+
+centerphoto_attributes = [{remote_attachment_url:"https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80", imageable_type: "Center", imageable_id: 1},
+{remote_attachment_url:"https://images.unsplash.com/photo-1488345979593-09db0f85545f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80", imageable_type: "Center", imageable_id: 2},
+{remote_attachment_url:"https://images.unsplash.com/photo-1521750465-672a0f580901?ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80", imageable_type: "Center", imageable_id: 3},
+{remote_attachment_url:"https://images.unsplash.com/photo-1541480551145-2370a440d585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1049&q=80", imageable_type: "Center", imageable_id: 4},
+{remote_attachment_url:"https://images.unsplash.com/photo-1451443700141-5ddb6d85a8fc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80", imageable_type: "Center", imageable_id: 5},
+{remote_attachment_url:"https://images.unsplash.com/photo-1552143232-001d35395682?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80", imageable_type: "Center", imageable_id: 6},
+{remote_attachment_url:"https://images.unsplash.com/photo-1517498327491-f903e1e281cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80", imageable_type: "Center", imageable_id: 7},
+{remote_attachment_url:"https://cdn.pixabay.com/photo/2015/01/05/22/28/wellness-589770_960_720.jpg", imageable_type: "Center", imageable_id: 8},
+{remote_attachment_url:"https://cdn.pixabay.com/photo/2015/07/02/10/29/swimming-828795_960_720.jpg", imageable_type: "Center", imageable_id: 9},
+{remote_attachment_url:"https://cdn.pixabay.com/photo/2018/01/30/16/54/herbs-3119132_960_720.jpg", imageable_type: "Center", imageable_id: 10}]
+
+Photo.create!(centerphoto_attributes)
+
 puts "Creating Bookings..."
 
 booking_attributes = [

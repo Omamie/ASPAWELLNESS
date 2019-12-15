@@ -1,8 +1,8 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path(@center.photos.first&.attachment&.url || "default-thumb_qpqfou.png" )%>)">
   <div class="container">
     <div class="center-page">
-  <h1 class= "text-light font-weight-bold"><%= @center.name.capitalize %></h1>
-  <p class= "text-light font-weight-normal"><%= @center.address.capitalize%></p>
+  <h1 class= "text-light font-weight-bold"><%= @center.name %></h1>
+  <p class= "text-light font-weight-normal"><%= @center.address%></p>
   <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i><p class= "text-light font-weight-light-small">28 Reviews</p>
    <%= link_to "Book Now", new_center_treatment_booking_path(@center.id, @center.treatments.each do |t| t.id end ), class: "btn-flat" %>
    <div class="p-2 flex-shrink-1 bd-highlight"></div>

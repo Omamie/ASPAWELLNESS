@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2019_12_13_133125) do
     t.bigint "treatment_id"
     t.integer "price_cents"
     t.integer "group_size"
-    t.integer "status"
+    t.integer "status", default: 0, null: false
     t.datetime "start_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
