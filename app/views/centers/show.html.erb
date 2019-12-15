@@ -9,12 +9,6 @@
     </div>
   </div>
 </div>
-<!-- - 1. Add carousel to index cards or not? -->
-<!-- - 2. Make no of reviews the same on the index and show page  -->
-<!-- - 3. Display treatment photos on index page -->
-<!-- - 4. Try to add booking to the show page -->
-<!-- - 5. Add map and marker to the show page -->
-<!--Grid row-->
 <div class="mt-3 container pt-3 z-depth-1">
   <section class="dark-grey-text border-bottom-light">
     <div class="row">
@@ -24,14 +18,17 @@
         <div class="single-news">
           <!-- Image -->
           <div class="view overlay rounded z-depth-1-half mb-4">
+            <img class="img-fluid treatment-img" src="https://images.unsplash.com/photo-1519824145371-296894a0daa9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Sample image">
+          </div>
+          <div class="view overlay rounded z-depth-1-half mb-4">
           </div>
           <!-- Data -->
           <div class="news-data d-flex justify-content-between align-items-center">
-            <h6 class="font-weight-bold"> <%=@center.treatments.first.name%> </h6>
+            <h6 class="font-weight-bold"><%=@center.treatments.first.name%> </h6>
             <%= link_to "Book Now", new_center_treatment_booking_path(@center.id, @center.treatments.each do |t| t.id end ), class: "btn-flat" %>
           </div>
           <div class="d-line">
-            <p class="font-weight-regular">from <%= @center.treatments.first.price %> €</p>
+            <p class="font-weight-regular">Starting from <%= @center.treatments.first.price %> €</p>
             <p class="text-muted font-weight-bold"> <%= @center.treatments.first.duration %>  mins</p>
           </div>
           <!-- Excerpt -->
@@ -47,33 +44,73 @@
       <!-- Grid column -->
       <div class="col-lg-6 col-md-12 mb-4">
         <!-- Small news -->
+
+
         <div class="single-news mb-4">
+
           <!-- Grid row -->
           <div class="row">
-            <% @treatments.each do |treatment|  %>
+
             <div class="col-md-3">
               <!--Image-->
               <div class="view overlay rounded z-depth-1 mb-4">
-                <img class="img-fluid treatment-img" src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Sample image">
-                <a>
-                  <div class="mask rgba-white-slight"></div>
-                </a>
+
+
               </div>
             </div>
             <div class="col-md-9">
+              <p class="font-weight-bold grey-text text-uppercase small">OPENING HOURS</p>
               <div class="d-flex justify-content-between">
                 <!-- Excerpt -->
-                <p class="font-weight-regular"><%= treatment.name %></p>
-                <p> <%= link_to "Book", new_center_treatment_booking_path(treatment.center_id, treatment.id), class: "btn-flat" %></p>
-                <p class="font-weight-bold">from 100€</p>
+                <p class="text-muted font-weight-light">Monday</p>
+                <p class="font-weight-light">09:00 - 17:00</p>
+
               </div>
+
+               <div class="d-flex justify-content-between">
+                <!-- Excerpt -->
+                <p class="text-muted font-weight-light">Tuesday</p>
+                <p class="font-weight-light">10:00 - 15:00</p>
+
+              </div>
+               <div class="d-flex justify-content-between">
+                <!-- Excerpt -->
+                <p class="text-muted font-weight-light">Wednesday</p>
+                <p class="font-weight-light">09:00 - 17:00</p>
+
+              </div>
+               <div class="d-flex justify-content-between">
+                <!-- Excerpt -->
+                <p class="text-muted font-weight-light">Thursday</p>
+                <p class="font-weight-light">09:00 - 17:00</p>
+
+              </div>
+               <div class="d-flex justify-content-between">
+                <!-- Excerpt -->
+                <p class="text-muted font-weight-light">Friday</p>
+                <p class="font-weight-light">09:00 - 17:00</p>
+
+              </div>
+               <div class="d-flex justify-content-between">
+                <!-- Excerpt -->
+                <p class="text-muted font-weight-light">Saturday</p>
+                <p class="font-weight-light">10:00 - 15:00</p>
+
+              </div>
+
+              <div class="d-flex justify-content-between">
+                <!-- Excerpt -->
+                <p class="text-muted font-weight-light">Sunday</p>
+                <p class="font-weight-light">Closed</p>
+
+              </div>
+
               <div class="d-flex justify-content-between mb-2">
                 <div class="col-11 text-truncate pl-0 mb-3">
-                  <p class="text-muted font-weight-light"> <%= treatment.description %></p>
+                  <p class="text-muted font-weight-light"></p>
                 </div>
               </div>
             </div>
-            <% end %>
             <!-- Grid column -->
           </div>
           <!-- Grid row -->
