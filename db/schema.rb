@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_13_133125) do
+ActiveRecord::Schema.define(version: 2019_12_15_135747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2019_12_13_133125) do
     t.bigint "treatment_id"
     t.integer "price_cents"
     t.integer "group_size"
-    t.integer "status"
+    t.integer "status", default: 0, null: false
     t.datetime "start_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2019_12_13_133125) do
     t.integer "owner_id"
     t.string "imageable_type"
     t.bigint "imageable_id"
+    t.string "description"
     t.index ["imageable_type", "imageable_id"], name: "index_centers_on_imageable_type_and_imageable_id"
     t.index ["owner_id"], name: "index_centers_on_owner_id"
   end
