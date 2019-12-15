@@ -28,44 +28,19 @@
   </div>
 </div>
 
-
-
-
-
 <h2 class="card-title margin-left">Choose your wellness experience.</h3>
 <p class="card-subtitle margin-left">Are you looking for a location or treatment to regenerate and escape from everyday stress?</p>
 <div class="treatments-card-container">
+    <%  @centers.each do |c| break if c.id > 4 %>
   <div class="card shadow-border" style="width: 18rem;">
     <img class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(42,57,77,0.4)), url(https://res.cloudinary.com/dbgxzafez/image/upload/v1575387888/s_redspu.jpg);">
     <div class="card-body">
-      <h3 class="center-card-title"> Reflow Center</h3>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <h3 class="center-card-title"><%= c.name %></h3>
+      <p class="card-text"><%= c.description.slice(0..150) %></p>
       <a class="btn btn-ghost btn-position" href="#">Show center</a>
     </div>
   </div>
-  <div class="card shadow-border" style="width: 18rem;">
-    <img class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(42,57,77,0.4)), url(https://res.cloudinary.com/dbgxzafez/image/upload/v1575387887/spa-box-duomo-suites_kow81e.jpg);">
-    <div class="card-body">
-      <h3 class="center-card-title">Nettuno SPA</h3>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a class="btn btn-ghost btn-position" href="#">Show center</a>
-    </div>
-  </div>
-  <div class="card shadow-border" style="width: 18rem;">
-    <img class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(42,57,77,0.4)), url(https://res.cloudinary.com/dbgxzafez/image/upload/v1575387885/Fairmont-Scottsdale-Princess_kejz8y.jpg);">
-    <div class="card-body">
-      <h3 class="center-card-title">Beauty Queen</h3>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a class="btn btn-ghost btn-position" href="#">Show center</a>
-    </div>
-  </div>
-  <div class="card shadow-border" style="width: 18rem;">
-    <img class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(42,57,77,0.4)), url(https://res.cloudinary.com/dbgxzafez/image/upload/v1575387884/PISCINA-BLU-1_ruroht.jpg">
-    <div class="card-body">
-      <h3 class="center-card-title">Luisa Beauty Farm</h3>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. </p>
-      <a class="btn btn-ghost btn-position" href="#">Show center</a>
-    </div>
+  <% end %>
   </div>
 </div>
 

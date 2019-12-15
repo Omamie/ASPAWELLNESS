@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_13_133125) do
+ActiveRecord::Schema.define(version: 2019_12_15_135747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2019_12_13_133125) do
     t.integer "owner_id"
     t.string "imageable_type"
     t.bigint "imageable_id"
+    t.string "description"
     t.index ["imageable_type", "imageable_id"], name: "index_centers_on_imageable_type_and_imageable_id"
     t.index ["owner_id"], name: "index_centers_on_owner_id"
   end
