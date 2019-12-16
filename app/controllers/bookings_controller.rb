@@ -19,6 +19,7 @@ class BookingsController < ApplicationController
     authorize @booking
 
     @booking.treatment = @treatment
+    @booking.price = @treatment.price
     @booking.customer = current_user
 
     if @booking.save
@@ -28,7 +29,7 @@ class BookingsController < ApplicationController
         payment_method_types: ['card'],
         line_items: [{
           name: @booking.treatment.name,
-          amount: @booking.treatment.price_cents,
+          amount: @booking.price_cents,
           currency: 'eur',
           quantity: 1
         }],
