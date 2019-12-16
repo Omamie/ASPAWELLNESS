@@ -17,7 +17,7 @@ if (element) {
     events: events
   });
 
-   // console.log(c.fullCalendar("getView"));
+  console.log(c.fullCalendar("getView"));
 
   week.addEventListener("click", () => {
 
