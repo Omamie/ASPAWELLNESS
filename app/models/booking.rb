@@ -11,11 +11,12 @@ class Booking < ApplicationRecord
   def end_time
     start_time + treatment.duration.minutes
   end
-   # {
-   #      title  : 'event2',
-   #      start  : '2019-01-05',
-   #      end    : '2019-01-07'
-   #    },
+
+  # {
+  #      title  : 'event2',
+  #      start  : '2019-01-05',
+  #      end    : '2019-01-07'
+  #    }
   def to_event
     {
       title: treatment.name,

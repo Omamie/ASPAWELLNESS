@@ -10,8 +10,9 @@ class CentersController < ApplicationController
     authorize @center
     @treatments = Treatment.where(center: @center)
     @review = Review.new
+    @reviews = @center.reviews
+
     @user_booked_treatments = current_user.bookings.map { |booking| booking.treatment }
-  end
 
     @marker =
       {
@@ -20,8 +21,8 @@ class CentersController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { center: @center }),
         image_url: helpers.asset_url('circle-cropped.png')
       }
+  end
 
-end
   def new
     @center = Center.new
     authorize @center
