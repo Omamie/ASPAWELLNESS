@@ -6,4 +6,9 @@ class Center < ApplicationRecord
   belongs_to :owner, class_name: 'User'
   has_many :photos, as: :imageable
   accepts_nested_attributes_for :photos
+
+  def no_of_reviews
+    amount = rand(2..30)
+
+  end
 end
