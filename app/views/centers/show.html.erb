@@ -17,8 +17,8 @@
         <!-- Featured news -->
         <div class="single-news">
           <!-- Image -->
-          <div class="view overlay rounded z-depth-1-half mb-4">
-            <img class="img-fluid treatment-img" src="https://images.unsplash.com/photo-1519824145371-296894a0daa9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Sample image">
+          <div class="view overlay rounded z-depth-1-half mb-4 treatment-img img-fluid">
+            <%= cl_image_tag(@center.treatments.first.photos.first&.attachment&.url, class: "treatment-img img-fluid")%>
           </div>
           <div class="view overlay rounded z-depth-1-half mb-4">
           </div>
