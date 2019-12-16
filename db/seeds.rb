@@ -8,10 +8,10 @@
 
 
 puts 'Cleaning database...'
-Booking.destroy_all
-Treatment.destroy_all
-Center.destroy_all
-User.destroy_all
+# Booking.destroy_all
+# Treatment.destroy_all
+# Center.destroy_all
+# User.destroy_all
 
 puts 'Creating users...'
 user_attributes =

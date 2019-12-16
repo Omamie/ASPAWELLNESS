@@ -2,15 +2,9 @@
   <div class="modal-card p-3">
     <h2 class="mx-2 my-3">Confirm Your Booking </h2>
     <%= simple_form_for [@center, @treatment, @booking] do |f| %>
-      <%= f.input :start_time, as: :string, required: false, input_html: {class: "datepicker"} %>
-      <%= f.input :end_time, as: :string, required: false, input_html: {class: "timepicker"} %>
-      <%= f.submit "Go", class: "btn btn-primary" %>
+      <%= f.input :start_time, as: :string, required: false, input_html: {autocomplete: "Select a date", class: "datepicker"} %>
+      <%= f.submit "Confirm", class: "btn btn-primary" %>
+      <%= f.error_notification %>
     <% end %>
   </div>
-<!-- BELOW THE PREVIOUS VERSION -->
-<!--     <%= f.error_notification %>
-    <div class="form-inputs mt-3">
-     <%= f.input #:start_time, as: :string, required: false, input_html: { autocomplete: "Select a date", class: "datepicker"} %>
-      <%= f.submit #{}"Confirm", class: "btn btn-primary" %>
-      <% #end %>
-    </div> -->
+</div>
