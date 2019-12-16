@@ -100,6 +100,12 @@
 
               <div class="d-flex justify-content-between">
                 <!-- Excerpt -->
+                <p class="font-weight-regular"><%= treatment.name %></p>
+                <p> <%= link_to "Book", new_center_treatment_booking_path(treatment.center_id, treatment.id), class: "btn-flat" %></p>
+                   <% if @user_booked_treatments.include?(treatment) %>
+                <p> <%= link_to "Review", new_center_treatment_booking_review_path(treatment.center_id, treatment.id, treatment.bookings.where(customer: current_user).last )  %> </p>
+                <% end %>
+                <p class="font-weight-bold">from 100€</p>
                 <p class="text-muted font-weight-light">Sunday</p>
                 <p class="font-weight-light">Closed</p>
 

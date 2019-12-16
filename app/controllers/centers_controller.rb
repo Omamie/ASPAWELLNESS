@@ -9,6 +9,9 @@ class CentersController < ApplicationController
     @center.photos.build
     authorize @center
     @treatments = Treatment.where(center: @center)
+    @review = Review.new
+    @user_booked_treatments = current_user.bookings.map { |booking| booking.treatment }
+  end
 
     @marker =
       {
@@ -19,8 +22,6 @@ class CentersController < ApplicationController
       }
 
 end
-
-
   def new
     @center = Center.new
     authorize @center
@@ -50,13 +51,6 @@ end
   def edit
     @center = Center.find(params[:id])
     authorize @center
-  end
-
-  def update
-    @center = Center.find(params[:id])
-    authorize @center
-    @center.update(safe_params)
-    redirect_to center_path(@center)
   end
 
   def destroy
