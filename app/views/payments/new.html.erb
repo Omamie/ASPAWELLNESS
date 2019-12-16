@@ -13,7 +13,10 @@
                 <div class="product">
                   <div class="row">
                     <div class="col-md-3">
-                      <%= cl_image_tag(@booking.treatment.photos.first, class: 'img-fluid mx-auto d-block image') %>
+
+                    <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path(@booking.treatment.photos.first&.attachment&.url) %>)"></div>
+
+                      
                     </div>
                     <div class="col-md-8">
                       <div class="info">
@@ -22,9 +25,7 @@
                             <div class="product-name">
                               <a href="#"><%= @booking.treatment.name %></a>
                               <div class="product-info">
-                                <div>Display: <span class="value">5 inch</span></div>
-                                <div>RAM: <span class="value">4GB</span></div>
-                                <div>Memory: <span class="value">32GB</span></div>
+                                <div><p><%= @booking.treatment.description %></p></div>
                               </div>
                             </div>
                           </div>

@@ -16,7 +16,6 @@ Owner.destroy_all
 User.destroy_all
 
 
-
 puts 'Creating users...'
 user_attributes =
 [{"first_name":"Ketty","last_name":"Winham","email":"ketty0@gmail.com","gender":"Female", "password":"1234567"},
