@@ -28,10 +28,6 @@
            <div class="pr-2"><p class="font-weight-light"><%= @center.treatments.first.category %></p></div>
            <div class=""><%= link_to "Book Now", new_treatment_booking_path(@center.treatments.first), class: "btn-flat" %></div>
           </div>
-          <div class="d-line">
-            <p class="font-weight-regular">Starting from <%= @center.treatments.first.price %> €</p>
-            <p class="text-muted font-weight-bold"> <%= @center.treatments.first.duration %>  mins</p>
-          </div>
           <!-- Excerpt -->
           <h3 class="font-weight-bold dark-grey-text mb-3"></h3>
           <p class="text-muted font-weight-light">This massage aims to reduce pain by providing you high-quality
@@ -120,16 +116,12 @@
             <% @center.treatments.each do |t|  %>
 
             <div class=" d-flex align-items-start">
-           <div class="flex-grow-1"><h6 class="font-weight-bold"><%=@center.treatments.first.name%> </h6></div>
-           <div class="pr-2"><p class="font-weight-light"><%= @center.treatments.first.category %></p></div>
-           <div class=""><%= link_to "Book Now", new_treatment_booking_path(@center.treatments.first), class: "btn-flat" %></div>
-          </div>
-          <p class="font-weight-bold"><%= t.name  %></p>
+           <div class="flex-grow-1"><h6 class="font-weight-bold"><%=t.name%> </h6></div>
+           <div class="pr-2"><p class="font-weight-lighter"><%= t.category %></p></div>
+           <div class=""><%= link_to "Book Now", new_treatment_booking_path(@center.treatments.first), class: "btn btn-flat" %></div>
 
-          <p>Starting from <%= t.price %>€</p>
-          <p class="text-muted font-weight-bold"><%= t.duration %> mins</p>
-          <p class="text-muted font-weight-light"><%= t.description  %></p>
-          <p><%= t.category %></p>
+          </div>
+          <div class=""><p class="font-weight-bold text-muted"><%=t.duration%> mins</p></div>
           <% end%>
 
             </div>
