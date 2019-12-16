@@ -8,12 +8,12 @@
         <div class="card-info d-flex">
           <div class="card-info-text p-2 w-100">
             <h3 class="card-treatment-name"><%= link_to t.center.name, center_path(t.center.id)%></h3>
-            <p class="card-treatment-name font-weight-lighter"> <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt fa-star"></i> <%= t.center.no_of_reviews %> Reviews</p>
-            <p class="card-treatment-name font-weight-bold grey-text text-uppercase small"><%=t.name%></p>
+            <p class="card-treatment-name font-weight-lighter small"> <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt fa-star"></i> <%= t.center.no_of_reviews %> Reviews</p>
+            <p class="card-treatment-name font-weight-normal "><%=t.name%></p>
             <p class="card-treatment-adress font-weight-light"><%=t.center.address %></p>
           </div>
           <div class="card-price p-2 flex-shrink-1">
-            <h4><%=t.price%>€</h4>
+            <h5 class="text-center font-weight-light small"><%=t.price%>€</h5>
             <%= link_to "Show More", center_path(t.center.id), class:"btn btn-flat" %>
           </div>
         </div>

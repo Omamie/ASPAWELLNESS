@@ -5,6 +5,7 @@
       <p class= "text-light font-weight-normal"><%= @center.address%></p>
       <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i><p class= "text-light font-weight-light-small"> <%= @center.no_of_reviews %> Reviews</p>
     <%= link_to "Book Now", new_treatment_booking_path(@center.treatments.first), class: "btn btn-flat" %>
+    <p class= "font-weight-lighter mt-3">20% off your first booking!</p>
       <div class="p-2 flex-shrink-1 bd-highlight"></div>
     </div>
   </div>
@@ -27,6 +28,7 @@
            <div class="flex-grow-1"><h6 class="font-weight-bold"><%=@center.treatments.first.name%> </h6></div>
            <div class="pr-2"><p class="font-weight-light"><%= @center.treatments.first.category %></p></div>
            <div class=""><%= link_to "Book Now", new_treatment_booking_path(@center.treatments.first), class: "btn-flat" %></div>
+
           </div>
           <!-- Excerpt -->
           <h3 class="font-weight-bold dark-grey-text mb-3"></h3>
@@ -122,18 +124,34 @@
 
           </div>
           <div class=""><p class="font-weight-bold text-muted"><%=t.duration%> mins</p></div>
+
           <% end%>
 
             </div>
+
+
             <!-- Grid column -->
           </div>
+
           <!-- Grid row -->
+          <% if current_user.class == owner %>
+
+          <%=link_to "Add Treatment", new_treatment_path %>
+
+          <% else %>
+          <% end  %>
+
+          <p>Hello</p>
         </div>
+
         <!-- Small news -->
         <!-- Small news -->
       </div>
+       <div class="container"><p class="font-italic">Off Peak and Last Minute Discounts Available!</p></div>
       <!--Grid column-->
+
     </div>
+
   </div>
   <!-- Grid row -->
 </section>
