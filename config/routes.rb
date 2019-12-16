@@ -1,45 +1,30 @@
 Rails.application.routes.draw do
-  get 'payments/new'
   devise_for :users, controllers: {
     registrations: 'customers/registrations'
   }
   root to: 'pages#home'
 
   resources :centers, except: :index do
-    resources :treatments, except: [:show] do
-      resources :bookings, only: [:index, :new, :create] do
-        resources :payments, only: [:new, :order_confirm] do
-          resources :order_confirmation, only: [:show]
-        end
-      end
-    end
+    resources :bookings, only: :index # calendar view
+    resources :treatments, only: [:new, :create]
   end
 
+  resources :treatments, only: [:index] do
+    resources :bookings, only: [:new, :create]
+  end
 
-  resources :bookings, only: :index
-  resources :searches, only: :index, path: :search
-  get "/results", to: "pages#results"
+  resources :bookings, only: [:index, :show] do
+    resources :payments, only: :new
+
+    resources :reviews, only: [:new, :create]
+  end
+
   resource :autocomplete, only: :show
+  resources :searches, only: :index, path: :search
+
+  get "/results", to: "pages#results"
+
   get 'pages/help', to: 'pages#help'
-  get 'pages/bookings', to: 'pages#bookings'
-
-  # # /centers
-  # resources :centers, except: :index do
-  #   # /centers/:center_id/treatments/new
-  #   resources :treatments, only: [:new, :create]
-  # end
-
-  # # /treatments/
-  # resources :treatments, only: [:index, :edit, :update, :destroy] do
-  #   # /treatments/:treatment_id/bookings/new
-  #   resources :bookings, only: [:new, :create]
-  # end
-
-  # # /bookings/
-  # resources :bookings, only: [:index] do
-  #   # /bookings/:booking_id/payments/new
-  #   resources :payments, only: [:new, :order_confirm]
-  # end
 end
 
 

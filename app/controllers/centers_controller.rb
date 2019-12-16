@@ -9,6 +9,10 @@ class CentersController < ApplicationController
     @center.photos.build
     authorize @center
     @treatments = Treatment.where(center: @center)
+    @review = Review.new
+    @reviews = @center.reviews
+
+    @user_booked_treatments = current_user.bookings.map { |booking| booking.treatment }
 
     @marker =
       {
@@ -17,9 +21,7 @@ class CentersController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { center: @center }),
         image_url: helpers.asset_url('circle-cropped.png')
       }
-
-end
-
+  end
 
   def new
     @center = Center.new
@@ -50,13 +52,6 @@ end
   def edit
     @center = Center.find(params[:id])
     authorize @center
-  end
-
-  def update
-    @center = Center.find(params[:id])
-    authorize @center
-    @center.update(safe_params)
-    redirect_to center_path(@center)
   end
 
   def destroy
