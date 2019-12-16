@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   }
   root to: 'pages#home'
 
+
   resources :centers, except: :index do
     resources :bookings, only: :index # calendar view
     resources :treatments, only: [:new, :create]

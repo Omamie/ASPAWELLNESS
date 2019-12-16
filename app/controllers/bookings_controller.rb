@@ -20,9 +20,9 @@ class BookingsController < ApplicationController
 
     @booking.treatment = @treatment
     @booking.customer = current_user
-
+    @user = current_user
     if @booking.save
-
+      @user.phone_number = @booking.phone_number
       # Stripe Session
       session = Stripe::Checkout::Session.create(
         payment_method_types: ['card'],
@@ -35,9 +35,10 @@ class BookingsController < ApplicationController
         success_url: booking_url(@booking),
         cancel_url: new_treatment_booking_url(@treatment)
       )
-      @booking.update(checkout_session_id: session.id)
+      @booking.update(checkout_session_id: session.id, status: "paid")
       redirect_to new_booking_payment_path(@booking)
     else
+
       render :new
     end
   end
@@ -54,6 +55,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_time)
+    params.require(:booking).permit(:start_time, :phone_number)
   end
 end
