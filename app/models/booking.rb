@@ -1,6 +1,8 @@
 class Booking < ApplicationRecord
   belongs_to :treatment
   belongs_to :customer, class_name: "User"
+  has_many :reviews
+
   enum status: [:pending, :confirmed, :cancelled]
   # monetize :price_cents
   validates :start_time, presence: true
