@@ -5,6 +5,9 @@
   margin-top: 40px;
 }
 
+.card-title {
+  color: #2a394d;
+}
 
 .cards {
   display: grid;
@@ -13,6 +16,13 @@
   margin: auto;
 }
 
+.card-text {
+  color: #777777;
+}
+
+.card-subtitle{
+  color: #2a394d;
+}
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
@@ -69,7 +79,8 @@
  }
 
 .center-card-title {
-  font-weight: normal;
+  font-weight: bold;
+  color: #2a394d;
 }
 
 .treatment-centre-card-product {
@@ -93,11 +104,14 @@
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+  color: #2a394d
 }
+
 
 
 .treatment-centre-card-product-infos a {
 text-decoration: none;
+color: #2a394d;
 }
 
 .treatment-centre-card-product-infos {
@@ -136,6 +150,7 @@ margin: 0;
   font-size: 16px;
   margin-left: 8px;
   font-weight: lighter;
+  color: 777777;
 }
 
 .centre-card-price {
@@ -174,9 +189,15 @@ font-weight: lighter;
 border-radius: 8px;
 }
 .fa-star {
-  color: #FFB500;
+ color: #3D8C90;
 }
 
 .fa-star-half {
-  color: #FFB500;
+ color: #3D8C90;
 }
+
+.map-card  {
+  padding-left: 0;
+  padding-right: 0;
+}
+

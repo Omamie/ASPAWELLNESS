@@ -13,6 +13,15 @@ class CentersController < ApplicationController
     @user_booked_treatments = current_user.bookings.map { |booking| booking.treatment }
   end
 
+    @marker =
+      {
+        lat: @center.latitude,
+        lng: @center.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { center: @center }),
+        image_url: helpers.asset_url('circle-cropped.png')
+      }
+
+end
   def new
     @center = Center.new
     authorize @center

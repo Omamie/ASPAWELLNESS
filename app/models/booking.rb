@@ -11,7 +11,6 @@ class Booking < ApplicationRecord
   def end_time
     start_time + treatment.duration.minutes
   end
-
    # {
    #      title  : 'event2',
    #      start  : '2019-01-05',
