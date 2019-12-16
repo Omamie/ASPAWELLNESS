@@ -23,23 +23,23 @@ Rails.application.routes.draw do
   get 'pages/help', to: 'pages#help'
   get 'pages/bookings', to: 'pages#bookings'
 
-  # /centers
-  resources :centers, except: :index do
-    # /centers/:center_id/treatments/new
-    resources :treatments, only: [:new, :create]
-  end
+  # # /centers
+  # resources :centers, except: :index do
+  #   # /centers/:center_id/treatments/new
+  #   resources :treatments, only: [:new, :create]
+  # end
 
-  # /treatments/
-  resources :treatments, only: [:index, :edit, :update, :destroy] do
-    # /treatments/:treatment_id/bookings/new
-    resources :bookings, only: [:new, :create]
-  end
+  # # /treatments/
+  # resources :treatments, only: [:index, :edit, :update, :destroy] do
+  #   # /treatments/:treatment_id/bookings/new
+  #   resources :bookings, only: [:new, :create]
+  # end
 
-  # /bookings/
-  resources :bookings, only: [:index] do
-    # /bookings/:booking_id/payments/new
-    resources :payments, only: [:new, :order_confirm]
-  end
+  # # /bookings/
+  # resources :bookings, only: [:index] do
+  #   # /bookings/:booking_id/payments/new
+  #   resources :payments, only: [:new, :order_confirm]
+  # end
 end
 
 
