@@ -1,6 +1,8 @@
 class Booking < ApplicationRecord
   belongs_to :treatment
   belongs_to :customer, class_name: "User"
+  has_many :reviews
+
   enum status: [:pending, :confirmed, :cancelled]
   # monetize :price_cents
   validates :start_time, presence: true
@@ -9,11 +11,12 @@ class Booking < ApplicationRecord
   def end_time
     start_time + treatment.duration.minutes
   end
-   # {
-   #      title  : 'event2',
-   #      start  : '2019-01-05',
-   #      end    : '2019-01-07'
-   #    },
+
+  # {
+  #      title  : 'event2',
+  #      start  : '2019-01-05',
+  #      end    : '2019-01-07'
+  #    }
   def to_event
     {
       title: treatment.name,

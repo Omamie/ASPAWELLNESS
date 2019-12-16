@@ -54,6 +54,15 @@ ActiveRecord::Schema.define(version: 2019_12_15_135747) do
     t.index ["imageable_type", "imageable_id"], name: "index_photos_on_imageable_type_and_imageable_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.integer "stars"
+    t.text "description"
+    t.bigint "booking_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_reviews_on_booking_id"
+  end
+
   create_table "slots", force: :cascade do |t|
     t.datetime "start_time"
     t.datetime "end_time"
@@ -98,6 +107,7 @@ ActiveRecord::Schema.define(version: 2019_12_15_135747) do
   end
 
   add_foreign_key "bookings", "treatments"
+  add_foreign_key "reviews", "bookings"
   add_foreign_key "slots", "centers"
   add_foreign_key "treatments", "centers"
 end

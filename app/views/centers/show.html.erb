@@ -4,7 +4,7 @@
       <h1 class= "text-light font-weight-bold"><%= @center.name %></h1>
       <p class= "text-light font-weight-normal"><%= @center.address%></p>
       <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i><p class= "text-light font-weight-light-small"> <%= @center.no_of_reviews %> Reviews</p>
-      <%= link_to "Book Now", new_center_treatment_booking_path(@center.id, @center.treatments.each do |t| t.id end ), class: "btn-flat" %>
+      <%#= link_to "Book Now", new_center_treatment_booking_path(@center.id, @center.treatments.each do |t| t.id end ), class: "btn-flat" %>
       <div class="p-2 flex-shrink-1 bd-highlight"></div>
     </div>
   </div>
@@ -17,15 +17,15 @@
         <!-- Featured news -->
         <div class="single-news">
           <!-- Image -->
-          <div class="view overlay rounded z-depth-1-half mb-4">
-            <img class="img-fluid treatment-img" src="https://images.unsplash.com/photo-1519824145371-296894a0daa9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Sample image">
+          <div class="view overlay rounded z-depth-1-half mb-4 treatment-img img-fluid">
+            <%= cl_image_tag(@center.treatments.first.photos.first&.attachment&.url, class: "treatment-img img-fluid")%>
           </div>
           <div class="view overlay rounded z-depth-1-half mb-4">
           </div>
           <!-- Data -->
           <div class="news-data d-flex justify-content-between align-items-center">
             <h6 class="font-weight-bold"><%=@center.treatments.first.name%> </h6>
-            <%= link_to "Book Now", new_center_treatment_booking_path(@center.id, @center.treatments.each do |t| t.id end ), class: "btn-flat" %>
+            <%= link_to "Book Now", new_treatment_booking_path(@center.treatments.first), class: "btn-flat" %>
           </div>
           <div class="d-line">
             <p class="font-weight-regular">Starting from <%= @center.treatments.first.price %> €</p>
@@ -100,6 +100,12 @@
 
               <div class="d-flex justify-content-between">
                 <!-- Excerpt -->
+                <p class="font-weight-regular"><%#= treatment.name %></p>
+                <p> <%#= link_to "Book", new_center_treatment_booking_path(treatment.center_id, treatment.id), class: "btn-flat" %></p>
+                   <%# if @user_booked_treatments.include?(treatment) %>
+                <p> <%#= link_to "Review", new_center_treatment_booking_review_path(treatment.center_id, treatment.id, treatment.bookings.where(customer: current_user).last )  %> </p>
+                <%# end %>
+                <p class="font-weight-bold">from 100€</p>
                 <p class="text-muted font-weight-light">Sunday</p>
                 <p class="font-weight-light">Closed</p>
 
@@ -210,10 +216,14 @@ position: absolute;
     <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-6 mb-4">
-            <div id="map-within-card-2" class="map-container container rounded-left mt-5" style="height: 400px">
-        <iframe  src="https://maps.google.com/maps?q=Milan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
-        style="border:0" allowfullscreen></iframe>
-      </div>
+            <div
+        class="pt-2 px-2"
+        id="map"
+        style="width: 100%;
+        height: 400px;"
+        data-markers="<%= @marker.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+      ></div>
           </div>
           <div class="col-10 col-md-4 align-self-center py-4">
              <h6 class="font-weight-bold grey-text text-uppercase small"> <%= @center.name %> </h6>

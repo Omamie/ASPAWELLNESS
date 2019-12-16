@@ -4,6 +4,8 @@ class Treatment < ApplicationRecord
   has_many :photos, as: :imageable
   monetize :price_cents
 
+  # accepts_nested_attributes_for :photos
+
   def self.search_by_name(query)
     where("name ILIKE ?", "#{query}%")
   end

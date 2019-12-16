@@ -1,7 +1,16 @@
 class TreatmentsController < ApplicationController
+  # This is how url should look like
+  # http://localhost:3000/treatments?category=massages
   def index
     @treatments = policy_scope(Treatment)
     authorize @treatments
+    # check if params category exists
+    if @treatments.where(params[:category])
+      # if it exists filter by category
+      @treatments = @treatments.where(category: params[:category])
+    else
+      @treatments
+    end
   end
 
   def new
