@@ -1,4 +1,4 @@
-<h1> Choose your <%= @treatments.first.category %> treatment</h1>
+<h1 style="text-align: center;"> Choose your <%= @treatments.first.category %> treatment</h1>
 
 <!-- <div class="d-flex p-2 bd-highlight container" style="max-width: fit-content; margin:0 auto;">
  -->  <div class="card-container row no-gutters">
@@ -16,7 +16,7 @@
           <p class="card-treatment-review"><%#= t.center.reviews %></p>
         </div>
         <div class="card-price">
-          <h2><%=t.price%></h2>
+          <h2><%=t.price%>€</h2>
           <%= link_to "Show More", center_path(t.center.id), class:"btn btn-flat" %>
         </div>
       </div>
