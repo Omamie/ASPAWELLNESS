@@ -8,8 +8,10 @@
 
 <%elsif current_user.owner? %>
 
-  <div class="container mt-5">
-  <button class="month">Week</button>
+  <div class="container mt-5 bg-white">
+  <button class="month btn-flat">Month</button>
+  <button class="week btn-flat">Week</button>
+  <button class="day btn-flat">Day</button>
   <div id="calendar" data-events="<%= @events.to_json %>"></div>
   </div>
 

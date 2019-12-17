@@ -79,9 +79,9 @@ $( document ).ready(function() {
 //   });
 
 const element = document.getElementById('calendar');
-const week = document.querySelector('.month');
-
-
+const month = document.querySelector('.month');
+const  week = document.querySelector('.week');
+const day = document.querySelector('.day');
 
 if (element) {
   const events = JSON.parse(element.dataset.events)
@@ -93,35 +93,19 @@ if (element) {
 
   console.log(c.fullCalendar("getView"));
 
+  month.addEventListener("click", () => {
+     c.fullCalendar('changeView', 'month');
+  });
+
   week.addEventListener("click", () => {
-
-    if (week.classList.contains("month")) {
-      week.classList.remove("month");
-      week.classList.add("week");
-      week.innerText = "Day view"
-
       c.fullCalendar('changeView', 'listWeek');
-  }
+  });
 
-  else if (week.classList.contains("week")) {
-      week.classList.remove("week");
-      week.classList.add("day");
-      week.innerText = "Month view"
-
-      c.fullCalendar('changeView', 'agendaDay');
-
-
-  } else {
-    week.classList.add("month");
-    week.innerText = "Week view"
-    c.fullCalendar('changeView', 'month');
-
-  }
-});
+  day.addEventListener("click", () => {
+    c.fullCalendar('changeView', 'agendaDay');
+  });
 }
 });
-
-
 
 
 

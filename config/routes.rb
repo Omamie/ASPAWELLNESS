@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   end
 
   resource :autocomplete, only: :show
+
   resources :searches, only: :index, path: :search
 
   get "/results", to: "pages#results"
