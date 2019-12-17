@@ -4,7 +4,8 @@ class Booking < ApplicationRecord
   has_many :reviews
 
   enum status: [:pending, :confirmed, :cancelled]
-  # monetize :price_cents
+  monetize :price_cents
+
   validates :start_time, presence: true
   # validate :validate_other_booking_overlap
 

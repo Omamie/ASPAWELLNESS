@@ -16,20 +16,19 @@ Owner.destroy_all
 User.destroy_all
 
 
-
 puts 'Creating users...'
 user_attributes =
-[{"first_name":"Ketty","last_name":"Winham","email":"ketty0@gmail.com","gender":"Female", "password":"1234567"},
-{"first_name":"Clovis","last_name":"Colvill","email":"clovis@yahoo.com","gender":"Female", "password":"89101112"},
-{"first_name":"Susy","last_name":"Geldeard","email":"susy@libero.it","gender":"Female", "password":"13141516"},
-{"first_name":"Brennan","last_name":"Kimmerling","email":"brennan@yahoo.com","gender":"Male", "password":"17181920"},
-{"first_name":"Aluino","last_name":"Grodden","email":"aluino@gmail.co.uk","gender":"Male", "password":"21222324"},
-{"first_name":"Elia","last_name":"Kubalek","email":"elia@libero.br","gender":"Male","password":"2526272829"},
-{"first_name":"Benji","last_name":"Semiraz","email":"benji@gmail.fr","gender":"Male", "password":"3031323334"},
-{"first_name":"Gerda","last_name":"Piggin","email":"gerda@yahoo.co.uk","gender":"Female", "password":"3536373839"},
-{"first_name":"Anallese","last_name":"MacCarrane","email":"anallese@hotmail.co.uk","gender":"Female", "password":"4041424344"},
-{"first_name":"Carl","last_name":"Camacke","email":"carl@ucla.ac.uk","gender":"Male", "password":"4546474849"},
-{"first_name":"Lisa","last_name":"MacCargrey","email":"lisa@hotmail.co.uk","gender":"Female", "password":"4041424344", type: "Owner"}]
+[{"first_name":"Ketty","last_name":"Winham","email":"ketty0@gmail.com","gender":"Female", "password":"1234567", "number":"3334366789"},
+{"first_name":"Clovis","last_name":"Colvill","email":"clovis@yahoo.com","gender":"Female", "password":"89101112", "number":"3336366789"},
+{"first_name":"Susy","last_name":"Geldeard","email":"susy@libero.it","gender":"Female", "password":"13141516", "number":"3334366989"},
+{"first_name":"Brennan","last_name":"Kimmerling","email":"brennan@yahoo.com","gender":"Male", "password":"17181920", "number":"3336366789"},
+{"first_name":"Aluino","last_name":"Grodden","email":"aluino@gmail.co.uk","gender":"Male", "password":"21222324", "number":"3334346789"},
+{"first_name":"Elia","last_name":"Kubalek","email":"elia@libero.br","gender":"Male","password":"2526272829", "number":"3334366689"},
+{"first_name":"Benji","last_name":"Semiraz","email":"benji@gmail.fr","gender":"Male", "password":"3031323334", "number":"3334362789"},
+{"first_name":"Gerda","last_name":"Piggin","email":"gerda@yahoo.co.uk","gender":"Female", "password":"3536373839", "number":"3324366789"},
+{"first_name":"Anallese","last_name":"MacCarrane","email":"anallese@hotmail.co.uk","gender":"Female", "password":"4041424344", "number":"3134366789"},
+{"first_name":"Carl","last_name":"Camacke","email":"carl@ucla.ac.uk","gender":"Male", "password":"4546474849", "number":"3333366789"},
+{"first_name":"Lisa","last_name":"MacCargrey","email":"lisa@hotmail.co.uk","gender":"Female", "password":"4041424344", type: "Owner", "number":"3335666789"}]
 
 User.create!(user_attributes)
 
@@ -68,15 +67,30 @@ Center.create!(center_attributes)
 puts "Creating treatments..."
 
 treatment_attributes = [{name:"Circulatory Massage",description:"Targeted massage to help blood circulation", price_cents: 7800, center_id: Center.ids.sample, category: "Health", capacity_per_hour: 3, duration: 60},
-{"name":"Relaxing Massage","description":"Massage made with moves that relax muscles and mind.","price_cents":9650, center_id: Center.ids.sample, category: "Health", capacity_per_hour: 5, duration: 120},
-{"name":"Lymphatic Drainage Massage","description":"Massage that helps lymph flow towards the discharge points, frees the body from excess fluids.","price_cents":856, center_id: Center.ids.sample, category: "Massage", capacity_per_hour: 1, duration: 60},
-{"name":"Tissue Massage","description":"Manual anti cellulite indicated in cases of localized fat and cellulite treatment.","price_cents":1000, center_id: Center.ids.sample, category: "Health", capacity_per_hour: 6, duration: 60},
-{"name":"Sports Massage","description":"With a sports massage to all the major muscles, tension is gradually relaxed and circulation restored.","price_cents":9300, center_id: Center.ids.sample, category: "spa", capacity_per_hour: 2, duration: 120},
+{"name":"Relaxing Massage",description:"Massage made with moves that relax muscles and mind.","price_cents":9650, center_id: Center.ids.sample, category: "Health", capacity_per_hour: 5, duration: 120},
+{"name":"Lymphatic Drainage Massage","description":"Massage that helps lymph flow towards the discharge points, frees the body from excess fluids.","price_cents":8550, center_id: Center.ids.sample, category: "Massage", capacity_per_hour: 1, duration: 60},
+{"name":"Tissue Massage",description:"Manual anti cellulite indicated in cases of localized fat and cellulite treatment.","price_cents":1000, center_id: Center.ids.sample, category: "Health", capacity_per_hour: 6, duration: 60},
+{"name":"Sports Massage",description:"With a sports massage to all the major muscles, tension is gradually relaxed and circulation restored.","price_cents":9300, center_id: Center.ids.sample, category: "Spa", capacity_per_hour: 2, duration: 120},
 {"name":"Relaxing Massage with Argan Oil","description":"Relaxing massage made with argan oil properties, super nutrients and antioxidants.","price_cents":1500, center_id: Center.ids.sample, category: "Massage", capacity_per_hour: 3, duration: 180},
-{"name":"Zonal Massage","description":"Massage performed in an area of the body: back, leg, foot, neck and neck area.","price_cents":4070, center_id: Center.ids.sample, category: "Health", capacity_per_hour: 3, duration: 180},
-{"name":"Facial Massage","description":"The treatment consists of a gentle massage of the face with the use of a vial or specific cream.","price_cents":2630, center_id: Center.ids.sample, category: "spa", capacity_per_hour: 5, duration: 60},
-{"name":"Couples Massage","description":"Massage performed simultaneously with relaxing effect.","price_cents":4530, center_id: Center.ids.sample, category: "massage", capacity_per_hour: 1, duration: 60},
-{"name":"Back and Shoulders Massage", description: "Couples massage using aromatic candles with pepper and cocoa, which when lit, create an oil that caress the body. They represent a real wellness ritual that involves all the senses", price_cents: 1880, center_id: Center.ids.sample, category: "spa", capacity_per_hour: 3, duration: 60}]
+{"name":"Zonal Massage",description:"Massage performed in an area of the body: back, leg, foot, neck and neck area.","price_cents":4070, center_id: Center.ids.sample, category: "Health", capacity_per_hour: 3, duration: 180},
+{"name":"Facial Massage",description:"The treatment consists of a gentle massage of the face with the use of a vial or specific cream.","price_cents":2630, center_id: Center.ids.sample, category: "Spa", capacity_per_hour: 5, duration: 60},
+{"name":"Couples Massage",description:"Massage performed simultaneously with relaxing effect.","price_cents":4530, center_id: Center.ids.sample, category: "massage", capacity_per_hour: 1, duration: 60},
+{"name":"Back and Shoulders Massage", description: "Couples massage using aromatic candles with pepper and cocoa, which when lit, create an oil that caress the body. They represent a real wellness ritual that involves all the senses", price_cents: 1880, center_id: Center.ids.sample, category: "Spa", capacity_per_hour: 3, duration: 90},
+{"name":"Deep Tissue Massage", description: "During a deep tissue massage, a firmer pressure is used and more specific attention is paid to muscle knots or trigger points.", price_cents: 1950, center_id: Center.ids.first, category: "Massage", capacity_per_hour: 3, duration: 60},
+{"name":"Swedish Massage", description: "A Swedish massage is known as a ‘classic massage’. A Swedish massage aims to manipulate muscles into relaxation through the use of lighter pressured, gentle strokes throughout the massage.", price_cents: 2550, center_id: Center.ids.second, category: "Health", capacity_per_hour: 3, duration: 120},
+{"name":"Radiofrequency Skin Tightening & Contouring", description: "Radio Frequency Skin Tightening treatments help combat the effects of ageing by stimulating the regeneration of collagen to make skin smoother and tighter.", price_cents: 3000, center_id: Center.ids.third, category: "Massage", capacity_per_hour: 3, duration: 90},
+{"name":"Aromatherapy Balinese Massage", description: "The Balinese massage is unique in that it brings together several alternative medicine practices such as massage therapy, acupressure, and reflexology with the use of essential oils", price_cents: 3000, center_id: Center.ids.first, category: "Massage", capacity_per_hour: 3, duration: 60},
+{"name":"Reflexology", description: "Reflexology is an instantly relaxing and soothing therapy that benefits anyone who suffers from stress and anxiety.", price_cents: 5000, center_id: Center.ids.second, category: "Massage", capacity_per_hour: 3, duration: 60},
+{"name":"Hot Stone Massage", description: "Hot stone massage is a specialty massage where the therapist uses smooth, heated stones as an extension of their own hands, or by placing them on the body.", price_cents: 2500, center_id: Center.ids.third, category: "Massage", capacity_per_hour: 3, duration: 60},
+{"name":"Back Facial", description: "With a back facial you can relieve stress and deep cleanse that hard-to-reach area in one go.", price_cents: 2500, center_id: Center.ids.first, category: "Massage", capacity_per_hour: 3, duration: 45},
+{"name":"Thermal Spa Experience", description: "This exceptional skin softening body exfoliation combines sugar crystals with argan oil and milk, which gently massage, exfoliate rough skin and stimulate the micro-circulation.", price_cents: 6500, center_id: Center.ids.third, category: "Spa", capacity_per_hour: 3, duration: 60},
+{"name":"Ayuverdic Ritual Spa Day", description: "The ultimate Full Body Holistic Treatment, it will take you on a journey of the spices. With a highly specialist blend of cinnamon, clove, cardamom, ginger, anise, rose and geranium to brighten the skin and uplift the soul.", price_cents: 7500, center_id: Center.ids.second, category: "Spa", capacity_per_hour: 3, duration: 90},
+{"name":"Mind & Body Thermal Spa Experience", description: "Using a combination of massage techniques, this treatment de-stresses the mind and body leaving you relaxed and at peace.", price_cents: 4500, center_id: Center.ids.third, category: "Spa", capacity_per_hour: 3, duration: 50},
+{"name":"Body Scrub", description: "A full-body exfoliation ritual is to invigorate and revitalise the body, giving your skin a polished glow.", price_cents: 2000, center_id: Center.ids.fourth, category: "Spa", capacity_per_hour: 3, duration: 90},
+{"name":"Deep Cleansing Facial", description: "This facial combines steaming, deep exfoliation and extraction to open up clogged pores and draw out oil and debris.", price_cents: 2000, center_id: Center.ids.fourth, category: "Spa", capacity_per_hour: 3, duration: 65},
+{"name":"Anti-Aging Facial", description: "A full-body exfoliation ritual is to invigorate and revitalise the body, giving your skin a polished glow.", price_cents: 2000, center_id: Center.ids.fourth, category: "Spa", capacity_per_hour: 3, duration: 45},
+]
+
 
 Treatment.create!(treatment_attributes)
 

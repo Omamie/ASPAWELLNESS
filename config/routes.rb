@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     registrations: 'customers/registrations'
   }
   root to: 'pages#home'
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
 
 
   resources :centers, except: :index do

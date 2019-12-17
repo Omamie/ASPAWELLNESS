@@ -73,6 +73,15 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
+.card-category-link {
+    color: white;
+
+}
+
+.card-category-link:hover {
+  text-decoration: none;
+}
+
  .card img {
   border-radius: 4px;
   height: 150px;
