@@ -1,22 +1,5 @@
 
 <%  if current_user.customer?  %>
-<% @bookings.each do |booking| %>
-<h2> <% booking.start_time %></h2>
-<h2> <% booking.end_time %></h2>
-<h2> <% booking.treatment.name %></h2>
-<% end %>
-
-<%elsif current_user.owner? %>
-
-  <div class="container mt-5">
-  <button class="month">Week</button>
-  <div id="calendar" data-events="<%= @events.to_json %>"></div>
-  </div>
-
-<% end %>
-
-
-<div class="container d-flex">
 
 <div class="container my-5">
 
@@ -43,8 +26,9 @@
                 <tr>
                   <% @bookings.each do |booking| %>
                   <th scope="row" class= "font-weight-light"><%= booking.start_time.strftime("%b %e, %l:%M %p") %></th>
-                  <td class= "font-weight-lighter"><%= cl_image_tag(booking.treatment.photos.first.attachment.url) %> <%= booking.treatment.name %>
-                  <%= booking.treatment.duration %>mins
+                  <td class= "treatment-link font-weight-lighter"><%= cl_image_tag(booking.treatment.photos.first&.attachment&.url || "default-thumb_qpqfou.png" ) %>
+                  <%= link_to booking.treatment.name, center_path(booking.treatment.center.id), class: "font-weight-normal" %>
+                  <%= booking.treatment.duration%> mins
                   <%= booking.treatment.price%> €</td>
 
                   <td><span class="badge badge-success">  <%= booking.status %>  </span></td>
@@ -63,6 +47,15 @@
   </section>
   <!-- Section: Block Content -->
 
-
 </div>
+
+<%elsif current_user.owner? %>
+
+  <div class="container mt-5">
+  <button class="month">Week</button>
+  <div id="calendar" data-events="<%= @events.to_json %>"></div>
+  </div>
+
+<% end %>
+
 </div>
