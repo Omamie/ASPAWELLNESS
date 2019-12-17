@@ -6,7 +6,10 @@ class ReviewPolicy < ApplicationPolicy
   end
 
   def new?
-    a = Booking.find(user.id)
-    a.treatment_id == @treatment.id
+    true
+  end
+
+  def create?
+    true
   end
 end

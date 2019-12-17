@@ -12,6 +12,7 @@
     "flatpickr": "^4.6.3",
     "install": "^0.13.0",
     "jquery": "^3.4.1",
+    "jquery-bar-rating": "^1.2.2",
     "mapbox": "^1.0.0-beta10",
     "mapbox-gl": "^1.6.0",
     "places.js": "^1.17.1",
