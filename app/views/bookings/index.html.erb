@@ -1,4 +1,18 @@
-<div class="container mt-5">
-<button id="week">Week</button>
-<div id="calendar" data-events="<%= @events.to_json %>"></div>
-</div>
+
+<%  if current_user.customer?  %>
+<% @bookings.each do |booking| %>
+<h2> <%= booking.start_time %></h2>
+<h2> <%= booking.end_time %></h2>
+<h2> <%= booking.treatment.name %></h2>
+<% end %>
+
+<%elsif current_user.owner? %>
+
+  <div class="container mt-5">
+  <button class="month">Week</button>
+  <div id="calendar" data-events="<%= @events.to_json %>"></div>
+  </div>
+
+<% end %>
+
+

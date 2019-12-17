@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   mount StripeEvent::Engine, at: '/stripe-webhooks'
 
+
   resources :centers, except: :index do
     resources :bookings, only: :index # calendar view
     resources :treatments, only: [:new, :create]

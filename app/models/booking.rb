@@ -20,7 +20,7 @@ class Booking < ApplicationRecord
   #    }
   def to_event
     {
-      title: treatment.name,
+      title: "#{customer.first_name} #{customer.last_name.upcase} - #{treatment.name} - ",
       start: start_time,
       end: end_time
     }
