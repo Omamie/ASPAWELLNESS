@@ -4,6 +4,8 @@ class Booking < ApplicationRecord
   has_many :reviews
 
   enum status: [:Pending, :Confirmed, :Cancelled]
+
+
   monetize :price_cents
 
   validates :start_time, presence: true
