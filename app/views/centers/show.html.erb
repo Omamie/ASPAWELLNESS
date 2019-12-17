@@ -5,7 +5,7 @@
       <p class= "text-light font-weight-normal"><%= @center.address%></p>
       <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i><p class= "text-light font-weight-light-small"> <%= @center.no_of_reviews %> Reviews</p>
     <%= link_to "Book Now", new_treatment_booking_path(@center.treatments.first), class: "btn btn-flat" %>
-    <p class="small font-weight-light font-italic mt-3">Off Peak and Last Minute Discounts Available!</p>
+    <p class="small font-weight-light font-italic mt-3">Off Peak and Last Minute Slots Available!</p>
       <div class="p-2 flex-shrink-1 bd-highlight"></div>
     </div>
   </div>
@@ -121,7 +121,10 @@
            <div class="flex-grow-1"><h6 class="font-weight-bold"><%=t.name%> </h6></div>
            <div class="pr-2"><p class="font-weight-lighter"><%= t.category %></p></div>
            <div class=""><%= link_to "Book Now", new_treatment_booking_path(@center.treatments.first), class: "btn btn-flat" %></div>
+            <% if @user_booked_treatments.include?(t) %>
+              <%= link_to "Review", new_booking_review_path(t)  %>
 
+            <% end %>
           </div>
           <div class=""><p class="font-weight-bold text-muted"><%=t.duration%> mins</p></div>
 

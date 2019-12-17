@@ -1,18 +1,61 @@
-
 <%  if current_user.customer?  %>
-<% @bookings.each do |booking| %>
-<h2> <%= booking.start_time %></h2>
-<h2> <%= booking.end_time %></h2>
-<h2> <%= booking.treatment.name %></h2>
-<% end %>
+
+<div class="container my-5">
+
+
+  <!-- Section: Block Content -->
+  <section>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="card card-list">
+          <div class="card-header white d-flex justify-content-between align-items-center py-3">
+            <p class="h5-responsive font-weight-bold mb-0">Bookings</p>
+          </div>
+          <div class="card-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th class= "font-weight-normal" scope="col">Date</th>
+                  <th class= "font-weight-normal" scope="col">Treatment</th>
+                  <th class= "font-weight-normal" scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <% @bookings.each do |booking| %>
+                  <th scope="row" class= "font-weight-light"><%= booking.start_time.strftime("%b %e, %l:%M %p") %></th>
+                  <td class= "treatment-link font-weight-lighter"><%= cl_image_tag(booking.treatment.photos.first&.attachment&.url || "default-thumb_qpqfou.png" ) %>
+                  <%= link_to booking.treatment.name, center_path(booking.treatment.center.id), class: "font-weight-normal" %>
+                  <%= booking.treatment.duration%> mins
+                  <%= booking.treatment.price%> €</td>
+
+                  <td><span class="badge badge-success">  <%= booking.status %>  </span></td>
+
+                  <% end %>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card-footer white py-3 d-flex justify-content-between">
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <!-- Section: Block Content -->
+
+</div>
 
 <%elsif current_user.owner? %>
-
-  <div class="container mt-5">
+<div class="container mt-5">
   <button class="month">Week</button>
   <div id="calendar" data-events="<%= @events.to_json %>"></div>
-  </div>
-
+</div>
 <% end %>
+
+
+</div>
 
 
