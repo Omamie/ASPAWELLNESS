@@ -4,8 +4,9 @@ class SearchesController < ApplicationController
     @treatments = policy_scope(Treatment)
     authorize @centers
     if params[:treatment].present? && params[:address].present?
+      location = params[:address].split(",")[0]
       sql_query = "treatments.name ILIKE :treatment and centers.address ILIKE :address"
-      @treatments = Treatment.joins(:center).where(sql_query, treatment: "%#{params[:treatment]}%" , address:"%#{params[:address]}%")
+      @treatments = Treatment.joins(:center).where(sql_query, treatment: "%#{params[:treatment]}%" , address:"%#{location}%")
     else
       @centers = policy_scope(Center)
     end
