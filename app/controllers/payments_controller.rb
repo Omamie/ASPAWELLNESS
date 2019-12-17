@@ -5,6 +5,5 @@ class PaymentsController < ApplicationController
   end
 
   def order_confirm
-
   end
 end

@@ -4,13 +4,7 @@ class TreatmentsController < ApplicationController
   def index
     @treatments = policy_scope(Treatment)
     authorize @treatments
-    # check if params category exists
-    if @treatments.where(params[:category])
-      # if it exists filter by category
-      @treatments = @treatments.where(category: params[:category])
-    else
-      @treatments
-    end
+    @treatments = @treatments.where(category: params[:category]) if @treatments.where(params[:category])
   end
 
   def new

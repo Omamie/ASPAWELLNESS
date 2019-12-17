@@ -14,4 +14,8 @@ class PagesController < ApplicationController
 
   def bookings
   end
+
+  def phone_number
+raise
+  end
 end

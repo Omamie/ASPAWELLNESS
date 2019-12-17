@@ -16,7 +16,7 @@
 
                     <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path(@booking.treatment.photos.first&.attachment&.url) %>)"></div>
 
-                      
+
                     </div>
                     <div class="col-md-8">
                       <div class="info">
@@ -34,7 +34,7 @@
                             <input id="quantity" type="number" value ="1" class="form-control quantity-input">
                           </div>
                           <div class="col-md-3 price">
-                            <span><%= humanized_money_with_symbol @booking.price_cents %></span>
+                            <span><%= humanized_money_with_symbol @booking.price %></span>
                           </div>
                         </div>
                       </div>
@@ -46,7 +46,7 @@
             <div class="col-md-12 col-lg-4">
               <div class="summary">
                 <h1>Checkout summary</h1>
-                <p>Purchase of <strong><%= @booking.treatment.name %></strong> for <strong><%= humanized_money_with_symbol @booking.price_cents %></strong></p>
+                <p>Purchase of <strong><%= @booking.treatment.name %></strong> for <strong><%= humanized_money_with_symbol @booking.price %></strong></p>
                 <button id="pay" class="btn btn-primary">Pay</button>
                 <script src="https://js.stripe.com/v3/"></script>
                 <script>
