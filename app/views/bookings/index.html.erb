@@ -1,4 +1,4 @@
-<%  if current_user.customer?  %>
+<% if current_user.customer?  %>
 
 <div class="container my-5">
 
@@ -22,16 +22,20 @@
                 </tr>
               </thead>
               <tbody>
+                <% @bookings.each do |booking| %>
                 <tr>
-                  <% @bookings.each do |booking| %>
+
                   <th scope="row" class= "font-weight-light"><%= booking.start_time.strftime("%b %e, %l:%M %p") %></th>
                   <td class= "treatment-link font-weight-lighter"><%= cl_image_tag(booking.treatment.photos.first&.attachment&.url || "default-thumb_qpqfou.png" ) %>
+
                   <%= link_to booking.treatment.name, center_path(booking.treatment.center.id), class: "font-weight-normal" %>
-                  <%= booking.treatment.duration%> mins
+                  <%=booking.treatment.duration%> mins
                   <%= booking.treatment.price%> €</td>
 
-                  <td><span class="badge badge-success">  <%= booking.status %>  </span></td>
-
+                  <td> <% if booking.status=="Confirmed" %> <span class="badge badge-success text-white">Success</span>
+                   <% elsif booking.status=="Pending" %> <span class="badge badge-info">Pending</span>
+                    <% elsif booking.status=="Cancelled" %> <span class="badge badge-danger">Cancelled</span>
+                    <% end %></td>
                   <% end %>
                 </tr>
               </tbody>
@@ -48,7 +52,7 @@
 
 </div>
 
-<%elsif current_user.owner? %>
+<%else %>
 <div class="container mt-5">
   <button class="month">Week</button>
   <div id="calendar" data-events="<%= @events.to_json %>"></div>
