@@ -5,7 +5,7 @@
       <p class= "text-light font-weight-normal"><%= @center.address%></p>
       <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i><p class= "text-light font-weight-light-small"> <%= @center.no_of_reviews %> Reviews</p>
     <%= link_to "Book Now", new_treatment_booking_path(@center.treatments.first), class: "btn btn-flat" %>
-    <p class= "font-weight-lighter mt-3">20% off your first booking!</p>
+    <p class="small font-weight-light font-italic mt-3">Off Peak and Last Minute Discounts Available!</p>
       <div class="p-2 flex-shrink-1 bd-highlight"></div>
     </div>
   </div>
@@ -117,7 +117,7 @@
 
             <% @center.treatments.each do |t|  %>
 
-            <div class=" d-flex align-items-start">
+            <div class=" d-flex align-items-center">
            <div class="flex-grow-1"><h6 class="font-weight-bold"><%=t.name%> </h6></div>
            <div class="pr-2"><p class="font-weight-lighter"><%= t.category %></p></div>
            <div class=""><%= link_to "Book Now", new_treatment_booking_path(@center.treatments.first), class: "btn btn-flat" %></div>
@@ -134,20 +134,13 @@
           </div>
 
           <!-- Grid row -->
-          <% if current_user.class == owner %>
 
-          <%=link_to "Add Treatment", new_treatment_path %>
-
-          <% else %>
-          <% end  %>
-
-          <p>Hello</p>
         </div>
 
         <!-- Small news -->
         <!-- Small news -->
       </div>
-       <div class="container"><p class="font-italic">Off Peak and Last Minute Discounts Available!</p></div>
+
       <!--Grid column-->
 
     </div>
@@ -226,13 +219,13 @@ position: absolute;
 <h4 class="font-weight-normal">Recommended For You</h4>
 <div class="cards">
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1534003888922-a3504fa8914e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60)">
-    Thermal Spa
+    Spa
   </div>
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1519823551278-64ac92734fb1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60)">
-    Couple's Massage
+    Health Treatments
   </div>
   <div class="card-category mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1545183387-50fea397256e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60)">
-    Swedish Massage
+    Massages
   </div>
   </div>
 </div>
