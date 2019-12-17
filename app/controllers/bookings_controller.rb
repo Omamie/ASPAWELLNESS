@@ -22,8 +22,8 @@ class BookingsController < ApplicationController
     @booking.price = @treatment.price
     @booking.customer = current_user
     @user = current_user
+    @user.update(phone_number: @booking.phone_number)
     if @booking.save
-      @user.phone_number = @booking.phone_number
       # Stripe Session
       session = Stripe::Checkout::Session.create(
         payment_method_types: ['card'],
