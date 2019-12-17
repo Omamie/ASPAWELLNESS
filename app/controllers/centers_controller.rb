@@ -19,7 +19,7 @@ class CentersController < ApplicationController
         lat: @center.latitude,
         lng: @center.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { center: @center }),
-        image_url: helpers.asset_url('circle-cropped.png')
+        image_url: helpers.asset_url('abc.png')
       }
   end
 
