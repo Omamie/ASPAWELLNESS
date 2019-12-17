@@ -1,9 +1,10 @@
 <h1> Choose your <%= @treatments.first.category %> treatment</h1>
 
-<div class="d-flex p-2 bd-highlight container" style="max-width: fit-content; margin:0 auto;">
-  <div class="card-container row">
+<!-- <div class="d-flex p-2 bd-highlight container" style="max-width: fit-content; margin:0 auto;">
+ -->  <div class="card-container row no-gutters">
     <% @treatments.each do |t| %>
-    <div class="treatment-card col-md-6">
+    <div class="col-6">
+    <div class="treatment-card center-card">
       <div class="card-image" style='background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4))'>
         <%= cl_image_tag(t.photos.first&.attachment&.url, class: "treatment-img")%>
       </div>
@@ -19,7 +20,8 @@
           <%= link_to "Show More", center_path(t.center.id), class:"btn btn-flat" %>
         </div>
       </div>
+      </div>
     </div>
     <% end %>
   </div>
-</div>
+<!-- </div> -->
