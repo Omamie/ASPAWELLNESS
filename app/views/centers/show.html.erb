@@ -4,7 +4,8 @@
       <h1 class= "text-light font-weight-bold"><%= @center.name %></h1>
       <p class= "text-light font-weight-normal"><%= @center.address%></p>
       <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i><p class= "text-light font-weight-light-small"> <%= @center.no_of_reviews %> Reviews</p>
-      <%#= link_to "Book Now", new_center_treatment_booking_path(@center.id, @center.treatments.each do |t| t.id end ), class: "btn-flat" %>
+    <%= link_to "Book Now", new_treatment_booking_path(@center.treatments.first), class: "btn btn-flat" %>
+    <p class="small font-weight-light font-italic mt-3">Off Peak and Last Minute Discounts Available!</p>
       <div class="p-2 flex-shrink-1 bd-highlight"></div>
     </div>
   </div>
@@ -23,13 +24,11 @@
           <div class="view overlay rounded z-depth-1-half mb-4">
           </div>
           <!-- Data -->
-          <div class="news-data d-flex justify-content-between align-items-center">
-            <h6 class="font-weight-bold"><%=@center.treatments.first.name%> </h6>
-            <%= link_to "Book Now", new_treatment_booking_path(@center.treatments.first), class: "btn-flat" %>
-          </div>
-          <div class="d-line">
-            <p class="font-weight-regular">Starting from <%= @center.treatments.first.price %> €</p>
-            <p class="text-muted font-weight-bold"> <%= @center.treatments.first.duration %>  mins</p>
+          <div class=" d-flex align-items-start">
+           <div class="flex-grow-1"><h6 class="font-weight-bold"><%=@center.treatments.first.name%> </h6></div>
+           <div class="pr-2"><p class="font-weight-light"><%= @center.treatments.first.category %></p></div>
+           <div class=""><%= link_to "Book Now", new_treatment_booking_path(@center.treatments.first), class: "btn-flat" %></div>
+
           </div>
           <!-- Excerpt -->
           <h3 class="font-weight-bold dark-grey-text mb-3"></h3>
@@ -100,12 +99,11 @@
 
               <div class="d-flex justify-content-between">
                 <!-- Excerpt -->
-                <p class="font-weight-regular"><%#= treatment.name %></p>
-                <p> <%#= link_to "Book", new_center_treatment_booking_path(treatment.center_id, treatment.id), class: "btn-flat" %></p>
+
+                <%#= link_to "Book", new_center_treatment_booking_path(treatment.center_id, treatment.id), class: "btn-flat" %>
                    <%# if @user_booked_treatments.include?(treatment) %>
-                <p> <%#= link_to "Review", new_center_treatment_booking_review_path(treatment.center_id, treatment.id, treatment.bookings.where(customer: current_user).last )  %> </p>
+               <%#= link_to "Review", new_center_treatment_booking_review_path(treatment.center_id, treatment.id, treatment.bookings.where(customer: current_user).last )  %>
                 <%# end %>
-                <p class="font-weight-bold">from 100€</p>
                 <p class="text-muted font-weight-light">Sunday</p>
                 <p class="font-weight-light">Closed</p>
 
@@ -116,16 +114,37 @@
                   <p class="text-muted font-weight-light"></p>
                 </div>
               </div>
+
+            <% @center.treatments.each do |t|  %>
+
+            <div class=" d-flex align-items-center">
+           <div class="flex-grow-1"><h6 class="font-weight-bold"><%=t.name%> </h6></div>
+           <div class="pr-2"><p class="font-weight-lighter"><%= t.category %></p></div>
+           <div class=""><%= link_to "Book Now", new_treatment_booking_path(@center.treatments.first), class: "btn btn-flat" %></div>
+
+          </div>
+          <div class=""><p class="font-weight-bold text-muted"><%=t.duration%> mins</p></div>
+
+          <% end%>
+
             </div>
+
+
             <!-- Grid column -->
           </div>
+
           <!-- Grid row -->
+
         </div>
+
         <!-- Small news -->
         <!-- Small news -->
       </div>
+
       <!--Grid column-->
+
     </div>
+
   </div>
   <!-- Grid row -->
 </section>
@@ -200,13 +219,13 @@ position: absolute;
 <h4 class="font-weight-normal">Recommended For You</h4>
 <div class="cards">
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1534003888922-a3504fa8914e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60)">
-    Thermal Spa
+    Spa
   </div>
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1519823551278-64ac92734fb1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60)">
-    Couple's Massage
+    Health Treatments
   </div>
   <div class="card-category mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1545183387-50fea397256e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60)">
-    Swedish Massage
+    Massages
   </div>
   </div>
 </div>
@@ -234,5 +253,4 @@ position: absolute;
     </div>
   </section>
 </section>
-
 
