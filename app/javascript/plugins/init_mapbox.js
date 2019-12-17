@@ -79,52 +79,6 @@ const initMapbox = () => {
   const markers = JSON.parse(mapElement.dataset.markers);
 
 
-  if (markers.length) {
-
-    markers.forEach((marker) => {
-    const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
-
-  // Create a HTML element for your custom marker
-  const element = document.createElement('div');
-  element.className = 'marker';
-  element.style.backgroundImage = `url('${marker.image_url}')`;
-  element.style.backgroundSize = 'contain';
-  element.style.width = '25px';
-  element.style.height = '25px';
-
-  // Pass the element as an argument to the new marker
-  new mapboxgl.Marker(element)
-    .setLngLat([marker.lng, marker.lat])
-    .setPopup(popup)
-    .addTo(map);
-  });
-
-
-
-  } else {
-     const popup = new mapboxgl.Popup().setHTML(markers.infoWindow);
-
-  // Create a HTML element for your custom marker
-  const element = document.createElement('div');
-  element.className = 'marker';
-  element.style.backgroundImage = `url('${markers.image_url}')`;
-  element.style.backgroundSize = 'contain';
-  element.style.width = '25px';
-  element.style.height = '25px';
-
-  // Pass the element as an argument to the new marker
-  new mapboxgl.Marker(element)
-    .setLngLat([markers.lng, markers.lat])
-    .setPopup(popup)
-    .addTo(map);
-
-
-  }
-
-
-
-
-
   map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
                                       mapboxgl: mapboxgl }));
   fitMapToMarkers(map, markers);

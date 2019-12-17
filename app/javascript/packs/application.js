@@ -5,6 +5,9 @@ import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import { Application } from 'stimulus'
 import { definitionsFromContext } from 'stimulus/webpack-helpers'
 import { Autocomplete } from 'stimulus-autocomplete'
+import { initStarRating } from '../plugins/init_star_rating';
+import { initAutocomplete } from '../plugins/init_autocomplete';
+
 
 const application = Application.start()
 
@@ -21,6 +24,6 @@ import { flatpickr } from "../plugins/flatpickr";
 
 
 initMapbox();
-
-
+initStarRating();
+initAutocomplete();
 
