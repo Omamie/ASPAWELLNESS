@@ -9,6 +9,7 @@ gem 'puma'
 gem 'rails', '5.2.4'
 gem 'redis'
 
+gem 'validates_overlap', '~> 0.8.6'
 gem 'geocoder'
 gem 'pundit'
 gem 'cloudinary', '~> 1.9.1'

@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
   def new
     @treatment = Treatment.find(params[:treatment_id])
     @center = Center.find(params[:center_id])
-    # @booking = Booking.find()
+    @booking = Booking.find()
     @review = Review.new
   end
 
