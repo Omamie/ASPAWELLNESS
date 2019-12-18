@@ -210,3 +210,13 @@ border-radius: 8px;
   padding-right: 0;
 }
 
+.fc-body, .fc-head, .fc-day-header, .fc-widget-content, .fc-widget-header{
+  border: 4px solid ;
+  border-color: white !important;
+  color: #2a394d;
+  text-transform: uppercase;
+}
+
+.fc-left {
+  text-transform: uppercase;
+}
