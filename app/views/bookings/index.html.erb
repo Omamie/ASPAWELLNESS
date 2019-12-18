@@ -47,19 +47,27 @@
       </div>
     </div>
 
-  <div class="container mt-5 bg-white">
-  <button class="month btn-flat">Month</button>
-  <button class="week btn-flat">Week</button>
-  <button class="day btn-flat">Day</button>
-  </section>
-  <!-- Section: Block Content -->
-
 </div>
 
+</section>
+
 <%else %>
+  <!-- Section: Block Content -->
+
 <div class="container mt-5">
-  <button class="month">Week</button>
-  <div id="calendar" data-events="<%= @events.to_json %>"></div>
+
+
+<div class="d-flex flex-row-reverse align-items-end mb-3">
+  <div class="">
+  <button class=" p-2 month btn-flat">Month</button>
+  <button class=" p-2 week btn-flat">Week</button>
+  <button class=" p-2 day btn-flat">Day</button>
+  </div>
+</div>
+  <div id="calendar" data-events="<%= @events.to_json %>">
+
+  </div>
+
 </div>
 <% end %>
 
