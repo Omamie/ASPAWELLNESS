@@ -117,18 +117,6 @@
                 </div>
               </div>
 
-            <% @center.treatments.each do |t|  %>
-
-            <div class=" d-flex align-items-center">
-           <div class="flex-grow-1"><h6 class="font-weight-bold"><%=t.name%> </h6>
-           <div class="pr-2"><p class="font-weight-lighter"><%= t.category %></p></div>
-           </div>
-           <div class=""><%= link_to "Book Now", new_treatment_booking_path(@center.treatments.first), class: "btn-ghost" %></div>
-          </div>
-          <div class=""><p class="font-weight-bold text-muted"><%=t.duration%> mins</p></div>
-
-          <% end%>
-
             </div>
 
 
@@ -150,6 +138,119 @@
   </div>
   <!-- Grid row -->
 </section>
+
+<div class="container">
+
+<!--Accordion wrapper-->
+<div class="accordion md-accordion" id="accordionEx1" role="tablist" aria-multiselectable="true">
+
+  <!-- Accordion card -->
+  <div class="card">
+
+    <!-- Card header -->
+    <div class="card-header p-2" role="tab" id="headingTwo1">
+      <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx1" href="#collapseTwo1"
+        aria-expanded="false" aria-controls="collapseTwo1">
+
+        <div class="d-flex bd-highlight">
+  <div class="p-2 w-100 bd-highlight text-muted"> <h5>Health Treatments</h5> </div>
+  <div class="p-2 flex-shrink-1 fas fa-plus text-muted"></div>
+</div>
+
+      </a>
+    </div>
+
+    <!-- Card body -->
+    <div id="collapseTwo1" class="collapse" role="tabpanel" aria-labelledby="headingTwo1"
+      data-parent="#accordionEx1">
+      <div class="card-body">
+
+        <% @center.treatments.each do |t| %>
+          <% if t.category == "Health" %>
+        <p class="font-weight-regular"> <%= t.name %></p>
+        <p class="text-muted font-weight-bold small"> <%= t.duration %> mins</p>
+        <p class= "font-weight-light"> <%= t.description%></p>
+        <%= link_to "Book Now", new_treatment_booking_path(t.id), class: "btn btn-ghost mb-2" %>
+        <%end %>
+
+        <%end  %>
+
+      </div>
+    </div>
+
+  </div>
+  <!-- Accordion card -->
+
+  <!-- Accordion card -->
+  <div class="card">
+
+    <!-- Card header -->
+    <div class="card-header p-2" role="tab" id="headingTwo2">
+      <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx1" href="#collapseTwo21"
+        aria-expanded="false" aria-controls="collapseTwo21">
+        <div class="d-flex bd-highlight">
+  <div class="p-2 w-100 bd-highlight text-muted"> <h5>Massages</h5> </div>
+  <div class="p-2 flex-shrink-1 fas fa-plus text-muted"></div>
+</div>
+      </a>
+    </div>
+
+    <!-- Card body -->
+    <div id="collapseTwo21" class="collapse" role="tabpanel" aria-labelledby="headingTwo21"
+      data-parent="#accordionEx1">
+      <div class="card-body">
+        <% @center.treatments.each do |t| %>
+          <% if t.category == "Massages" %>
+        <p class="font-weight-regular"> <%= t.name %></p>
+        <p class="text-muted font-weight-bold small"> <%= t.duration %> mins</p>
+        <p class= "font-weight-light"> <%= t.description%></p>
+        <%= link_to "Book Now", new_treatment_booking_path(t.id), class: "btn btn-ghost mb-2" %>
+        <%end  %>
+
+        <%end  %>
+      </div>
+    </div>
+
+  </div>
+  <!-- Accordion card -->
+
+  <!-- Accordion card -->
+  <div class="card">
+
+    <!-- Card header -->
+    <div class="card-header p-2" role="tab" id="headingThree31">
+      <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx1" href="#collapseThree31"
+        aria-expanded="false" aria-controls="collapseThree31">
+        <div class="d-flex bd-highlight">
+  <div class="p-2 w-100 bd-highlight text-muted"> <h5>Spa</h5> </div>
+  <div class="p-2 flex-shrink-1 fas fa-plus text-muted"></div>
+</div>
+      </a>
+    </div>
+
+    <!-- Card body -->
+    <div id="collapseThree31" class="collapse" role="tabpanel" aria-labelledby="headingThree31"
+      data-parent="#accordionEx1">
+      <div class="card-body">
+         <% @center.treatments.each do |t| %>
+          <% if t.category == "Spa" %>
+        <p class="font-weight-regular"> <%= t.name %></p>
+        <p class="text-muted font-weight-bold small"> <%= t.duration %> mins</p>
+        <p class= "font-weight-light"> <%= t.description%></p>
+        <%= link_to "Book Now", new_treatment_booking_path(t.id), class: "btn btn-ghost mb-2" %>
+        <%end  %>
+
+        <%end  %>
+      </div>
+    </div>
+
+  </div>
+  <!-- Accordion card -->
+
+</div>
+</div>
+<!-- Accordion wrapper -->
+
 <!--Section: Content-->
 <!--Section: Content-->
 <section class="magazine-section mt-3">
@@ -189,18 +290,11 @@
   </section>
 </section>
 <!--Section: Content-->
-<div class="container my-5">
-  <!--Section: Content-->
-  <section class="text-center dark-grey-text">
-    <!--/.Controls-->
-  </div>
-</section>
+
 <!--Section: Content-->
 </div>
 </div>
-<div class="my-5 px-5 pb-4">
-<!-- Section: Block Content -->
-<section class="mb-4">
+
 <style>
 .map-container {
 overflow: hidden;
@@ -215,30 +309,17 @@ width: 100%;
 position: absolute;
 }
 </style>
-</section>
+
 <!-- Section: Block Content -->
-<div class="container">
-<h4 class="font-weight-normal">Recommended For You</h4>
-<div class="cards">
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1534003888922-a3504fa8914e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60)">
-    Spa
-  </div>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1519823551278-64ac92734fb1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60)">
-    Health Treatments
-  </div>
-  <div class="card-category mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1545183387-50fea397256e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60)">
-    Massages
-  </div>
-  </div>
+
 </div>
-</div>
-<section class="magazine-section mt-3">
+<section class="map-section ">
   <section class="dark-grey-text">
-    <div class="container">
+    <div class="container map-relative pt-4">
         <div class="row align-items-center">
-          <div class="col-lg-6 mb-4">
+          <div class="col-12 mb-4">
             <div
-        class="pt-2 px-2"
+        class="px-2 mapboxgl-ctrl-geocoder--input"
         id="map"
         style="width: 100%;
         height: 400px;"
@@ -246,10 +327,13 @@ position: absolute;
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
       ></div>
           </div>
-          <div class="col-10 col-md-4 align-self-center py-4">
-             <h6 class="font-weight-bold grey-text text-uppercase small"> <%= @center.name %> </h6>
-      <p class="text-muted font-weight-light"><%=@center.address%></p>
-      <p class="text-muted font-weight-light mb-0">Phone: +39 987 123 6548<br>Email: <%= @center.contact_person.downcase%>@libero.it</p>
+          <div class="align-self-center py-4">
+            <div class="map-relative-text">
+            <div class="map-text-info">
+              <h6 class="font-weight-bold grey-text text-uppercase small"> <%= @center.name %> </h6>
+              <p class="text-muted font-weight-light"><%=@center.address%></p>
+              <p class="text-muted font-weight-light mb-0">Phone: +39 987 123 6548<br>Email: <%= @center.contact_person.downcase%>@libero.it</p>
+            </div>
           </div>
         </div>
     </div>

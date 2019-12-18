@@ -12,3 +12,20 @@
   top: 0px;
 }
 
+.map-relative {
+  position: relative;
+}
+
+.map-relative-text {
+  position: absolute;
+  background: white;
+  border-radius: 4px;
+  padding: 8px;
+  top: 40px;
+  left: 35px;
+}
+
+.mapboxgl-ctrl-geocoder{
+display: none;
+}
+
