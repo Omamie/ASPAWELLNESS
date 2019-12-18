@@ -6,7 +6,9 @@
 
   </div>
 </div>
+<section>
 <h2 class="card-title margin-left mt-3">Explore Treatments</h2>
+</section>
 <div class="cards">
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(42,57,77,0.4)), url(https://res.cloudinary.com/dbgxzafez/image/upload/v1575306822/estheclinic-slimming_kxjr66.jpg)">
     <%= link_to 'Health Treatments', treatments_path(:category => "Health"), class: "card-category-link" %>
@@ -21,6 +23,7 @@
 
 
 
+
 <div class="banner-present" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(42,57,77,0.4)), url(https://res.cloudinary.com/dbgxzafez/image/upload/v1575303401/spa-wellness-green-park-madama-1_y0tpwx.jpg);">
   <div class="container.present margin-left">
     <h1>Your wellness gift </h1>
@@ -29,25 +32,27 @@
   </div>
 </div>
 
+<section>
 <h2 class="card-title margin-left mt-3">Choose your wellness experience.</h3>
 <p class="card-subtitle margin-left">Are you looking for a location or treatment to regenerate and escape from everyday stress?</p>
-<div class="treatments-card-container container">
+</section>
+<section class="m-2">
   <div class="row">
     <%  @centers.each do |c| break if c.id > 4 %>
     <div class="col-12 col-md-6">
   <div class="card shadow-border mt-3">
-    <div class="card-category " style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(42,57,77,0.4)), url('<%= cl_image_path c.photos.first&.attachment&.url %>')"></div>
+    <div class="card-category " style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(42,57,77,0.4)), url(<%= cl_image_path c.photos.first&.attachment&.url || "default-thumb_qpqfou.png"  %>)"></div>
 
     <div class="card-body">
       <h3 class="center-card-title"><%= c.name %></h3>
-      <p class="card-text"><%= c.description.slice(0..150) %></p>
+      <p class="card-text text-truncate"><%= c.description %></p>
       <%= link_to "Show Center", center_path(c.id), class:"btn btn-ghost btn-position" %>
     </div>
   </div>
   </div>
   <% end %>
   </div>
-  </div>
+  </section>
 </div>
 
 <!-- Footer -->
