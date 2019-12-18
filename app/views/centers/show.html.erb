@@ -117,18 +117,6 @@
                 </div>
               </div>
 
-            <% @center.treatments.each do |t|  %>
-
-            <div class=" d-flex align-items-center">
-           <div class="flex-grow-1"><h6 class="font-weight-bold"><%=t.name%> </h6>
-           <div class="pr-2"><p class="font-weight-lighter"><%= t.category %></p></div>
-           </div>
-           <div class=""><%= link_to "Book Now", new_treatment_booking_path(@center.treatments.first), class: "btn-ghost" %></div>
-          </div>
-          <div class=""><p class="font-weight-bold text-muted"><%=t.duration%> mins</p></div>
-
-          <% end%>
-
             </div>
 
 
@@ -150,6 +138,47 @@
   </div>
   <!-- Grid row -->
 </section>
+
+<section>
+<!--Accordion wrapper-->
+<div class="container">
+<div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
+
+  <!-- Accordion card -->
+  <div class="card">
+<% a = 0  %>
+<% @center.treatments.each do |t|  %>
+    <!-- Card header -->
+    <div class=" p-4 card-header" role="tab" id="headingOne1">
+      <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne<%=a%>" aria-expanded="true"
+        aria-controls="collapseOne">
+        <div class="d-flex bd-highlight">
+  <div class="p-2 w-100 bd-highlight"><h5 class="mb-0 font-weight-bold text-muted"><%=t.name%></div>
+  <div class="p-2 flex-shrink-1 bd-highlight font-weight-light"><i class="fas fa-angle-down rotate-icon"></i></div>
+</div>
+      </a>
+    </div>
+
+    <!-- Card body -->
+    <div id="collapseOne<%=a%>" class="collapse show" role="tabpanel" aria-labelledby="headingOne1"
+      data-parent="#accordionEx">
+      <div class="card-body">
+        <p class="text-muted font-weight-light small"> <%=t.category%></p>
+        <p class="font-weight-regular"> <%=t.description%></p>
+        <p class="font-weight-bold text-muted"><%=t.duration%> mins</p>
+        <div class=""><%= link_to "Book Now", new_treatment_booking_path(@center.treatments.first), class: "btn-ghost" %></div>
+      </div>
+    </div>
+    <% a += 1  %>
+<% end %>
+  </div>
+  <!-- Accordion card -->
+
+  <!-- Accordion card -->
+</div>
+<!-- Accordion wrapper -->
+</section>
+
 <!--Section: Content-->
 <!--Section: Content-->
 <section class="magazine-section mt-3">
@@ -218,7 +247,7 @@ position: absolute;
 </section>
 <!-- Section: Block Content -->
 <div class="container">
-<h4 class="font-weight-normal">Recommended For You</h4>
+<h4 class="pl-2 font-weight-normal">Recommended For You</h4>
 <div class="cards">
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1534003888922-a3504fa8914e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60)">
     Spa
