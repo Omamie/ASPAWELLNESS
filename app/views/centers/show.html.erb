@@ -139,45 +139,117 @@
   <!-- Grid row -->
 </section>
 
-<section>
-<!--Accordion wrapper-->
 <div class="container">
-<div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
+
+<!--Accordion wrapper-->
+<div class="accordion md-accordion" id="accordionEx1" role="tablist" aria-multiselectable="true">
 
   <!-- Accordion card -->
   <div class="card">
-<% a = 0  %>
-<% @center.treatments.each do |t|  %>
+
     <!-- Card header -->
-    <div class=" p-4 card-header" role="tab" id="headingOne1">
-      <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne<%=a%>" aria-expanded="true"
-        aria-controls="collapseOne">
+    <div class="card-header p-2" role="tab" id="headingTwo1">
+      <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx1" href="#collapseTwo1"
+        aria-expanded="false" aria-controls="collapseTwo1">
+
         <div class="d-flex bd-highlight">
-  <div class="p-2 w-100 bd-highlight"><h5 class="mb-0 font-weight-bold text-muted"><%=t.name%></div>
-  <div class="p-2 flex-shrink-1 bd-highlight font-weight-light"><i class="fas fa-angle-down rotate-icon"></i></div>
+  <div class="p-2 w-100 bd-highlight text-muted"> <h5>Health Treatments</h5> </div>
+  <div class="p-2 flex-shrink-1 fas fa-plus text-muted"></div>
+</div>
+
+      </a>
+    </div>
+
+    <!-- Card body -->
+    <div id="collapseTwo1" class="collapse" role="tabpanel" aria-labelledby="headingTwo1"
+      data-parent="#accordionEx1">
+      <div class="card-body">
+
+        <% @center.treatments.each do |t| %>
+          <% if t.category == "Health" %>
+        <p class="font-weight-regular"> <%= t.name %></p>
+        <p class="text-muted font-weight-bold small"> <%= t.duration %> mins</p>
+        <p class= "font-weight-light"> <%= t.description%></p>
+        <%= link_to "Book Now", new_treatment_booking_path(t.id), class: "btn btn-ghost mb-2" %>
+        <%end %>
+
+        <%end  %>
+
+      </div>
+    </div>
+
+  </div>
+  <!-- Accordion card -->
+
+  <!-- Accordion card -->
+  <div class="card">
+
+    <!-- Card header -->
+    <div class="card-header p-2" role="tab" id="headingTwo2">
+      <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx1" href="#collapseTwo21"
+        aria-expanded="false" aria-controls="collapseTwo21">
+        <div class="d-flex bd-highlight">
+  <div class="p-2 w-100 bd-highlight text-muted"> <h5>Massages</h5> </div>
+  <div class="p-2 flex-shrink-1 fas fa-plus text-muted"></div>
 </div>
       </a>
     </div>
 
     <!-- Card body -->
-    <div id="collapseOne<%=a%>" class="collapse show" role="tabpanel" aria-labelledby="headingOne1"
-      data-parent="#accordionEx">
+    <div id="collapseTwo21" class="collapse" role="tabpanel" aria-labelledby="headingTwo21"
+      data-parent="#accordionEx1">
       <div class="card-body">
-        <p class="text-muted font-weight-light small"> <%=t.category%></p>
-        <p class="font-weight-regular"> <%=t.description%></p>
-        <p class="font-weight-bold text-muted"><%=t.duration%> mins</p>
-        <div class=""><%= link_to "Book Now", new_treatment_booking_path(@center.treatments.first), class: "btn-ghost" %></div>
+        <% @center.treatments.each do |t| %>
+          <% if t.category == "Massages" %>
+        <p class="font-weight-regular"> <%= t.name %></p>
+        <p class="text-muted font-weight-bold small"> <%= t.duration %> mins</p>
+        <p class= "font-weight-light"> <%= t.description%></p>
+        <%= link_to "Book Now", new_treatment_booking_path(t.id), class: "btn btn-ghost mb-2" %>
+        <%end  %>
+
+        <%end  %>
       </div>
     </div>
-    <% a += 1  %>
-<% end %>
+
   </div>
   <!-- Accordion card -->
 
   <!-- Accordion card -->
+  <div class="card">
+
+    <!-- Card header -->
+    <div class="card-header p-2" role="tab" id="headingThree31">
+      <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx1" href="#collapseThree31"
+        aria-expanded="false" aria-controls="collapseThree31">
+        <div class="d-flex bd-highlight">
+  <div class="p-2 w-100 bd-highlight text-muted"> <h5>Spa</h5> </div>
+  <div class="p-2 flex-shrink-1 fas fa-plus text-muted"></div>
+</div>
+      </a>
+    </div>
+
+    <!-- Card body -->
+    <div id="collapseThree31" class="collapse" role="tabpanel" aria-labelledby="headingThree31"
+      data-parent="#accordionEx1">
+      <div class="card-body">
+         <% @center.treatments.each do |t| %>
+          <% if t.category == "Spa" %>
+        <p class="font-weight-regular"> <%= t.name %></p>
+        <p class="text-muted font-weight-bold small"> <%= t.duration %> mins</p>
+        <p class= "font-weight-light"> <%= t.description%></p>
+        <%= link_to "Book Now", new_treatment_booking_path(t.id), class: "btn btn-ghost mb-2" %>
+        <%end  %>
+
+        <%end  %>
+      </div>
+    </div>
+
+  </div>
+  <!-- Accordion card -->
+
+</div>
 </div>
 <!-- Accordion wrapper -->
-</section>
 
 <!--Section: Content-->
 <!--Section: Content-->
@@ -246,22 +318,9 @@ position: absolute;
 </style>
 </section>
 <!-- Section: Block Content -->
-<div class="container">
-<h4 class="pl-2 font-weight-normal">Recommended For You</h4>
-<div class="cards">
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1534003888922-a3504fa8914e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60)">
-    Spa
-  </div>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1519823551278-64ac92734fb1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60)">
-    Health Treatments
-  </div>
-  <div class="card-category mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1545183387-50fea397256e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60)">
-    Massages
-  </div>
-  </div>
+
 </div>
-</div>
-<section class="magazine-section mt-3">
+<section class=" mt-3">
   <section class="dark-grey-text">
     <div class="container">
         <div class="row align-items-center">
