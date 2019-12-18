@@ -39,7 +39,9 @@ class BookingsController < ApplicationController
         success_url: booking_url(@booking),
         cancel_url: new_treatment_booking_url(@treatment)
       )
+
       @booking.update(checkout_session_id: session.id, status: "Pending")
+
       redirect_to new_booking_payment_path(@booking)
     else
 
