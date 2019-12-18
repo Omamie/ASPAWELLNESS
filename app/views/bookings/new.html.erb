@@ -1,11 +1,24 @@
 <div class="container py-3 ">
   <div class="modal-card p-3">
-    <h2 class="mx-2 my-3">Confirm Your Booking </h2>
+    <h2 class="mx-2 my-3 mb-5" style="text-align: center; font-weight: bold;">Confirm Your Booking </h2>
     <%= simple_form_for [@treatment, @booking], method: :post do |f| %>
+    <div class="container mb-5">
+      <h3>Insert your information</h3>
+      <label for="firstname" class="booking-form">First name</label><br>
+      <input type="text" name="firstname"><br>
+      <label for="lastname" class="booking-form">Last name</label><br>
+      <input type="text" name="lastname" class="booking-form">
+    </div>
+    <div class="container mb-2">
+      <h3>When would you like to book?</h3>
       <%= f.input :start_time, as: :string, required: false, input_html: {autocomplete: "Select a date", class: "datepicker"} %>
+    </div>
+    <div class="container mb-5">
+      <h3></h3>
       <%= f.input :phone_number, as: :string, required: false %>
-      <%= f.submit "Confirm", class: "btn btn-primary" %>
-      <%= f.error_notification %>
+    </div>
+    <%= f.submit "Confirm", class: "btn btn-primary" %>
+    <%= f.error_notification %>
     <% end %>
   </div>
 </div>
