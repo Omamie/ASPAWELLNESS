@@ -72,6 +72,8 @@
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
+.card-category:hover{
+}
 
 .card-category-link {
     color: white;
@@ -80,6 +82,8 @@
 
 .card-category-link:hover {
   text-decoration: none;
+  color: white;
+  font-size:25px;
 }
 
  .card img {

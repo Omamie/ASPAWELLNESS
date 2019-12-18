@@ -24,9 +24,11 @@
           <div class="view overlay rounded z-depth-1-half mb-4">
           </div>
           <!-- Data -->
-          <div class=" d-flex align-items-start">
-           <div class="flex-grow-1"><h6 class="font-weight-bold"><%=@center.treatments.first.name%> </h6></div>
+          <div class=" d-flex align-items-start ">
+           <div class="flex-grow-1"><h6 class="font-weight-bold"><%=@center.treatments.first.name%> </h6>
            <div class="pr-2"><p class="font-weight-light"><%= @center.treatments.first.category %></p></div>
+
+           </div>
            <div class=""><%= link_to "Book Now", new_treatment_booking_path(@center.treatments.first), class: "btn-flat" %></div>
 
           </div>
@@ -41,7 +43,7 @@
       </div>
       <!-- Grid column -->
       <!-- Grid column -->
-      <div class="col-lg-6 col-md-12 mb-4">
+      <div class="col-lg-6 col-md-12 mb-4 container-treatment-description">
         <!-- Small news -->
 
 
@@ -118,13 +120,10 @@
             <% @center.treatments.each do |t|  %>
 
             <div class=" d-flex align-items-center">
-           <div class="flex-grow-1"><h6 class="font-weight-bold"><%=t.name%> </h6></div>
+           <div class="flex-grow-1"><h6 class="font-weight-bold"><%=t.name%> </h6>
            <div class="pr-2"><p class="font-weight-lighter"><%= t.category %></p></div>
-           <div class=""><%= link_to "Book Now", new_treatment_booking_path(@center.treatments.first), class: "btn btn-flat" %></div>
-            <% if @user_booked_treatments.include?(t) %>
-              <%= link_to "Review", new_booking_review_path(t)  %>
-
-            <% end %>
+           </div>
+           <div class=""><%= link_to "Book Now", new_treatment_booking_path(@center.treatments.first), class: "btn-ghost" %></div>
           </div>
           <div class=""><p class="font-weight-bold text-muted"><%=t.duration%> mins</p></div>
 
