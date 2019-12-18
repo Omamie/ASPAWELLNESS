@@ -1,21 +1,27 @@
-<div class="d-flex p-2 bd-highlight">
-<div class="card-container">
-  <% @treatments.each do |t| %>
-  <div class="treatment-card">
-    <div class="card-image" style='background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/dbgxzafez/image/upload/v1575303401/spa-wellness-green-park-madama-1_y0tpwx.jpg);'>
-    </div>
-    <div class="card-info">
-      <div class="card-info-text">
-        <h2 class="card-treatment-name"><%= link_to t.name, center_path(t.center.id)%></h2>
-        <p class="card-center-name"><%=t.center.name%></p>
-        <p class="card-treatment-adress"><%=t.center.address %></p>
-        <p class="card-treatment-review"><%#= t.center.reviews %></p>
+<h1 style="text-align: center;"> Choose your <%= @treatments.first.category %> treatment</h1>
+
+<!-- <div class="d-flex p-2 bd-highlight container" style="max-width: fit-content; margin:0 auto;">
+ -->  <div class="card-container row no-gutters">
+    <% @treatments.each do |t| %>
+    <div class="col-6">
+    <div class="treatment-card center-card">
+      <div class="card-image" style='background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4))'>
+        <%= cl_image_tag(t.photos.first&.attachment&.url, class: "treatment-img")%>
       </div>
-      <div class="card-price">
-        <h2><%=t.price%></h2>
-        <%= link_to "Show More", center_path(t.center.id), class:"btn btn-flat" %>
+      <div class="card-info">
+        <div class="card-info-text">
+          <h2 class="card-treatment-name"><%= link_to t.name, center_path(t.center.id)%></h2>
+          <p class="card-center-name"><%=t.center.name%></p>
+          <p class="card-treatment-adress"><%=t.center.address %></p>
+          <p class="card-treatment-review"><%#= t.center.reviews %></p>
         </div>
+        <div class="card-price">
+          <h2><%=t.price%>€</h2>
+          <%= link_to "Show More", center_path(t.center.id), class:"btn btn-flat" %>
+        </div>
+      </div>
+      </div>
     </div>
-   </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+<!-- </div> -->

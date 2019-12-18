@@ -30,3 +30,17 @@
   background-color: #3D8C90;
 
 }
+
+// STYLE FOR FORM IN TREATMENTS INDEX
+
+.search-form-inline {
+  display:grid;
+  grid-template-columns: 4fr 4fr 1fr;
+  align-items: center;
+}
+
+.search-form-treatments {
+  margin: 0 auto;
+}
+
+

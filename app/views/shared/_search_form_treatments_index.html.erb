@@ -1,0 +1,23 @@
+<div class="search-form-treatments" style="margin-top: 20px;">
+<%= form_tag searches_path, method: :get,
+                            data: {
+                                controller: "autocomplete",
+                                autocomplete_url: autocomplete_path
+                            }, class: 'search-form-inline' do %>
+  <%= text_field_tag :treatment,
+    params[:treatment],
+    class: "form-control search-form-inline",
+    placeholder: "Choose your treatment",
+    data: {
+      target: "autocomplete.input"
+    }
+  %>
+  <ul data-target="autocomplete.results" class="list-group"></ul>
+  <%= text_field_tag :address,
+    params[:address],
+    class: "form-control input-search-form-inline",
+    placeholder: "Choose the city"
+  %>
+  <%= submit_tag "Search Now", class: "btn btn-flat" %>
+<% end %>
+</div>
