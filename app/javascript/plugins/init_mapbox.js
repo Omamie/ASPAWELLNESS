@@ -18,7 +18,6 @@ markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
 
 
 
-
 };
 
 const addMarkersToMap = (map, markers) => {
@@ -68,6 +67,7 @@ if (markers.length) {
 };
 
 const initMapbox = () => {
+
   const mapElement = document.getElementById('map');
 
   if (mapElement) { // only build a map if there's a div#map to inject into
@@ -78,13 +78,29 @@ const initMapbox = () => {
     });
   const markers = JSON.parse(mapElement.dataset.markers);
 
+  const geocoder = new MapboxGeocoder({
+    accessToken: mapboxgl.accessToken,
+    mapboxgl: mapboxgl
+  })
 
-  map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-                                      mapboxgl: mapboxgl }));
+  map.addControl(geocoder);
   fitMapToMarkers(map, markers);
   addMarkersToMap(map, markers);
+  citySearch(geocoder);
   }
 };
+
+const citySearch = (geocoder) => {
+var url_string = window.location.href
+var url = new URL(url_string);
+var c = url.searchParams.get("address");
+console.log(c);
+var d = c.split(",")
+var e = d[0]
+
+geocoder.query(e);
+}
+
 
 
 
