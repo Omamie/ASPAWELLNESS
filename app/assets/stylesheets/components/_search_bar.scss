@@ -1,0 +1,22 @@
+#algolia-places-listbox-0 {
+  width: 400px;
+}
+
+.ap-suggestions div:hover {
+  width: 400px;
+  background-color: #3D8C90;
+  color:white;
+}
+
+.ap-input-icon {
+  display: none;
+}
+
+.list-group {
+  position: fixed;
+  z-index: 10;
+}
+
+.list-group li {
+  width: 400px;
+}
