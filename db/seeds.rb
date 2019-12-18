@@ -90,8 +90,11 @@ treatment_attributes = [{name:"Circulatory Massage",description:"Targeted massag
 {"name":"Mind & Body Thermal Spa Experience", description: "Using a combination of massage techniques, this treatment de-stresses the mind and body leaving you relaxed and at peace.", price_cents: 4500, center_id: Center.ids.third, category: "Spa", capacity_per_hour: 3, duration: 50},
 {"name":"Body Scrub", description: "A full-body exfoliation ritual is to invigorate and revitalise the body, giving your skin a polished glow.", price_cents: 2000, center_id: Center.ids.fourth, category: "Spa", capacity_per_hour: 3, duration: 90},
 {"name":"Deep Cleansing Facial", description: "This facial combines steaming, deep exfoliation and extraction to open up clogged pores and draw out oil and debris.", price_cents: 2000, center_id: Center.ids.fourth, category: "Spa", capacity_per_hour: 3, duration: 65},
+{"name":"Massage for relax", description: "Back, neck and shoulders massage is the ideal solution to muscle tension caused by knots or postural problems in the upper body.", price_cents: 2000, center_id: Center.ids.fourth, category: "Massage", capacity_per_hour: 3, duration: 45},
+{"name":"Laser Epilation", description: "Laser hair removal is a safe and surprisingly fast option for anyone ready to get rid of their razor.", price_cents: 2000, center_id: Center.ids.fourth, category: "Health", capacity_per_hour: 3, duration: 45},
+{"name":"Ultrasound Facial", description: "Tighter, firmer, skin in under an hour. RF waves are sent through the skin – right down to the dermis (the deepest layer) – using a handheld wand.", price_cents: 2000, center_id: Center.ids.fourth, category: "Health", capacity_per_hour: 3, duration: 45},
+{"name":"Spa Day", description: "Total Time Out For Men Spa Day - 210 Min. Treatments (Massage, Facial, Pedicure), Lunch, Drinks", price_cents: 2000, center_id: Center.ids.fourth, category: "Spa", capacity_per_hour: 3, duration: 45},
 {"name":"Anti-Aging Facial", description: "A full-body exfoliation ritual is to invigorate and revitalise the body, giving your skin a polished glow.", price_cents: 2000, center_id: Center.ids.fourth, category: "Spa", capacity_per_hour: 3, duration: 45}]
-
 
 Treatment.create!(treatment_attributes)
 

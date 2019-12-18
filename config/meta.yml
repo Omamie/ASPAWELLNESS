@@ -1,0 +1,5 @@
+meta_product_name: "Aspa Wellness"
+meta_title: "Aspa Wellness - Amazing Wellness Experience"
+meta_description: "Search, book, and live a unique experience.."
+meta_image: "../app/asset/image/aspa.png" # should exist in `app/assets/images/`
+facebook_account: "@aspa_facebook_account"   # required for Facebook Cards
