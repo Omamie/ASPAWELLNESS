@@ -90,8 +90,7 @@ treatment_attributes = [{name:"Circulatory Massage",description:"Targeted massag
 {"name":"Mind & Body Thermal Spa Experience", description: "Using a combination of massage techniques, this treatment de-stresses the mind and body leaving you relaxed and at peace.", price_cents: 4500, center_id: Center.ids.third, category: "Spa", capacity_per_hour: 3, duration: 50},
 {"name":"Body Scrub", description: "A full-body exfoliation ritual is to invigorate and revitalise the body, giving your skin a polished glow.", price_cents: 2000, center_id: Center.ids.fourth, category: "Spa", capacity_per_hour: 3, duration: 90},
 {"name":"Deep Cleansing Facial", description: "This facial combines steaming, deep exfoliation and extraction to open up clogged pores and draw out oil and debris.", price_cents: 2000, center_id: Center.ids.fourth, category: "Spa", capacity_per_hour: 3, duration: 65},
-{"name":"Anti-Aging Facial", description: "A full-body exfoliation ritual is to invigorate and revitalise the body, giving your skin a polished glow.", price_cents: 2000, center_id: Center.ids.fourth, category: "Spa", capacity_per_hour: 3, duration: 45},
-]
+{"name":"Anti-Aging Facial", description: "A full-body exfoliation ritual is to invigorate and revitalise the body, giving your skin a polished glow.", price_cents: 2000, center_id: Center.ids.fourth, category: "Spa", capacity_per_hour: 3, duration: 45}]
 
 
 Treatment.create!(treatment_attributes)
