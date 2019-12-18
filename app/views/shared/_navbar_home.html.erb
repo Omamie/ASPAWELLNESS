@@ -19,7 +19,7 @@
         </div>
       </li>
       <% elsif user_signed_in? && current_user.owner? %>
-      <li class="nav-item navbar-lewagon">
+      <li class="nav-item navbar-lewagon nav-item-text" style="background:none; ">
         <%= link_to "Calendar", bookings_path, class: "nav-link font-weight-bold" %>
       </li>
       <li class="nav-item dropdown">
