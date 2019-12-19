@@ -19,7 +19,7 @@ User.destroy_all
 puts 'Creating users...'
 user_attributes =
 
-[{"first_name":"Ketty","last_name":"Winham","email":"ketty0@gmail.com","gender":"Female", "password":"1234567", "phone_number":"3334366789"},
+[{"first_name":"Omamerhi","last_name":"Etefia","email":"oma@gmail.com","gender":"Female", "password":"1234567", "phone_number":"3334366789"},
 {"first_name":"Clovis","last_name":"Colvill","email":"clovis@yahoo.com","gender":"Female", "password":"89101112", "phone_number":"3336366789"},
 {"first_name":"Susy","last_name":"Geldeard","email":"susy@libero.it","gender":"Female", "password":"13141516", "phone_number":"3334366989"},
 {"first_name":"Brennan","last_name":"Kimmerling","email":"brennan@yahoo.com","gender":"Male", "password":"17181920", "phone_number":"3336366789"},
