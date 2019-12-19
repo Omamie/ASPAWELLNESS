@@ -10,7 +10,7 @@ class CenterPolicy < ApplicationPolicy
   end
 
   def create?
-    user.id == record.owner_id
+    true
   end
 
   def new?
