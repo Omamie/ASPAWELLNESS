@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :treatments, only: [:new, :create]
   end
 
-  resources :treatments, only: [:index] do
+  resources :treatments, only: [:index, :edit, :update, :destroy] do
     resources :bookings, only: [:new, :create]
   end
 

@@ -5,7 +5,10 @@ class CentersController < ApplicationController
   end
 
   def show
+    if current_user.class == Owner
     @my_center = current_user.centers.first
+  else
+  end
     @center = Center.find(params[:id])
     @center.photos.build
     authorize @center

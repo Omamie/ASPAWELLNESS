@@ -3,20 +3,13 @@ class PagesController < ApplicationController
 
   def home
     @centers = Center.all
+    if current_user.class == Owner
     @my_center = current_user.centers.first
+  else
+  end
   end
 
   def results
     @treatments = Treatment.all
-  end
-
-  def help
-  end
-
-  def bookings
-  end
-
-  def phone_number
-raise
   end
 end
