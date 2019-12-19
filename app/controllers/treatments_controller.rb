@@ -12,8 +12,6 @@ class TreatmentsController < ApplicationController
     authorize @center
     @treatment = Treatment.new
     @my_center = current_user.centers.first
-
-
   end
 
   def create
