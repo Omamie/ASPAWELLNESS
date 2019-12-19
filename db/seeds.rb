@@ -37,7 +37,7 @@ User.create!(user_attributes)
 puts 'Creating owners...'
 owner_attributes =
 [{"first_name":"Steven","last_name":"Smith","email":"steven0@gmail.com","gender":"Female", "password":"1234567"},
-{"first_name":"David","last_name":"Green","email":"david@yahoo.com","gender":"Male", "password":"89101112"},
+{"first_name":"Luisa","last_name":"Green","email":"luisa@yahoo.com","gender":"Male", "password":"89101112"},
 {"first_name":"Ellie","last_name":"Golden","email":"ellie@libero.it","gender":"Female", "password":"13141516"},
 {"first_name":"Jacob","last_name":"Rice","email":"jacob@yahoo.com","gender":"Male", "password":"17181920"},
 {"first_name":"Henrietta","last_name":"Silver","email":"henrietta@gmail.co.uk","gender":"Female", "password":"21222324"},
