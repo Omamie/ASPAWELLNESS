@@ -4,7 +4,10 @@
       <h1 class= "text-light font-weight-bold"><%= @center.name %></h1>
       <p class= "text-light font-weight-normal"><%= @center.address%></p>
       <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i><p class= "text-light font-weight-light-small"> <%= @center.no_of_reviews %> Reviews</p>
+     <% if  user_signed_in? && current_user.owner?  %>
+    <% else %>
     <%= link_to "Book Now", new_treatment_booking_path(@center.treatments.first), class: "btn btn-flat" %>
+      <% end %>
     <p class="small font-weight-light font-italic mt-3">Off Peak and Last Minute Slots Available!</p>
       <div class="p-2 flex-shrink-1 bd-highlight"></div>
     </div>
@@ -29,8 +32,13 @@
            <div class="pr-2"><p class="font-weight-light"><%= @center.treatments.first.category %></p></div>
 
            </div>
-           <div class=""><%= link_to "Book Now", new_treatment_booking_path(@center.treatments.first), class: "btn-flat" %></div>
-
+              <div class="">
+                <% if  user_signed_in? && current_user.owner?  %>
+      <%= link_to "Add Treatment", new_center_treatment_path(@center.id), class: "btn-flat" %>
+              <% else %>
+              <%= link_to "Book Now", new_treatment_booking_path(@center.treatments.first), class: "btn-flat" %>
+              <% end %>
+              </div>
           </div>
           <!-- Excerpt -->
           <h3 class="font-weight-bold dark-grey-text mb-3"></h3>
@@ -171,6 +179,8 @@
         <p class="text-muted font-weight-bold small"> <%= t.duration %> mins</p>
         <p class= "font-weight-light"> <%= t.description%></p>
         <%= link_to "Book Now", new_treatment_booking_path(t.id), class: "btn btn-ghost mb-2" %>
+
+
         <%end %>
 
         <%end  %>
@@ -200,7 +210,7 @@
       data-parent="#accordionEx1">
       <div class="card-body">
         <% @center.treatments.each do |t| %>
-          <% if t.category == "Massages" %>
+          <% if t.category == "Massage" %>
         <p class="font-weight-regular"> <%= t.name %></p>
         <p class="text-muted font-weight-bold small"> <%= t.duration %> mins</p>
         <p class= "font-weight-light"> <%= t.description%></p>
