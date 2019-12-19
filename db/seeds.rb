@@ -54,7 +54,7 @@ Owner.create!(owner_attributes)
 puts "Creating centers..."
 
 center_attributes = [{name: "Spazio Salute", address: "Via Brera 46, 20121 Milano", contact_person: "Giulio Paci", owner_id: 1, description: "We welcome you to the Spazio SoloSalute Cultural Association Amateur Sport Association in Milan. At our headquarters the Members found a HOLISTIC CENTER specialized in natural well-being with hydrocolon treatments in Milan, naturopathy and nutrition consultations, treatments such as ayurvedic massage and natural aesthetics, wellness and fitness courses to stay healthy in a natural way ."},
-{name: "The White Medispa", address: "Via Montebello, 20121 Milan", contact_person: "Giulia Pelli", owner_id: 2, description:"Located in the heart of Milan, The white medispa is a restful little spa offering medical and beauty treatments in an elegant and tranquil setting."},
+{name: "Luisa Beauty Esthetic Center", address: "Via Montebello, 20121 Milan", contact_person: "Giulia Pelli", owner_id: 2, description:"Located in the heart of Milan, The white medispa is a restful little spa offering medical and beauty treatments in an elegant and tranquil setting."},
 {name: "Centro Olistico Milano", address: "Via Gian Giacomo Mora 53, 20123 Milano", contact_person: "Anna Folli", owner_id: 3, description:"Centro Olistico Milanese nasce a Milano nel 1993, scuola di massaggio leader nell'ambito della Formazione Professionale per il benessere psico-fisico della persona, è formata da un team di Medici specializzati e Massofisioterapisti/Osteopati con l'obiettivo di promuovere l'arte del Massaggio in tutte le sue forme."},
 {name: "Qc Terme", address: "Via di S. Nicola de' Cesarini 16, 00186 Roma", contact_person: "Paolo Papi", owner_id: 4, description:"Concedersi del tempo oggi è un lusso, soprattutto in città. Idromassaggi, saune, sale relax e bagni a vapore, un angolo di pace in Porta Romana. QC Termemilano, il tuo momento di benessere."},
 {name: "Vivi Center", address: "Via Nomentana 23, 00161 Roma", contact_person: "Alessandro Poli", owner_id: 5, description:"Entra in uno Spazio accogliente e rigenerante per il corpo e lo spirito. Prenditi il Tempo per stare insieme alla persona del cuore, agli amici e alle amiche più care. Piacere di condividere un' Emozione."},
@@ -134,7 +134,7 @@ Photo.create!(treatmentphoto_attributes)
 puts "Uploading center photos..."
 
 centerphoto_attributes = [{remote_attachment_url:"https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80", imageable_type: "Center", imageable_id: 1},
-{remote_attachment_url:"https://images.unsplash.com/photo-1488345979593-09db0f85545f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80", imageable_type: "Center", imageable_id: 2},
+{remote_attachment_url:"https://i.imgur.com/oVYBpxG.jpg", imageable_type: "Center", imageable_id: 2},
 {remote_attachment_url:"https://images.unsplash.com/photo-1521750465-672a0f580901?ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80", imageable_type: "Center", imageable_id: 3},
 {remote_attachment_url:"https://images.unsplash.com/photo-1541480551145-2370a440d585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1049&q=80", imageable_type: "Center", imageable_id: 4},
 {remote_attachment_url:"https://images.unsplash.com/photo-1451443700141-5ddb6d85a8fc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80", imageable_type: "Center", imageable_id: 5},
@@ -149,12 +149,12 @@ Photo.create!(centerphoto_attributes)
 puts "Creating Bookings..."
 
 booking_attributes = [
-{customer: 1,treatment_id:1, group_size: 2, start_time: "11/12/2019 14:00", status: 1, price_cents: 2000},
-{customer: 2,treatment_id:2, group_size: 3, start_time: "11/12/2019 15:00", status: 1, price_cents: 3000},
-{customer: 3,treatment_id:3, group_size: 2, start_time: "11/11/2019 15:00", status: 1, price_cents: 1800},
-{customer: 4,treatment_id:4, group_size: 2, start_time: "20/12/2019 15:00", status: 1, price_cents: 1200},
-{customer: 5,treatment_id:5, group_size: 1, start_time: "21/12/2019 07:00", status: 1, price_cents: 6000},
-{customer: 6,treatment_id:6, group_size: 5, start_time: "31/11/2019 17:00", status: 1, price_cents: 2000}]
+{customer: Customer.find(1),treatment_id:1, group_size: 2, start_time: "11/12/2019 14:00", status: 1, price_cents: 2000},
+{customer: Customer.find(2),treatment_id:2, group_size: 3, start_time: "11/12/2019 15:00", status: 1, price_cents: 3000},
+{customer: Customer.find(3),treatment_id:3, group_size: 2, start_time: "11/11/2019 15:00", status: 1, price_cents: 1800},
+{customer: Customer.find(4),treatment_id:4, group_size: 2, start_time: "20/12/2019 15:00", status: 1, price_cents: 1200},
+{customer: Customer.find(5),treatment_id:5, group_size: 1, start_time: "21/12/2019 07:00", status: 1, price_cents: 6000},
+{customer: Customer.find(6),treatment_id:6, group_size: 5, start_time: "31/11/2019 17:00", status: 1, price_cents: 2000}]
 
 
 Booking.create!(booking_attributes)
