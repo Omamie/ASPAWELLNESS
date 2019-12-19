@@ -20,6 +20,8 @@ markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
 
 };
 
+
+
 const addMarkersToMap = (map, markers) => {
 
 if (markers.length) {
@@ -67,8 +69,10 @@ if (markers.length) {
 };
 
 const initMapbox = () => {
+const mapElement = document.getElementById('map');
 
-  const mapElement = document.getElementById('map');
+
+
 
   if (mapElement) { // only build a map if there's a div#map to inject into
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
@@ -87,6 +91,37 @@ const initMapbox = () => {
   fitMapToMarkers(map, markers);
   addMarkersToMap(map, markers);
   citySearch(geocoder);
+
+
+  // test
+  const cards = document.querySelectorAll(".treatment-card")
+  if (cards) {
+    cards.forEach((card) => {
+
+      card.addEventListener("click", (event) => {
+        console.log(event.target.dataset.lat);
+        console.log(event.target.dataset.lng);
+        let marker = { lat: event.target.dataset.lat, lng: event.target.dataset.lng  }
+
+        const element = document.createElement('div');
+        element.className = 'marker';
+        element.style.backgroundImage = "url('https://i.imgur.com/G7quCQx.png')";
+        element.style.backgroundSize = 'contain';
+        element.style.width = '50px';
+        element.style.height = '50px';
+        console.log(event);
+        // element.style.border = "dashed";
+        // Pass the element as an argument to the new marker
+        new mapboxgl.Marker(element)
+          .setLngLat([marker.lng, marker.lat])
+          // .setPopup(popup)
+          .addTo(map);
+
+
+      });
+    });
+  }
+  // test
   }
 };
 
@@ -94,7 +129,7 @@ const citySearch = (geocoder) => {
 var url_string = window.location.href
 var url = new URL(url_string);
 var c = url.searchParams.get("address");
-console.log(c);
+
 var d = c.split(",")
 var e = d[0]
 
