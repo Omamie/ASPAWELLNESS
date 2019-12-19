@@ -14,7 +14,7 @@ class TreatmentPolicy < ApplicationPolicy
   end
 
   def new?
-    user.class != Customer
+    user.id == record.center_id
   end
 
   def create?
