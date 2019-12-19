@@ -253,3 +253,9 @@ text-decoration: none;
 .map-section {
 background-color: #FCF8E3;
 }
+
+
+.collapsed:hover, a {
+text-decoration:none !important;
+color: none !important;
+}
