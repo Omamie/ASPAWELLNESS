@@ -103,9 +103,7 @@
                 <!-- Excerpt -->
 
                 <%#= link_to "Book", new_center_treatment_booking_path(treatment.center_id, treatment.id), class: "btn-flat" %>
-                   <%# if @user_booked_treatments.include?(treatment) %>
-               <%#= link_to "Review", new_center_treatment_booking_review_path(treatment.center_id, treatment.id, treatment.bookings.where(customer: current_user).last )  %>
-                <%# end %>
+
                 <p class="text-muted font-weight-light">Sunday</p>
                 <p class="font-weight-light">Closed</p>
 
