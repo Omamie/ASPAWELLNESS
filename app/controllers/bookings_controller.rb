@@ -3,8 +3,10 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = policy_scope(current_user.bookings)
+    if current_user.class == Owner
     @my_center = current_user.centers.first
-
+  else
+  end
 
     # Build array of events
     # @events = @bookings.map(&:to_event)
