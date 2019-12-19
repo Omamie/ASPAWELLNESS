@@ -227,8 +227,13 @@ max-height: 400px;
   color: #2a394d;
 }
 
-.fa-angle-down:hover, a {
+.fa-plus:hover, a {
 text-decoration: none;
+}
+
+.collapsed a:hover{
+  text-decoration: none;
+  color: none;
 }
 
 .accordion-background {
