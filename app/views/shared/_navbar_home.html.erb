@@ -5,6 +5,9 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+      <% if  user_signed_in? && current_user.owner?  %>
+      <%= link_to "My Profile", center_path(@my_center), class: "nav-link font-weight-bold " %>
+      <% end %>
       <% if user_signed_in? && current_user.customer? %>
       <li id="button-navbar" class="nav-item navbar-lewagon">
         <%= link_to "My Bookings", bookings_path, class: "nav-link font-weight-bold " %>
