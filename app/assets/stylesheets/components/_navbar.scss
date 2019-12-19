@@ -18,6 +18,10 @@
   color: #2a394d !important;
 }
 
+.nav-item-text {
+  color: white;
+}
+
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
@@ -70,4 +74,13 @@
 #button-navbar a:hover {
 
   color: black !important;
+}
+
+.white-link {
+  color: white !important;
+  background-color: transparent !important;
+}
+
+.white-link a:hover {
+  font-weight: bold;
 }

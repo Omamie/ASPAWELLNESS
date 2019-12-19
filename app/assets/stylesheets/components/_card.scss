@@ -83,7 +83,7 @@
 .card-category-link:hover {
   text-decoration: none;
   color: white;
-  font-size:25px;
+  font-size:24px;
 }
 
  .card img {
@@ -200,6 +200,7 @@ font-weight: lighter;
 
 .treatment-img {
 border-radius: 8px;
+max-height: 400px;
 }
 .fa-star {
  color: #3D8C90;
@@ -224,4 +225,31 @@ border-radius: 8px;
 .fc-left {
   text-transform: uppercase;
   color: #2a394d;
+}
+
+.fa-plus:hover, a {
+text-decoration: none;
+}
+
+.collapsed a:hover{
+  text-decoration: none;
+  color: none;
+}
+
+.accordion-background {
+  border: none;
+
+}
+
+.card-body {
+  background-color: #F4F4F4;
+}
+
+.line {
+  border-bottom: 0.4px solid lightgrey;
+
+}
+
+.map-section {
+background-color: #FCF8E3;
 }

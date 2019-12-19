@@ -11,7 +11,9 @@ class TreatmentsController < ApplicationController
     @center = Center.find(params[:center_id])
     authorize @center
     @treatment = Treatment.new
-    authorize @treatment
+    @my_center = current_user.centers.first
+
+
   end
 
   def create
@@ -19,7 +21,7 @@ class TreatmentsController < ApplicationController
     authorize @center
     @treatment = Treatment.new(safe_params)
     @treatment.center_id = @center.id
-    authorize @treatment
+    #authorize @treatment
     if @treatment.save
       redirect_to center_path(@center)
     else

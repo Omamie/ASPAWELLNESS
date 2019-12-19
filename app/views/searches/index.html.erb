@@ -1,33 +1,34 @@
+<% if !@treatments.empty? %>
 <div class="d-flex bd-highlight">
   <div class="card-container pl-2 ">
-      <% @treatments.each do |t| %>
-
-      <div class="treatment-card">
-
-        <div class="card-image" data-lat= "<%= t.center.latitude %>" data-lng= "<%= t.center.longitude %>" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path(t.photos.first&.attachment&.url || "default-thumb_qpqfou.png" )%>)">
+    <% @treatments.each do |t| %>
+    <div class="treatment-card">
+      <div class="card-image" data-lat= "<%= t.center.latitude %>" data-lng= "<%= t.center.longitude %>" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path(t.photos.first&.attachment&.url || "default-thumb_qpqfou.png" )%>)">
+      </div>
+      <div class="card-info d-flex">
+        <div class="card-info-text p-2 w-100">
+          <h3 class="card-treatment-name"><%= link_to t.center.name, center_path(t.center.id)%></h3>
+          <p class="card-treatment-name font-weight-lighter small"> <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt fa-star"></i> <%= t.center.no_of_reviews %> Reviews</p>
+          <p class="card-treatment-name font-weight-normal "><%=t.name%></p>
+          <p class="card-treatment-adress font-weight-light"><%=t.center.address %></p>
         </div>
-        <div class="card-info d-flex">
-          <div class="card-info-text p-2 w-100">
-            <h3 class="card-treatment-name"><%= link_to t.center.name, center_path(t.center.id)%></h3>
-            <p class="card-treatment-name font-weight-lighter small"> <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt fa-star"></i> <%= t.center.no_of_reviews %> Reviews</p>
-            <p class="card-treatment-name font-weight-normal "><%=t.name%></p>
-            <p class="card-treatment-adress font-weight-light"><%=t.center.address %></p>
-          </div>
-          <div class="card-price p-2 flex-shrink-1">
-            <h5 class="text-center font-weight-light"><%=t.price%>€</h5>
-            <%= link_to "Show More", center_path(t.center.id), class:"btn btn-flat" %>
-          </div>
+        <div class="card-price p-2 flex-shrink-1">
+          <h5 class="text-center font-weight-light"><%=t.price%>€</h5>
+          <%= link_to "Show More", center_path(t.center.id), class:"btn btn-flat" %>
         </div>
       </div>
-      <% end %>
-      </div>
-      <div
-        class="pt-2 px-2"
-        id="map"
-        style="width: 50%;
-        height: 100vh;"
-        data-markers="<%= @markers.to_json %>"
-        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-      ></div>
+    </div>
+    <% end %>
+  </div>
+  <div
+    class="pt-2 px-2"
+    id="map"
+    style="width: 50%;
+    height: 100vh;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  ></div>
 </div>
-
+<% else %>
+<%= render 'shared/no-results' %>
+<% end %>
