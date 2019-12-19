@@ -7,11 +7,11 @@ class SearchesController < ApplicationController
     if params[:treatment].present? && params[:address].present?
       location = params[:address].split(",")[0]
       sql_query = "treatments.name ILIKE :treatment and centers.address ILIKE :address"
-      @cents = Center.joins(:treatments).where(sql_query, treatment: "%#{params[:treatment]}%", address: "%#{location}%")
+      @centers = Center.joins(:treatments).where(sql_query, treatment: "%#{params[:treatment]}%", address: "%#{location}%")
     elsif params[:address].present?
       location = params[:address].split(",")[0]
       sql_query = "centers.address ILIKE :address"
-      @centers = Center.where(sql_query, address: "%#{location}%")
+      @centers = Center.near(location, 10)
     else
       @centers = policy_scope(Center)
     end

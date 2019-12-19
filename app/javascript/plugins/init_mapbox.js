@@ -50,7 +50,7 @@ if (markers.length) {
 
   // Create a HTML element for your custom marker
   const element = document.createElement('div');
-  element.className = 'marker';
+  element.className = 'marker-red';
   element.style.backgroundImage = `url('${markers.image_url}')`;
   element.style.backgroundSize = 'contain';
   element.style.width = '50px';
@@ -103,13 +103,21 @@ const mapElement = document.getElementById('map');
         console.log(event.target.dataset.lng);
         let marker = { lat: event.target.dataset.lat, lng: event.target.dataset.lng  }
 
+        const del_marker = document.querySelector(".lol");
+        if (del_marker) {
+        del_marker.remove();
+        }
+
         const element = document.createElement('div');
         element.className = 'marker';
         element.style.backgroundImage = "url('https://i.imgur.com/G7quCQx.png')";
         element.style.backgroundSize = 'contain';
         element.style.width = '50px';
         element.style.height = '50px';
-        console.log(event);
+
+        element.classList.add("lol");
+        console.log(element);
+        // class to remove the marker => marker mapboxgl-marker mapboxgl-marker-anchor-center
         // element.style.border = "dashed";
         // Pass the element as an argument to the new marker
         new mapboxgl.Marker(element)
@@ -117,10 +125,17 @@ const mapElement = document.getElementById('map');
           // .setPopup(popup)
           .addTo(map);
 
+          map.flyTo({
+          center: [
+            marker.lng,
+            marker.lat
+          ],
+          essential: true // this animation is considered essential with respect to prefers-reduced-motion
+          });
+          });
 
       });
-    });
-  }
+    };
   // test
   }
 };
