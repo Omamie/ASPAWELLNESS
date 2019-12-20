@@ -17,6 +17,5 @@ class PagesController < ApplicationController
   end
 
   def phone_number
-raise
   end
 end

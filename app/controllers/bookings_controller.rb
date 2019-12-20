@@ -3,7 +3,6 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = policy_scope(current_user.bookings)
-
     # Build array of events
     # @events = @bookings.map(&:to_event)
     @events = @bookings.map { |booking| booking.to_event }
