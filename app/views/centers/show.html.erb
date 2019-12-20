@@ -177,7 +177,8 @@
         <p class="text-muted font-weight-bold small"> <%= t.duration %> mins</p>
         <p class= "font-weight-light"> <%= t.description%></p>
 
-        <% if  user_signed_in? &&  current_user.owner? && current_user.centers.include?(t.center)  %>
+
+        <% if  user_signed_in? && current_user.owner? && current_user.centers.include?(t.center)  %>
 
         <%= link_to "Edit", edit_treatment_path(t.id), class: "btn btn-ghost mb-2" %>
         <%= link_to "Delete", treatment_path(t.id), class: "btn btn-ghost mb-2", method: :delete %>
@@ -219,7 +220,9 @@
         <p class="text-muted font-weight-bold small"> <%= t.duration %> mins</p>
         <p class= "font-weight-light"> <%= t.description%></p>
 
-        <% if  user_signed_in? &&  current_user.owner? && current_user.centers.include?(t.center)  %>
+
+        <% if  user_signed_in? && current_user.owner? && current_user.centers.include?(t.center)  %>
+
 
         <%= link_to "Edit", edit_treatment_path(t.id), class: "btn btn-ghost mb-2" %>
 
@@ -262,7 +265,9 @@
         <p class="text-muted font-weight-bold small"> <%= t.duration %> mins</p>
         <p class= "font-weight-light"> <%= t.description%></p>
 
+
         <% if  user_signed_in? &&  current_user.owner? && current_user.centers.include?(t.center)  %>
+
 
         <%= link_to "Edit", edit_treatment_path(t.id), class: "btn btn-ghost mb-2" %>
         <%= link_to "Delete", treatment_path(t.id), class: "btn btn-ghost mb-2", method: :delete %>

@@ -3,10 +3,6 @@ class PagesController < ApplicationController
 
   def home
     @centers = Center.all
-    # @my_center = current_user.centers.first
-    if current_user.class == Owner
-    @my_center = current_user.centers.first
-    end
   end
 
   def results
