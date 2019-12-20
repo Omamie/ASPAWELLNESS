@@ -26,7 +26,8 @@ class TreatmentPolicy < ApplicationPolicy
   end
 
   def update?
-    user.id == record.center_id
+    user.centers.include? record.center
+    # user.id == record.center_id
   end
 
   def destroy?

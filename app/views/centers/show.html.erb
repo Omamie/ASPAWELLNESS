@@ -111,9 +111,7 @@
                 <!-- Excerpt -->
 
                 <%#= link_to "Book", new_center_treatment_booking_path(treatment.center_id, treatment.id), class: "btn-flat" %>
-                   <%# if @user_booked_treatments.include?(treatment) %>
-               <%#= link_to "Review", new_center_treatment_booking_review_path(treatment.center_id, treatment.id, treatment.bookings.where(customer: current_user).last )  %>
-                <%# end %>
+
                 <p class="text-muted font-weight-light">Sunday</p>
                 <p class="font-weight-light">Closed</p>
 
@@ -178,8 +176,15 @@
         <p class="font-weight-regular"> <%= t.name %></p>
         <p class="text-muted font-weight-bold small"> <%= t.duration %> mins</p>
         <p class= "font-weight-light"> <%= t.description%></p>
-        <%= link_to "Book Now", new_treatment_booking_path(t.id), class: "btn btn-ghost mb-2" %>
 
+
+        <% if  user_signed_in? && current_user.owner? && current_user.centers.include?(t.center)  %>
+
+        <%= link_to "Edit", edit_treatment_path(t.id), class: "btn btn-ghost mb-2" %>
+        <%= link_to "Delete", treatment_path(t.id), class: "btn btn-ghost mb-2", method: :delete %>
+        <% else %>
+        <%= link_to "Book Now", new_treatment_booking_path(t.id), class: "btn btn-ghost mb-2" %>
+        <% end %>
 
         <%end %>
 
@@ -214,7 +219,19 @@
         <p class="font-weight-regular"> <%= t.name %></p>
         <p class="text-muted font-weight-bold small"> <%= t.duration %> mins</p>
         <p class= "font-weight-light"> <%= t.description%></p>
+
+
+        <% if  user_signed_in? && current_user.owner? && current_user.centers.include?(t.center)  %>
+
+
+        <%= link_to "Edit", edit_treatment_path(t.id), class: "btn btn-ghost mb-2" %>
+
+        <%= link_to "Delete", treatment_path(t.id), class: "btn btn-ghost mb-2", method: :delete %>
+        <% else %>
         <%= link_to "Book Now", new_treatment_booking_path(t.id), class: "btn btn-ghost mb-2" %>
+        <% end %>
+
+
         <%end  %>
 
         <%end  %>
@@ -247,7 +264,17 @@
         <p class="font-weight-regular"> <%= t.name %></p>
         <p class="text-muted font-weight-bold small"> <%= t.duration %> mins</p>
         <p class= "font-weight-light"> <%= t.description%></p>
+
+
+        <% if  user_signed_in? &&  current_user.owner? && current_user.centers.include?(t.center)  %>
+
+
+        <%= link_to "Edit", edit_treatment_path(t.id), class: "btn btn-ghost mb-2" %>
+        <%= link_to "Delete", treatment_path(t.id), class: "btn btn-ghost mb-2", method: :delete %>
+        <% else %>
         <%= link_to "Book Now", new_treatment_booking_path(t.id), class: "btn btn-ghost mb-2" %>
+        <% end %>
+
         <%end  %>
 
         <%end  %>

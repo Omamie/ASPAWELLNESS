@@ -5,7 +5,6 @@ class CentersController < ApplicationController
   end
 
   def show
-    @my_center = current_user.centers.first
     @center = Center.find(params[:id])
     @center.photos.build
     authorize @center

@@ -11,9 +11,6 @@ class TreatmentsController < ApplicationController
     @center = Center.find(params[:center_id])
     authorize @center
     @treatment = Treatment.new
-    @my_center = current_user.centers.first
-
-
   end
 
   def create
@@ -37,16 +34,15 @@ class TreatmentsController < ApplicationController
   def update
     @treatment = Treatment.find(params[:id])
     authorize @treatment
-    @center = Center.find(params[:center_id])
-    authorize @center
     @treatment.update(safe_params)
-    redirect_to center_path(@center)
+    redirect_to center_path(@treatment.center)
   end
 
   def destroy
     @treatment = Treatment.find(params[:id])
     authorize @treatment
     @treatment.destroy
+    redirect_to center_path(@treatment.center)
   end
 
   private

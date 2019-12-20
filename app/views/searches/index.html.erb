@@ -3,7 +3,7 @@
   <div class="card-container pl-2 ">
     <% @treatments.each do |t| %>
     <div class="treatment-card">
-      <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path(t.photos.first&.attachment&.url || "default-thumb_qpqfou.png" )%>)">
+      <div class="card-image" data-lat= "<%= t.center.latitude %>" data-lng= "<%= t.center.longitude %>" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path(t.photos.first&.attachment&.url || "default-thumb_qpqfou.png" )%>)">
       </div>
       <div class="card-info d-flex">
         <div class="card-info-text p-2 w-100">

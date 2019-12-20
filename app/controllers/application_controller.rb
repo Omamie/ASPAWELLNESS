@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
+  before_action :set_my_center
+
   include Pundit
 
 
@@ -12,5 +14,15 @@ class ApplicationController < ActionController::Base
 
   def default_url_options
   { host: ENV["DOMAIN"] || "localhost:3000" }
+  private
+
+  def set_my_center
+    return unless current_owner?
+
+    @my_center = current_user.centers.first
+  end
+
+  def current_owner?
+    current_user.present? && current_user.owner?
   end
 end
