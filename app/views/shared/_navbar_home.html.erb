@@ -6,7 +6,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if  user_signed_in? && current_user.owner?  %>
-      <%= link_to "My Profile", center_path(@my_center), class: "nav-link white-link font-weight-light " %>
+      <%= link_to "My Profile", center_path(@my_center), class: "nav-link white-link font-weight-light" %>
       <% end %>
       <% if user_signed_in? && current_user.customer? %>
       <li class="nav-item navbar-lewagon white-link">

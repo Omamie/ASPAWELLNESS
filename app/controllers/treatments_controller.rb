@@ -11,7 +11,6 @@ class TreatmentsController < ApplicationController
     @center = Center.find(params[:center_id])
     authorize @center
     @treatment = Treatment.new
-    @my_center = current_user.centers.first
   end
 
   def create
